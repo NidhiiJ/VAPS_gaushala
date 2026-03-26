@@ -1,0 +1,200 @@
+@import "../../styles/variables";
+
+// ── Impact Block ──────────────────────────────────────────────
+.impact-block {
+  padding: 6.25rem 5%;
+  background: $color-surface-base;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $color-border 20%, $color-border 80%, transparent);
+  }
+}
+
+// ── Header Two-Column ─────────────────────────────────────────
+.impact-top {
+  max-width: 75rem;
+  margin: 0 auto $space-12;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: $space-10;
+}
+
+.i-left {
+  flex: 1;
+  max-width: 35rem;
+}
+
+.i-label {
+  font-size: 0.6875rem;
+  font-weight: $font-weight-bold;
+  color: $color-maroon-700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: $space-4;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+
+  &::before {
+    content: '';
+    width: 1.25rem;
+    height: 2px;
+    background: $color-maroon-700;
+    flex-shrink: 0;
+  }
+}
+
+.i-left h2 {
+  font-family: $font-display;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: $font-weight-bold;
+  color: $color-maroon-900;
+  line-height: 1.12;
+}
+
+.i-right {
+  flex: 0 0 auto;
+  max-width: 25rem;
+
+  p {
+    font-size: 0.9063rem;
+    color: $color-maroon-500;
+    line-height: 1.85;
+  }
+}
+
+// ── Stat Cards ────────────────────────────────────────────────
+.impact-row {
+  max-width: 75rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $space-4;
+}
+
+.impact-card {
+  background: $color-surface-white;
+  border: 1px solid $color-border;
+  border-radius: 1.25rem;
+  padding: 2.25rem 1.5rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform $transition-slow, box-shadow $transition-slow, border-color $transition-slow;
+  cursor: default;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2.5rem;
+    height: 3px;
+    background: $color-maroon-700;
+    border-radius: 0 0 4px 4px;
+    transition: width $transition-base;
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 1.25rem 3rem rgba(42, 10, 10, 0.08);
+    border-color: transparent;
+
+    &::before {
+      width: 100%;
+    }
+  }
+}
+
+.ic-num {
+  font-family: $font-display;
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
+  font-weight: $font-weight-extrabold;
+  color: $color-maroon-900;
+  line-height: 1;
+  margin-bottom: $space-2;
+}
+
+.ic-label {
+  font-size: 0.75rem;
+  color: $color-muted;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: $font-weight-medium;
+}
+
+// ── Image Row ─────────────────────────────────────────────────
+.impact-img-row {
+  max-width: 75rem;
+  margin: $space-8 auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-4;
+}
+
+.impact-img-card {
+  border-radius: 1.25rem;
+  overflow: hidden;
+  aspect-ratio: 16 / 7;
+  position: relative;
+
+  img {
+    transition: transform $transition-slow;
+  }
+
+  &:hover img {
+    transform: scale(1.04);
+  }
+}
+
+.imc-tag {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  background: rgba(61, 12, 12, 0.85);
+  color: $color-wheat;
+  font-size: 0.6875rem;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 0.375rem 0.875rem;
+  border-radius: 1.25rem;
+  backdrop-filter: blur(8px);
+  z-index: 2;
+}
+
+// ── Responsive ────────────────────────────────────────────────
+@media (max-width: $bp-tablet) {
+  .impact-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .i-right {
+    max-width: 100%;
+  }
+
+  .impact-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .impact-img-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .impact-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}

@@ -1,0 +1,198 @@
+@import "../../styles/variables";
+
+// ── Section wrapper ──────────────────────────────────────────
+.story-block {
+  position: relative;
+  padding: 6.25rem 5% 7.5rem;
+  background: $color-surface-white;
+  overflow: hidden;
+
+  // Large watermark "SEVA" text in the background
+  &::before {
+    content: 'SEVA';
+    position: absolute;
+    top: 50%;
+    right: -40px;
+    transform: translateY(-50%) rotate(90deg);
+    font-family: $font-display;
+    font-size: clamp(6.25rem, 14vw, 12.5rem);
+    font-weight: $font-weight-extrabold;
+    color: rgba(107, 16, 16, 0.03);
+    letter-spacing: 20px;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+}
+
+// ── Two-column grid ──────────────────────────────────────────
+.story-inner {
+  max-width: 75rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: end;
+}
+
+// ── Left: image + year badge ─────────────────────────────────
+.story-visual {
+  position: relative;
+  z-index: 2;
+}
+
+.story-img {
+  border-radius: 1.5rem 1.5rem 0 1.5rem;
+  overflow: hidden;
+  aspect-ratio: 5 / 4;
+  box-shadow: 0 1.5rem 4rem rgba(42, 10, 10, 0.1);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+  }
+
+  .story-visual:hover & img {
+    transform: scale(1.03);
+  }
+}
+
+.story-year {
+  position: absolute;
+  bottom: -1.75rem;
+  right: -1.25rem;
+  background: $color-maroon-900;
+  color: $color-wheat;
+  font-family: $font-display;
+  font-size: 3rem;
+  font-weight: $font-weight-extrabold;
+  padding: 0.875rem 1.75rem;
+  border-radius: $radius-2xl;
+  z-index: 3;
+  box-shadow: 0 0.5rem 2rem rgba(42, 10, 10, 0.2);
+  line-height: 1;
+
+  span {
+    display: block;
+    font-size: 0.6875rem;
+    font-weight: $font-weight-regular;
+    color: rgba(245, 222, 179, 0.6);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 2px;
+    font-family: $font-body;
+  }
+}
+
+// ── Right: text panel ────────────────────────────────────────
+.story-text {
+  background: linear-gradient(135deg, #fff9f2, #fff3e6);
+  border-radius: 1.5rem 1.5rem 1.5rem 1.5rem;
+  padding: 3.25rem 3rem 3.25rem 3.5rem;
+  margin-left: -2.5rem;
+  position: relative;
+  z-index: 1;
+  border: 1px solid rgba(237, 224, 204, 0.6);
+}
+
+// Label / overline
+.s-label {
+  font-size: 0.6875rem;
+  font-weight: $font-weight-bold;
+  color: $color-maroon-700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: $space-4;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+
+  &::before {
+    content: '';
+    width: 1.25rem;
+    height: 2px;
+    background: $color-maroon-700;
+    flex-shrink: 0;
+  }
+}
+
+// Heading
+.story-text h2 {
+  font-family: $font-display;
+  font-size: clamp(1.625rem, 3.2vw, 2.375rem);
+  font-weight: $font-weight-bold;
+  color: $color-maroon-900;
+  line-height: 1.18;
+  margin-bottom: $space-5;
+}
+
+// Body paragraphs
+.story-text p {
+  font-size: 0.90625rem;
+  color: $color-maroon-500;
+  line-height: 1.85;
+  margin-bottom: 0.75rem;
+}
+
+// ── Tags ────────────────────────────────────────────────────
+.story-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+  margin-top: $space-5;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4375rem;
+  font-size: 0.78125rem;
+  font-weight: $font-weight-semibold;
+  color: $color-maroon-900;
+  background: $color-surface-white;
+  padding: 0.5625rem 1.125rem;
+  border-radius: 1.75rem;
+  border: 1px solid $color-border;
+  transition: background $transition-fast, color $transition-fast, border-color $transition-fast;
+  cursor: default;
+
+  &::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: $color-maroon-700;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    background: $color-maroon-900;
+    color: $color-wheat;
+    border-color: $color-maroon-900;
+
+    &::before {
+      background: $color-wheat;
+    }
+  }
+}
+
+// ── Responsive ──────────────────────────────────────────────
+@media (max-width: $bp-tablet) {
+  .story-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .story-text {
+    margin-left: 0;
+    border-radius: 0 0 1.5rem 1.5rem;
+    border: 1px solid rgba(237, 224, 204, 0.6);
+    border-top: none;
+  }
+
+  .story-year {
+    bottom: -1.25rem;
+    right: 1rem;
+    font-size: 2.25rem;
+    padding: 0.625rem 1.25rem;
+  }
+}
