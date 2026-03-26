@@ -35,9 +35,8 @@ export default function Navbar() {
       <div className="topbar">
         <div className="topbar-left">
           <div className="topbar-dot" />
-          <span>Since 1993 &middot; Sirohi, Rajasthan</span>
+          <span>Serving since 1993 &middot; Sirohi, Rajasthan</span>
         </div>
-        <div className="topbar-center">Suri Prem Jiv Raksha Kendra Sansthan | सूरि प्रेम जीव रक्षा केंद्र संस्थान</div>
         <span className="topbar-sanskrit">अहिंसा परमो धर्मः</span>
       </div>
 
@@ -49,10 +48,10 @@ export default function Navbar() {
             alt="Suri Prem Jeevraksha Kendra Sansthan logo"
             className="nav-logo-img"
           />
-          {/* <div className="nav-logo-text">
+          <div className="nav-logo-text">
             <span className="nav-logo-name">Suri Prem Jeevraksha Kendra Sansthan</span>
             <span className="nav-logo-tagline">प्रेम सूरी जीव रक्षा केंद्र</span>
-          </div> */}
+          </div>
         </a>
 
         {/* Desktop nav links */}
@@ -65,15 +64,6 @@ export default function Navbar() {
           <a href="#donate" className="btn-donate">
             Donate Now
           </a>
-        </div>
-
-        {/* Right decorative image — desktop only */}
-        <div className="nav-right-img-wrap">
-          <img
-            src="/images/gau-seva.jpg"
-            alt="Gau seva"
-            className="nav-right-img"
-          />
         </div>
 
         {/* Burger button — mobile/tablet only */}
