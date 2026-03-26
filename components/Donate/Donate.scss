@@ -1,0 +1,95 @@
+@import "../../styles/variables";
+
+// ── Donation Banner ───────────────────────────────────────────
+.donation {
+  background: $color-surface-base;
+  padding: $space-20 5%;
+  text-align: center;
+}
+
+.donation-heading {
+  font-family: $font-display;
+  font-size: clamp(1.75rem, 4vw, 2.875rem);
+  font-weight: $font-weight-bold;
+  color: $color-maroon-900;
+  margin-bottom: $space-4;
+  line-height: 1.15;
+
+  // Override globals.scss heading color
+  color: $color-maroon-900 !important;
+}
+
+.donation-subtext {
+  color: $color-maroon-500;
+  font-size: 0.9375rem;
+  max-width: 36.25rem;
+  margin: 0 auto $space-10;
+  line-height: $line-height-body;
+}
+
+// ── Cards ─────────────────────────────────────────────────────
+.donation-cards {
+  display: flex;
+  gap: $space-5;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: $space-10;
+}
+
+.donation-card {
+  background: $color-surface-white;
+  border: 1.5px solid $color-border;
+  border-radius: $radius-xl;
+  padding: 1.75rem 2.25rem;
+  min-width: 12.5rem;
+  cursor: pointer;
+  transition: border-color $transition-base, transform $transition-base, box-shadow $transition-base;
+
+  &:hover {
+    border-color: $color-maroon-700;
+    transform: translateY(-3px);
+    box-shadow: 0 0.5rem 1.75rem rgba(42, 10, 10, 0.06);
+  }
+}
+
+.donation-card-amount {
+  font-family: $font-display;
+  font-size: 2rem;
+  font-weight: $font-weight-extrabold;
+  color: $color-maroon-900;
+  line-height: 1;
+}
+
+.donation-card-desc {
+  font-size: 0.8125rem;
+  color: $color-maroon-500;
+  margin-top: 0.25rem;
+  line-height: 1.4;
+}
+
+// ── CTA Button ───────────────────────────────────────────────
+.btn-donate-cta {
+  display: inline-block;
+  background: $color-brand-primary;
+  color: $color-surface-white;
+  padding: $space-4 3rem;
+  border-radius: $radius-md;
+  font-weight: $font-weight-semibold;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  transition: background $transition-base, transform $transition-base, box-shadow $transition-base;
+
+  &:hover {
+    background: $color-brand-primary-dark;
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+}
+
+// ── Responsive ───────────────────────────────────────────────
+@media (max-width: $bp-tablet) {
+  .donation-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}

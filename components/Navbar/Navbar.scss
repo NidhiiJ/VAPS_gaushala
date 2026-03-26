@@ -1,0 +1,354 @@
+@import "../../styles/variables" ;
+
+// ── Topbar ──────────────────────────────────────────────────
+.topbar {
+  background: $color-maroon-950;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: $font-body;
+  font-size: 0.75rem;
+  padding: $space-2 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.topbar-dot {
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: $radius-full;
+  background: $color-green;
+  flex-shrink: 0;
+}
+
+.topbar-sanskrit {
+  font-family: $font-display;
+  font-style: italic;
+  font-size: 0.8125rem;
+  color: $color-wheat;
+  letter-spacing: $letter-spacing-wider;
+}
+
+// ── Navbar ──────────────────────────────────────────────────
+.navbar {
+  background: $color-surface-white;
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: $z-navbar;
+  height: 5rem;
+  box-shadow: $shadow-sm;
+  font-family: $font-body;
+}
+
+// ── Logo ────────────────────────────────────────────────────
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-logo-img {
+  height: 3.75rem;
+  width: 3.75rem;
+  border-radius: $radius-full;
+  object-fit: cover;
+}
+
+.nav-logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-logo-name {
+  font-family: $font-display;
+  font-size: 1.125rem;
+  font-weight: $font-weight-bold;
+  color: $color-maroon-900;
+  line-height: 1.2;
+}
+
+.nav-logo-tagline {
+  font-size: 0.875rem;
+  font-weight: $font-weight-medium;
+  color: $color-maroon-900;
+  letter-spacing: $letter-spacing-wide;
+}
+
+// ── Nav Links ───────────────────────────────────────────────
+.nav-links {
+  display: flex;
+  gap: $space-7;
+  align-items: center;
+
+  a {
+    font-size: 0.875rem;
+    font-weight: $font-weight-medium;
+    color: $color-maroon-500;
+    text-decoration: none;
+    position: relative;
+    transition: $transition-color;
+
+    &:hover {
+      color: $color-maroon-700;
+    }
+
+    // Animated underline
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -0.25rem;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: $color-maroon-700;
+      transition: width $transition-base;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
+
+// ── Donate Button ───────────────────────────────────────────
+.btn-donate {
+  background: $color-brand-primary;
+  color: $color-surface-white !important;
+  padding: 0.625rem $space-6;
+  border-radius: $radius-sm;
+  font-weight: $font-weight-semibold;
+  font-size: 0.875rem;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background $transition-base, transform $transition-base, box-shadow $transition-base;
+
+  &:hover {
+    background: $color-brand-primary-dark;
+    transform: translateY(-1px);
+    box-shadow: $shadow-md;
+  }
+
+  // Remove underline from parent `.nav-links a` rule
+  &::after {
+    display: none !important;
+  }
+}
+
+// ── Burger Button ───────────────────────────────────────────
+.burger-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: $radius-sm;
+  flex-shrink: 0;
+
+  &:focus-visible {
+    outline: 2px solid $color-maroon-600;
+    outline-offset: 2px;
+  }
+
+  &:active {
+    transform: scale(0.93);
+  }
+}
+
+.burger-line {
+  display: block;
+  width: 1.5rem;
+  height: 2px;
+  background: $color-maroon-700;
+  border-radius: 2px;
+  transform-origin: center;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.2s ease,
+              width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// Animate to ✕
+.burger-btn--open {
+  .burger-line--top {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .burger-line--mid {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .burger-line--bot {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
+
+// ── Mobile Drawer ────────────────────────────────────────────
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $color-maroon-950;
+  z-index: $z-navbar - 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: $space-8 7%;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-1rem);
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    // background:
+    //   radial-gradient(ellipse 60% 40% at 10% 20%, rgba(139, 26, 26, 0.25) 0%, transparent 70%),
+    //   radial-gradient(ellipse 50% 50% at 90% 80%, rgba(212, 160, 85, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  &--open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: baseline;
+  gap: $space-4;
+  font-family: $font-display;
+  font-size: clamp(2rem, 8vw, 3rem);
+  font-weight: $font-weight-light;
+  color: $color-wheat;
+  text-decoration: none;
+  letter-spacing: $letter-spacing-tight;
+  line-height: 1.2;
+  padding: $space-2 0;
+  border-bottom: 1px solid rgba(245, 222, 179, 0.1);
+  opacity: 0;
+  transform: translateX(-1.5rem);
+  transition: color 0.2s ease,
+              opacity 0.4s ease calc(var(--i, 0) * 60ms + 50ms),
+              transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) calc(var(--i, 0) * 60ms + 50ms);
+
+  .mobile-menu--open & {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  &:hover {
+    color: $color-surface-white;
+  }
+
+  &:active {
+    color: $color-gold;
+  }
+}
+
+.mobile-nav-num {
+  font-family: $font-body;
+  font-size: 0.75rem;
+  font-weight: $font-weight-light;
+  color: $color-gold;
+  letter-spacing: $letter-spacing-widest;
+  flex-shrink: 0;
+  margin-bottom: 0.2rem;
+}
+
+.mobile-menu-footer {
+  margin-top: $space-10;
+  display: flex;
+  flex-direction: column;
+  gap: $space-5;
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: opacity 0.4s ease 360ms,
+              transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) 360ms;
+
+  .mobile-menu--open & {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn-donate-mobile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  background: $color-brand-primary;
+  color: $color-surface-white;
+  padding: $space-3 $space-8;
+  border-radius: $radius-sm;
+  font-family: $font-body;
+  font-size: 0.9375rem;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    background: $color-brand-primary-dark;
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.mobile-menu-sanskrit {
+  font-family: $font-display;
+  font-style: italic;
+  font-size: 0.875rem;
+  color: rgba(245, 222, 179, 0.35);
+  letter-spacing: $letter-spacing-wider;
+}
+
+// ── Backdrop ─────────────────────────────────────────────────
+.mobile-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: $z-navbar - 2;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+// ── Mobile ──────────────────────────────────────────────────
+@media (max-width: $bp-tablet) {
+  .nav-links {
+    display: none;
+  }
+
+  .burger-btn {
+    display: flex;
+  }
+}

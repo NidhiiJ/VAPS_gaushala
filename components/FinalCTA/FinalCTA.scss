@@ -1,0 +1,78 @@
+@import "../../styles/variables";
+
+.final-cta {
+  background: url('/hero-placeholder.jpg');
+  padding: 6.25rem 5%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.final-cta-icon {
+  font-size: 2.25rem;
+  margin-bottom: $space-4;
+}
+
+.final-cta h2 {
+  font-family: $font-display;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: $font-weight-bold;
+  color: $color-surface-white;
+  margin-bottom: 0.875rem;
+  line-height: 1.2;
+}
+
+.final-cta > p {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.9375rem;
+  max-width: 32.5rem;
+  margin: 0 auto $space-8;
+  line-height: $line-height-body;
+}
+
+.final-cta-buttons {
+  display: flex;
+  gap: 0.875rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-cta-primary {
+  background: $color-brand-primary;
+  color: $color-surface-white;
+  padding: 0.875rem 2rem;
+  border-radius: $radius-md;
+  font-weight: $font-weight-semibold;
+  font-size: 0.875rem;
+  text-decoration: none;
+  border: 2px solid $color-brand-primary;
+  transition: background $transition-base, border-color $transition-base;
+
+  &:hover {
+    background: $color-brand-primary-dark;
+    border-color: $color-brand-primary-dark;
+  }
+}
+
+.btn-cta-secondary {
+  background: transparent;
+  color: $color-surface-white;
+  padding: 0.875rem 2rem;
+  border-radius: $radius-md;
+  font-weight: $font-weight-medium;
+  font-size: 0.875rem;
+  text-decoration: none;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  transition: border-color $transition-base, color $transition-base;
+
+  &:hover {
+    border-color: $color-wheat;
+    color: $color-wheat;
+  }
+}
+
+.final-cta-note {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: $space-5;
+}

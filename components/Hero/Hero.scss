@@ -1,0 +1,229 @@
+@import "../../styles/variables";
+
+// ── Hero ─────────────────────────────────────────────────────
+.hero {
+  position: relative;
+  height: 92vh;
+  min-height: 37.5rem;
+  overflow: hidden;
+}
+
+// ── Slideshow ────────────────────────────────────────────────
+.hero-slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+
+  &.active {
+    opacity: 1;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+// ── Dark gradient overlay ────────────────────────────────────
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba($color-maroon-950, 0.45) 0%,
+    rgba($color-maroon-950, 0.60) 50%,
+    rgba($color-maroon-950, 0.80) 100%
+  );
+  z-index: 1;
+}
+
+// ── Content ──────────────────────────────────────────────────
+.hero-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 5%;
+  z-index: 2;
+}
+
+.hero-pre {
+  font-family: $font-display;
+  font-style: italic;
+  color: $color-wheat;
+  font-size: 1.0625rem;
+  letter-spacing: 2px;
+  margin-bottom: $space-4;
+  opacity: 0.9;
+}
+
+.hero-title {
+  font-family: $font-display;
+  font-size: clamp(2.125rem, 5.5vw, 3.875rem);
+  font-weight: $font-weight-bold;
+  color: $color-surface-white;
+  line-height: 1.1;
+  max-width: 53.125rem;
+  margin-bottom: $space-5;
+  text-shadow: 0 0.125rem 1.875rem rgba(0, 0, 0, 0.25);
+
+  // Override globals.scss heading color in this dark context
+  color: $color-surface-white !important;
+}
+
+.hero-sub {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 37.5rem;
+  line-height: $line-height-body;
+  margin-bottom: $space-8 + $space-1; // 2.125rem
+}
+
+// ── Buttons ──────────────────────────────────────────────────
+.hero-buttons {
+  display: flex;
+  gap: 0.875rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-hero-primary {
+  background: $color-brand-primary;
+  color: $color-surface-white;
+  padding: 0.9375rem 2rem;
+  border-radius: $radius-md;
+  font-weight: $font-weight-semibold;
+  font-size: 0.9375rem;
+  border: 2px solid $color-brand-primary;
+  text-decoration: none;
+  transition: background $transition-base, border-color $transition-base, transform $transition-base, box-shadow $transition-base;
+
+  &:hover {
+    background: $color-brand-primary-dark;
+    border-color: $color-brand-primary-dark;
+    transform: translateY(-2px);
+    box-shadow: 0 0.375rem 1.5rem rgba(107, 16, 16, 0.3);
+  }
+}
+
+.btn-hero-secondary {
+  background: transparent;
+  color: $color-surface-white;
+  padding: 0.9375rem 2rem;
+  border-radius: $radius-md;
+  font-weight: $font-weight-medium;
+  font-size: 0.9375rem;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  text-decoration: none;
+  transition: border-color $transition-base, background $transition-base;
+
+  &:hover {
+    border-color: $color-surface-white;
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+// ── Slide dots ───────────────────────────────────────────────
+.hero-dots {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: $space-2;
+  z-index: 3;
+}
+
+.hero-dot {
+  width: 2.25rem;
+  height: 4px;
+  border-radius: 0.125rem;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  transition: background $transition-base, width $transition-base;
+
+  &.active {
+    background: $color-wheat;
+    width: 3.25rem;
+  }
+}
+
+// ── Stats bar ─────────────────────────────────────────────────
+.stats-bar {
+  background: $color-maroon-950;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  position: relative;
+  z-index: 5;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 2rem $space-4;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+
+  &:last-child {
+    border-right: none;
+  }
+}
+
+.stat-icon {
+  font-size: 1.125rem;
+  margin-bottom: 0.375rem;
+}
+
+.stat-number {
+  font-family: $font-display;
+  font-size: 2.125rem;
+  font-weight: $font-weight-extrabold;
+  color: $color-wheat;
+  line-height: 1;
+  // Override heading color
+  color: $color-wheat !important;
+}
+
+.stat-label {
+  font-size: 0.6875rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+// ── Responsive ───────────────────────────────────────────────
+@media (max-width: $bp-tablet) {
+  .hero {
+    height: 75vh;
+  }
+
+  .stats-bar {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stat-item:nth-child(2) {
+    border-right: none;
+  }
+
+  .stat-item:nth-child(3) {
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .stats-bar {
+    grid-template-columns: 1fr 1fr;
+  }
+}

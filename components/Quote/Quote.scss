@@ -1,0 +1,23 @@
+@import "../../styles/variables";
+
+.quote {
+  background: $color-maroon-950;
+  padding: 3.75rem 5%;
+  text-align: center;
+
+  blockquote {
+    font-family: $font-display;
+    font-size: clamp(1.25rem, 2.8vw, 1.875rem);
+    font-style: italic;
+    color: $color-wheat;
+    max-width: 46.875rem;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  .quote-attr {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: $space-4;
+  }
+}

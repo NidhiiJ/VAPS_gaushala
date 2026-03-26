@@ -1,0 +1,45 @@
+@import "../../styles/variables";
+
+.gallery {
+  padding: $space-20 5%;
+  background: $color-surface-white;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.625rem;
+}
+
+.gallery-item {
+  border-radius: $radius-xl;
+  overflow: hidden;
+  aspect-ratio: 1;
+  position: relative;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: $transition-image;
+    display: block;
+  }
+
+  &:hover img {
+    transform: scale(1.08);
+  }
+}
+
+// ── Responsive ────────────────────────────────────────────────
+@media (max-width: $bp-tablet) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

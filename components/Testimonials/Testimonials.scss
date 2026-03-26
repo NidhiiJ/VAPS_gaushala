@@ -1,0 +1,121 @@
+@import "../../styles/variables";
+
+.testimonials {
+  padding: 6.25rem 5%;
+  background: $color-surface-white;
+}
+
+.tst-slider {
+  max-width: 56.25rem;
+  margin: 0 auto;
+  position: relative;
+}
+
+.tst-track-wrapper {
+  overflow: hidden;
+}
+
+.tst-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.tst-slide {
+  min-width: 100%;
+  padding: 0 $space-5;
+}
+
+.tst-card {
+  background: $color-surface-white;
+  border-radius: $radius-2xl;
+  padding: 2.5rem 2.25rem;
+  border: 1px solid $color-border;
+  text-align: center;
+}
+
+.tst-quote {
+  font-family: $font-display;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-style: italic;
+  color: $color-maroon-900;
+  line-height: 1.6;
+  margin-bottom: $space-6;
+  position: relative;
+
+  &::before {
+    content: '\201C';
+    font-size: 3rem;
+    color: $color-border;
+    font-family: $font-display;
+    position: absolute;
+    top: -1.25rem;
+    left: -0.625rem;
+    line-height: 1;
+  }
+}
+
+.tst-author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.875rem;
+}
+
+.tst-avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: $radius-full;
+  background: $color-peach;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-display;
+  font-size: 1.125rem;
+  font-weight: $font-weight-bold;
+  color: $color-maroon-700;
+  flex-shrink: 0;
+}
+
+.tst-author-info {
+  text-align: left;
+}
+
+.tst-author-name {
+  font-weight: $font-weight-semibold;
+  font-size: 0.9375rem;
+  color: $color-maroon-900;
+}
+
+.tst-author-role {
+  font-size: 0.75rem;
+  color: $color-muted;
+}
+
+// ── Navigation ───────────────────────────────────────────────
+.tst-nav {
+  display: flex;
+  justify-content: center;
+  gap: $space-3;
+  margin-top: $space-6;
+}
+
+.tst-nav-btn {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: $radius-full;
+  border: 2px solid $color-border;
+  background: $color-surface-white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+  color: $color-maroon-700;
+  transition: background $transition-base, color $transition-base, border-color $transition-base;
+
+  &:hover {
+    background: $color-maroon-700;
+    color: $color-surface-white;
+    border-color: $color-maroon-700;
+  }
+}
