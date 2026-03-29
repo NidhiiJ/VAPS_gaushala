@@ -5,7 +5,7 @@ export default function FinalCTA() {
     <section className="final-cta">
       {/* <div className="final-cta-icon">🙏</div> */}
       <h2>
-        Be the Reason an Animal<br />Survives Today
+        Be the Reason an Animal Survives Today
       </h2>
       <p>
         Your donation &mdash; however small &mdash; provides shelter, food, and medicine to animals

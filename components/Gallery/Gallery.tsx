@@ -2,14 +2,14 @@ import Image from 'next/image';
 import './Gallery.scss';
 
 const galleryImages = [
-  { src: 'https://placehold.co/400x400/2A0A0A/F5DEB3?text=G1', alt: 'Gallery 1' },
-  { src: 'https://placehold.co/400x400/3D0C0C/F5DEB3?text=G2', alt: 'Gallery 2' },
-  { src: 'https://placehold.co/400x400/6B1010/F5DEB3?text=G3', alt: 'Gallery 3' },
-  { src: 'https://placehold.co/400x400/8B1A1A/F5DEB3?text=G4', alt: 'Gallery 4' },
-  { src: 'https://placehold.co/400x400/2A0A0A/EDE0CC?text=G5', alt: 'Gallery 5' },
-  { src: 'https://placehold.co/400x400/3D0C0C/EDE0CC?text=G6', alt: 'Gallery 6' },
-  { src: 'https://placehold.co/400x400/6B1010/EDE0CC?text=G7', alt: 'Gallery 7' },
-  { src: 'https://placehold.co/400x400/8B1A1A/EDE0CC?text=G8', alt: 'Gallery 8' },
+  { src: '/images/home-gallery/home-gallery-1.jpg', alt: 'Gallery 1' },
+  { src: '/images/home-gallery/home-gallery-2.jpg', alt: 'Gallery 2' },
+  { src: '/images/home-gallery/home-gallery-3.jpeg', alt: 'Gallery 3' },
+  { src: '/images/home-gallery/home-gallery-4.jpeg', alt: 'Gallery 4' },
+  { src: '/images/home-gallery/home-gallery-5.jpg', alt: 'Gallery 5' },
+  { src: '/images/home-gallery/home-gallery-6.jpg', alt: 'Gallery 6' },
+  { src: '/images/home-gallery/home-gallery-7.jpg', alt: 'Gallery 7' },
+  { src: '/images/home-gallery/home-gallery-8.jpg', alt: 'Gallery 8' },
 ];
 
 export default function Gallery() {

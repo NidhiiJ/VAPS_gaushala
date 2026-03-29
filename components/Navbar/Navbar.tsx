@@ -45,7 +45,7 @@ export default function Navbar() {
       </div>
 
       {/* Navbar */}
-      <nav className="navbar">
+      <nav className={`navbar${isOpen ? ' navbar--menu-open' : ''}`}>
         <a href="#" className="nav-logo">
           <img
             src="/logo/logo.png"

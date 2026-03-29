@@ -191,6 +191,8 @@
   padding: 0.25rem;
   border-radius: $radius-sm;
   flex-shrink: 0;
+  position: relative;
+  z-index: $z-navbar + 1; // Always above the mobile drawer
 
   &:focus-visible {
     outline: 2px solid $color-maroon-600;
@@ -216,6 +218,9 @@
 
 // Animate to ✕
 .burger-btn--open {
+  .burger-line {
+    background: $color-surface-white;
+  }
   .burger-line--top {
     transform: translateY(7px) rotate(45deg);
   }
@@ -381,5 +386,18 @@
 
   .burger-btn {
     display: flex;
+  }
+
+  // Hide navbar bar when mobile menu is open; burger stays visible via z-index
+  .navbar--menu-open {
+    background: transparent;
+    box-shadow: none;
+    transition: background $transition-base, box-shadow $transition-base;
+
+    .nav-logo {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity $transition-fast;
+    }
   }
 }

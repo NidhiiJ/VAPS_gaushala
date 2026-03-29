@@ -48,13 +48,13 @@ export default function EmergencyResponse() {
 
         <div className="emr-image">
           <Image
-            src="/images/medical-care.jpeg"
+            src="/images/ambulance.jpg"
             alt="Emergency medical care for animals"
             width={800}
             height={600}
             unoptimized
           />
-          <div className="emr-image-overlay" />
+          {/* <div className="emr-image-overlay" /> */}
         </div>
       </div>
     </section>
