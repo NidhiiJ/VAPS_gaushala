@@ -6,8 +6,11 @@ import './Navbar.scss';
 const navLinks = [
   { label: 'Home', href: '#' },
   { label: 'About Us', href: '#' },
-  { label: 'Our Work', href: '#' },
   { label: 'Gallery', href: '#' },
+  { label: 'Facilities', href: '#' },
+  { label: 'Contributors', href: '#' },
+  { label: 'Media Room', href: '#' },
+  { label: 'Testimonials', href: '#' },
   { label: 'Contact', href: '#' },
 ];
 
@@ -35,7 +38,7 @@ export default function Navbar() {
       <div className="topbar">
         <div className="topbar-left">
           <div className="topbar-dot" />
-          <span>Since 1993 &middot; Sirohi, Rajasthan</span>
+          <span>Since 1993</span>
         </div>
         <div className="topbar-center">Suri Prem Jiv Raksha Kendra Sansthan | सूरि प्रेम जीव रक्षा केंद्र संस्थान</div>
         <span className="topbar-sanskrit">अहिंसा परमो धर्मः</span>
@@ -70,7 +73,7 @@ export default function Navbar() {
         {/* Right decorative image — desktop only */}
         <div className="nav-right-img-wrap">
           <img
-            src="/images/gau-seva.jpg"
+            src="/logo/prem-suri-dada.jpg"
             alt="Gau seva"
             className="nav-right-img"
           />

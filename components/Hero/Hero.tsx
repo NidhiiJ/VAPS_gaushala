@@ -61,7 +61,7 @@ export default function Hero() {
           </p>
 
           <div className="hero-btns">
-            <a href="#donate" className="btn-primary">Donate &amp; Support 🙏</a>
+            <a href="#donate" className="btn-primary">Donate &amp; Support</a>
             <a href="#about"  className="btn-secondary">Learn More</a>
           </div>
 

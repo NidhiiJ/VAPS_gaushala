@@ -23,8 +23,8 @@ export default function HomePage() {
         <Donate />
         <Quote />
         <Services />
-        <Impact />
         <OurStory />
+        <Impact />
         <EmergencyResponse />
         <Gallery />
         <Testimonials />

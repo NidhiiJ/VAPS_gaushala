@@ -29,7 +29,7 @@
 .topbar-center{
   font-size: 1rem;
   color: $color-surface-white;
-
+  text-align: center;
 }
 
 .topbar-sanskrit {
@@ -38,6 +38,7 @@
   font-size: 0.8125rem;
   color: $color-wheat;
   letter-spacing: $letter-spacing-wider;
+  text-align: right;
 }
 
 // ── Navbar ──────────────────────────────────────────────────
