@@ -3,19 +3,40 @@
 import { useState, useEffect } from 'react';
 import './Navbar.scss';
 
-const navLinks = [
+type NavLink = {
+  label: string;
+  href: string;
+  submenu?: { label: string; href: string }[];
+};
+
+const navLinks: NavLink[] = [
   { label: 'Home', href: '/' },
-  { label: 'About Us', href: '#' },
+  {
+    label: 'About Us',
+    href: '#',
+    submenu: [
+      { label: 'Overview', href: '#overview' },
+      { label: 'Timeline', href: '#timeline' },
+    ],
+  },
   { label: 'Gallery', href: '#' },
   { label: 'Facilities', href: '#' },
   { label: 'Contributors', href: '#' },
-  { label: 'Media Room', href: '#' },
+  {
+    label: 'Media Room',
+    href: '#',
+    submenu: [
+      { label: 'Certifications', href: '#certifications' },
+      { label: 'Publications', href: '#publications' },
+    ],
+  },
   { label: 'Testimonials', href: '#' },
   { label: 'Contact', href: '#' },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [openMobileSubmenu, setOpenMobileSubmenu] = useState<string | null>(null);
 
   // Close menu on resize to desktop
   useEffect(() => {
@@ -31,6 +52,10 @@ export default function Navbar() {
     document.body.style.overflow = isOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [isOpen]);
+
+  const toggleMobileSubmenu = (label: string) => {
+    setOpenMobileSubmenu(prev => (prev === label ? null : label));
+  };
 
   return (
     <>
@@ -52,19 +77,35 @@ export default function Navbar() {
             alt="Suri Prem Jeevraksha Kendra Sansthan logo"
             className="nav-logo-img"
           />
-          {/* <div className="nav-logo-text">
-            <span className="nav-logo-name">Suri Prem Jeevraksha Kendra Sansthan</span>
-            <span className="nav-logo-tagline">प्रेम सूरी जीव रक्षा केंद्र</span>
-          </div> */}
         </a>
 
         {/* Desktop nav links */}
         <div className="nav-links">
-          {navLinks.map(({ label, href }) => (
-            <a key={label} href={href}>
-              {label}
-            </a>
-          ))}
+          {navLinks.map(({ label, href, submenu }) =>
+            submenu ? (
+              <div key={label} className="nav-item nav-item--has-dropdown">
+                <a href={href} className="nav-item-trigger">
+                  {label}
+                  <svg className="nav-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                    <path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </a>
+                <div className="nav-dropdown">
+                  <div className="nav-dropdown-inner">
+                    {submenu.map(sub => (
+                      <a key={sub.label} href={sub.href} className="nav-dropdown-item">
+                        {sub.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <a key={label} href={href}>
+                {label}
+              </a>
+            )
+          )}
           <a href="/donate" className="btn-donate">
             Donate Now
           </a>
@@ -123,18 +164,52 @@ export default function Navbar() {
         </div>
 
         <nav className="mobile-nav">
-          {navLinks.map(({ label, href }, i) => (
-            <a
-              key={label}
-              href={href}
-              className="mobile-nav-link"
-              style={{ '--i': i } as React.CSSProperties}
-              onClick={() => setIsOpen(false)}
-            >
-              <span className="mobile-nav-num">0{i + 1}</span>
-              {label}
-            </a>
-          ))}
+          {navLinks.map(({ label, href, submenu }, i) =>
+            submenu ? (
+              <div
+                key={label}
+                className={`mobile-nav-item mobile-nav-item--has-sub${openMobileSubmenu === label ? ' mobile-nav-item--open' : ''}`}
+                style={{ '--i': i } as React.CSSProperties}
+              >
+                <button
+                  className="mobile-nav-link mobile-nav-link--trigger"
+                  onClick={() => toggleMobileSubmenu(label)}
+                  aria-expanded={openMobileSubmenu === label}
+                >
+                  <span className="mobile-nav-num">0{i + 1}</span>
+                  <span className="mobile-nav-link-label">{label}</span>
+                  <svg className="mobile-nav-chevron" width="16" height="16" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                    <path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+                <div className="mobile-subnav">
+                  <div className="mobile-subnav-inner">
+                    {submenu.map(sub => (
+                      <a
+                        key={sub.label}
+                        href={sub.href}
+                        className="mobile-subnav-link"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {sub.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <a
+                key={label}
+                href={href}
+                className="mobile-nav-link"
+                style={{ '--i': i } as React.CSSProperties}
+                onClick={() => setIsOpen(false)}
+              >
+                <span className="mobile-nav-num">0{i + 1}</span>
+                {label}
+              </a>
+            )
+          )}
         </nav>
         <div className="mobile-menu-footer">
           <a
