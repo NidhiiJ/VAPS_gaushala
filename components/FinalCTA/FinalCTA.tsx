@@ -14,7 +14,7 @@ export default function FinalCTA() {
           who have no one else.
         </p>
         <div className="final-cta-buttons">
-          <a href="#donate" className="btn-cta-primary">Donate Now</a>
+          <a href="/donate" className="btn-cta-primary">Donate Now</a>
         </div>
       </Reveal>
     </section>
