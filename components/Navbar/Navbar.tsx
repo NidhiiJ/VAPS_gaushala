@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import './Navbar.scss';
 
 const navLinks = [
-  { label: 'Home', href: '#' },
+  { label: 'Home', href: '/' },
   { label: 'About Us', href: '#' },
   { label: 'Gallery', href: '#' },
   { label: 'Facilities', href: '#' },
@@ -46,7 +46,7 @@ export default function Navbar() {
 
       {/* Navbar */}
       <nav className={`navbar${isOpen ? ' navbar--menu-open' : ''}`}>
-        <a href="#" className="nav-logo">
+        <a href="/" className="nav-logo">
           <img
             src="/logo/logo.png"
             alt="Suri Prem Jeevraksha Kendra Sansthan logo"

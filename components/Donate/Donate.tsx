@@ -24,7 +24,7 @@ export default function Donate() {
         ))}
       </div>
 
-      <a href="#donate" className="btn-donate-cta">Donate Now</a>
+      <a href="/donate" className="btn-donate-cta">Donate Now</a>
     </section>
   );
 }

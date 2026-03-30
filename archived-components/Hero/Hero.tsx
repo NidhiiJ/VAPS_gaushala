@@ -11,7 +11,7 @@ const slides = [
     pre: 'संरक्षण \u2022 सेवा \u2022 करुणा',
     title: 'Protecting Lives, Serving Humanity, Preserving Compassion',
     sub: 'A registered charitable Panjrapole in Sirohi, Rajasthan — devoted to the lifelong protection, care, and service of 900+ abandoned and helpless animals.',
-    primaryBtn: { label: 'Donate Now', href: '#donate' },
+    primaryBtn: { label: 'Donate Now', href: '/donate' },
     secondaryBtn: { label: 'Learn More', href: '#about' },
   },
   {
@@ -20,7 +20,7 @@ const slides = [
     pre: 'गौ सेवा \u2022 गौ रक्षा',
     title: 'Gau Seva — A Sacred Duty Fulfilled Every Day',
     sub: 'Our dedicated team provides round-the-clock care, nourishment, and love to every cow in our shelter, honouring the ancient tradition of Gau Seva.',
-    primaryBtn: { label: 'Support Gau Seva', href: '#donate' },
+    primaryBtn: { label: 'Support Gau Seva', href: '/donate' },
     secondaryBtn: { label: 'Our Story', href: '#about' },
   },
   {
@@ -29,7 +29,7 @@ const slides = [
     pre: 'स्वास्थ्य \u2022 उपचार \u2022 देखभाल',
     title: 'Expert Veterinary Care for Every Animal',
     sub: 'With an in-house veterinary team and modern facilities, we have treated over 10,000 animals — ensuring every creature receives the medical attention it deserves.',
-    primaryBtn: { label: 'Sponsor a Treatment', href: '#donate' },
+    primaryBtn: { label: 'Sponsor a Treatment', href: '/donate' },
     secondaryBtn: { label: 'Our Facilities', href: '#facilities' },
   },
   {
@@ -48,7 +48,7 @@ const slides = [
     title: 'Join 218+ Members Changing Lives Together',
     sub: 'Become part of a compassionate community that believes every life matters. Volunteer, donate, or spread the word — every act of kindness counts.',
     primaryBtn: { label: 'Join Us', href: '#contact' },
-    secondaryBtn: { label: 'Donate Now', href: '#donate' },
+    secondaryBtn: { label: 'Donate Now', href: '/donate' },
   },
 ];
 
