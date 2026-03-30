@@ -1,0 +1,321 @@
+@import "../../styles/variables" ;
+
+// ── Section shell ──────────────────────────────────────────
+.timeline-section {
+  position:   relative;
+  background: $color-surface-base;
+  padding:    100px 5% 120px;
+  overflow:   hidden;
+}
+
+.tl-grain {
+  position:       absolute;
+  inset:          0;
+  width:          100%;
+  height:         100%;
+  pointer-events: none;
+  z-index:        0;
+}
+
+.tl-inner {
+  position:   relative;
+  z-index:    1;
+  max-width:  1100px;
+  margin:     0 auto;
+}
+
+// ── Header ─────────────────────────────────────────────────
+.tl-header {
+  text-align:    center;
+  margin-bottom: 80px;
+}
+
+.tl-eyebrow {
+  display:        inline-block;
+  font-family:    $font-body;
+  font-size:      11px;
+  font-weight:    700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color:          $color-gold;
+  margin-bottom:  14px;
+}
+
+.tl-heading {
+  font-family:    $font-display;
+  font-size:      clamp(40px, 5vw, 64px);
+  font-weight:    700;
+  color:          $color-brand-deep;
+  letter-spacing: -0.02em;
+  line-height:    1.1;
+  margin:         0 0 18px;
+}
+
+.tl-sub {
+  font-family:  $font-body;
+  font-size:    16px;
+  line-height:  1.7;
+  color:        $color-muted;
+  max-width:    520px;
+  margin:       0 auto;
+}
+
+// ── Track ──────────────────────────────────────────────────
+.tl-track {
+  position: relative;
+}
+
+.tl-spine {
+  position:   absolute;
+  left:       50%;
+  top:        0;
+  bottom:     0;
+  width:      2px;
+  transform:  translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    $color-border 8%,
+    $color-border 92%,
+    transparent 100%
+  );
+}
+
+// ── Item ───────────────────────────────────────────────────
+.tl-item {
+  display:        flex;
+  align-items:    center;
+  margin-bottom:  56px;
+  opacity:        0;
+  transform:      translateY(28px);
+  transition:
+    opacity  0.55s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s);
+
+  &:last-child { margin-bottom: 0; }
+
+  &--visible {
+    opacity:   1;
+    transform: translateY(0);
+  }
+
+  // Left: card on the left, empty on the right
+  &--left {
+    flex-direction: row;
+
+    .tl-card-wrap { text-align: right; padding-right: 48px; }
+    .tl-empty     { padding-left:  48px; }
+  }
+
+  // Right: card on the right, empty on the left
+  &--right {
+    flex-direction: row-reverse;
+
+    .tl-card-wrap { text-align: left;  padding-left:  48px; }
+    .tl-empty     { padding-right: 48px; }
+  }
+}
+
+// ── Card wrap + card ───────────────────────────────────────
+.tl-card-wrap,
+.tl-empty {
+  flex: 1;
+}
+
+.tl-card {
+  display:       inline-block;
+  max-width:     420px;
+  background:    #fff;
+  border:        1px solid $color-border;
+  border-radius: 12px;
+  padding:       24px 28px;
+  box-shadow:    0 2px 12px rgba(42, 10, 10, 0.04), 0 0 0 0 transparent;
+  transition:
+    transform   0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow  0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.25s ease;
+
+  &:hover {
+    transform:   translateY(-5px);
+    box-shadow:  0 10px 36px rgba(42, 10, 10, 0.09);
+    border-color: $color-gold;
+  }
+
+  h3 {
+    font-family:    $font-display;
+    font-size:      22px;
+    font-weight:    700;
+    color:          $color-brand-deep;
+    line-height:    1.25;
+    margin:         4px 0 8px;
+  }
+
+  p {
+    font-family: $font-body;
+    font-size:   14.5px;
+    line-height: 1.7;
+    color:       $color-muted;
+    margin:      0;
+  }
+}
+
+// Milestone card variant
+.tl-item--milestone .tl-card {
+  background:   linear-gradient(135deg, $color-surface-cream, $color-peach);
+  border-color: rgba($color-gold, 0.45);
+}
+
+// ── Year badge ─────────────────────────────────────────────
+.tl-year {
+  display:        inline-block;
+  font-family:    $font-display;
+  font-size:      13px;
+  font-weight:    800;
+  letter-spacing: 0.04em;
+  color:          #fff;
+  background:     $color-brand-primary;
+  padding:        4px 14px;
+  border-radius:  20px;
+
+  .tl-item--milestone & {
+    background: $color-gold;
+    color:      $color-brand-deep;
+  }
+}
+
+// ── Milestone badge ────────────────────────────────────────
+.tl-milestone-badge {
+  display:        inline-block;
+  margin-top:     12px;
+  font-family:    $font-body;
+  font-size:      10px;
+  font-weight:    700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color:          $color-gold;
+  border:         1px solid rgba($color-gold, 0.4);
+  border-radius:  4px;
+  padding:        2px 8px;
+}
+
+// ── Dot ────────────────────────────────────────────────────
+.tl-dot-wrap {
+  flex-shrink: 0;
+  width:       20px;
+  display:     flex;
+  justify-content: center;
+}
+
+.tl-dot {
+  width:        14px;
+  height:       14px;
+  border-radius: 50%;
+  background:   $color-brand-primary;
+  box-shadow:   0 0 0 3px rgba($color-brand-primary, 0.15);
+  transition:
+    background    0.25s ease,
+    box-shadow    0.25s ease,
+    transform     0.25s ease;
+
+  .tl-item:hover & {
+    background: $color-gold;
+    box-shadow: 0 0 0 4px rgba($color-gold, 0.25);
+    transform:  scale(1.25);
+  }
+
+  .tl-item--milestone & {
+    width:      18px;
+    height:     18px;
+    background: $color-gold;
+    box-shadow: 0 0 0 4px rgba($color-gold, 0.2);
+  }
+}
+
+// ── CTA ────────────────────────────────────────────────────
+.tl-cta {
+  display:         flex;
+  flex-direction:  column;
+  align-items:     center;
+  gap:             16px;
+  margin-top:      80px;
+  padding:         48px 40px;
+  background:      $color-brand-deep;
+  border-radius:   16px;
+  text-align:      center;
+}
+
+.tl-cta-label {
+  font-family:    $font-display;
+  font-size:      clamp(22px, 2.5vw, 30px);
+  font-weight:    600;
+  font-style:     italic;
+  color:          $color-wheat;
+  margin:         0;
+  letter-spacing: -0.01em;
+}
+
+.tl-cta-btn {
+  display:         inline-flex;
+  align-items:     center;
+  gap:             8px;
+  font-family:     $font-body;
+  font-size:       14px;
+  font-weight:     700;
+  letter-spacing:  0.04em;
+  color:           $color-brand-deep;
+  background:      $color-gold;
+  padding:         13px 28px;
+  border-radius:   8px;
+  text-decoration: none;
+  transition:
+    background 0.25s ease,
+    transform  0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.25s ease;
+
+  &:hover {
+    background: $color-wheat;
+    transform:  translateY(-2px);
+    box-shadow: 0 6px 24px rgba($color-gold, 0.35);
+  }
+
+  &:active { transform: translateY(0); }
+
+  svg { transition: transform 0.2s ease; }
+  &:hover svg { transform: translateX(3px); }
+}
+
+// ── Mobile ─────────────────────────────────────────────────
+@media (max-width: 720px) {
+  .timeline-section { padding: 70px 5% 80px; }
+
+  .tl-header { margin-bottom: 56px; }
+
+  .tl-spine { left: 20px; }
+
+  .tl-item,
+  .tl-item--left,
+  .tl-item--right {
+    flex-direction: row !important;
+  }
+
+  .tl-item--left,
+  .tl-item--right {
+    .tl-card-wrap {
+      text-align:   left !important;
+      padding-left: 24px !important;
+      padding-right: 0 !important;
+    }
+    .tl-empty { display: none; }
+  }
+
+  .tl-dot-wrap {
+    flex-shrink: 0;
+    width:       40px;
+    justify-content: flex-start;
+    padding-left: 13px;
+  }
+
+  .tl-card { max-width: 100%; }
+
+  .tl-cta { padding: 36px 24px; }
+}
