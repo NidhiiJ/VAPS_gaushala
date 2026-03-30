@@ -1,0 +1,379 @@
+@use "../../styles/variables" as *;
+
+// ── Section wrapper ───────────────────────────────────────────
+.donation-plans {
+  padding: $space-24 5%;
+  background: $color-surface-white;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $color-border 20%, $color-border 80%, transparent);
+  }
+}
+
+.dp-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+// ── Header ───────────────────────────────────────────────────
+.dp-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto $space-14;
+
+  h2 {
+    font-family: $font-display;
+    font-size: clamp(1.75rem, 4vw, 2.625rem);
+    font-weight: $font-weight-bold;
+    color: $color-maroon-900;
+    line-height: $line-height-heading;
+    margin-bottom: $space-4;
+    letter-spacing: $letter-spacing-tight;
+  }
+
+  p {
+    font-size: 0.9375rem;
+    color: $color-maroon-500;
+    line-height: 1.8;
+
+    strong {
+      color: $color-maroon-900;
+    }
+  }
+}
+
+// ── Section label (eyebrow) ───────────────────────────────────
+.dp-section-label {
+  font-size: 0.6875rem;
+  font-weight: $font-weight-bold;
+  color: $color-maroon-700;
+  letter-spacing: $letter-spacing-widest;
+  text-transform: uppercase;
+  margin-bottom: $space-5;
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+
+  &::before {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: $color-maroon-700;
+    flex-shrink: 0;
+  }
+}
+
+// ── Sponsor a Cow ─────────────────────────────────────────────
+.dp-sponsor {
+  margin-bottom: $space-12;
+}
+
+.dp-sponsor-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-5;
+
+  @media (max-width: $bp-mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dp-sp-card {
+  background: linear-gradient(135deg, $color-surface-cream, $color-surface-warm);
+  border: 1px solid $color-border;
+  border-radius: $radius-3xl;
+  padding: $space-10 $space-8;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: transform $transition-base, box-shadow $transition-base, border-color $transition-base;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 0 $radius-3xl 0 100px;
+    background: rgba($color-maroon-600, 0.04);
+    pointer-events: none;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 1rem 3rem rgba($color-maroon-950, 0.08);
+    border-color: transparent;
+  }
+}
+
+// ── Sponsor card icon ─────────────────────────────────────────
+.dp-sp-icon {
+  font-size: 2.25rem;
+  margin-bottom: $space-4;
+  line-height: 1;
+
+  &--cow {
+    color: $color-maroon-700;
+  }
+
+  &--heart {
+    color: #c0392b;
+  }
+
+  svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+  }
+}
+
+.dp-sp-amount {
+  font-family: $font-display;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: $font-weight-extrabold;
+  color: $color-maroon-900;
+  line-height: 1;
+  margin-bottom: $space-2;
+}
+
+.dp-sp-period {
+  font-size: 0.8125rem;
+  font-weight: $font-weight-semibold;
+  color: $color-maroon-700;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  margin-bottom: $space-4;
+}
+
+.dp-sp-desc {
+  font-size: 0.875rem;
+  color: $color-maroon-500;
+  line-height: $line-height-body;
+  margin-bottom: $space-6;
+  flex: 1;
+
+  strong {
+    color: $color-maroon-900;
+  }
+}
+
+// ── Shared CTA button ─────────────────────────────────────────
+.dp-sp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  background: $color-brand-primary;
+  color: $color-surface-white;
+  padding: 0.8125rem 1.75rem;
+  border-radius: $radius-lg;
+  font-weight: $font-weight-semibold;
+  font-size: 0.875rem;
+  text-decoration: none;
+  width: fit-content;
+  border: none;
+  cursor: pointer;
+  transition: background $transition-base, transform $transition-fast, box-shadow $transition-base;
+
+  &:hover {
+    background: $color-brand-primary-dark;
+    transform: translateY(-1px);
+    box-shadow: 0 0.25rem 1rem rgba($color-maroon-700, 0.25);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-maroon-600;
+    outline-offset: 3px;
+  }
+}
+
+// ── Occasions ─────────────────────────────────────────────────
+.dp-occasions {
+  background: linear-gradient(135deg, $color-surface-cream, $color-surface-warm);
+  border: 1px solid $color-border;
+  border-radius: $radius-3xl;
+  padding: $space-12 $space-10;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    right: -80px;
+    width: 250px;
+    height: 250px;
+    border-radius: $radius-full;
+    background: rgba($color-gold, 0.06);
+    pointer-events: none;
+  }
+
+  @media (max-width: $bp-mobile) {
+    padding: $space-8 $space-6;
+  }
+}
+
+.dp-occ-top {
+  margin-bottom: $space-7;
+
+  h3 {
+    font-family: $font-display;
+    font-size: clamp(1.375rem, 3vw, 1.875rem);
+    font-weight: $font-weight-bold;
+    color: $color-maroon-900;
+    line-height: 1.2;
+    margin-bottom: $space-3;
+  }
+
+  > p {
+    font-size: 0.875rem;
+    color: $color-maroon-500;
+    line-height: $line-height-body;
+  }
+}
+
+// ── Occasion tags ─────────────────────────────────────────────
+.dp-occ-tags {
+  display: flex;
+  gap: $space-2;
+  flex-wrap: wrap;
+  margin-bottom: $space-6;
+}
+
+.dp-occ-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3125rem;
+  background: $color-surface-white;
+  color: $color-maroon-900;
+  font-size: 0.78125rem;
+  font-weight: $font-weight-semibold;
+  padding: $space-2 $space-4;
+  border-radius: 1.5rem;
+  border: 1px solid $color-border;
+  cursor: default;
+  transition: background $transition-fast, color $transition-fast, border-color $transition-fast;
+
+  svg {
+    width: 14px;
+    height: 14px;
+    color: $color-maroon-700;
+    flex-shrink: 0;
+    transition: color $transition-fast;
+  }
+
+  &:hover {
+    background: $color-maroon-900;
+    color: $color-wheat;
+    border-color: $color-maroon-900;
+
+    svg {
+      color: $color-wheat;
+    }
+  }
+}
+
+// ── Occasion amounts ──────────────────────────────────────────
+.dp-occ-amounts {
+  display: flex;
+  gap: $space-3;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.dp-occ-amt {
+  background: $color-surface-white;
+  border: 1.5px solid $color-border;
+  border-radius: $radius-2xl;
+  padding: $space-4 $space-5;
+  text-align: center;
+  transition: border-color $transition-base, background $transition-base, transform $transition-fast;
+  cursor: pointer;
+  min-width: 5.625rem;
+
+  &:hover {
+    border-color: $color-maroon-700;
+    background: rgba($color-maroon-700, 0.03);
+    transform: translateY(-2px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-maroon-600;
+    outline-offset: 2px;
+  }
+
+  &--cta {
+    background: transparent;
+    border: none;
+    padding: 0;
+    min-width: auto;
+    cursor: default;
+
+    &:hover {
+      background: transparent;
+      border: none;
+      transform: none;
+    }
+  }
+}
+
+.dp-oa-val {
+  font-family: $font-display;
+  font-size: 1.375rem;
+  font-weight: $font-weight-extrabold;
+  color: $color-maroon-900;
+  line-height: 1;
+}
+
+.dp-oa-sub {
+  font-size: 0.625rem;
+  color: $color-muted;
+  margin-top: $space-1;
+}
+
+// ── Quote ─────────────────────────────────────────────────────
+.dp-quote {
+  text-align: center;
+  margin-top: $space-10;
+  padding: $space-7 $space-8;
+  background: $color-surface-base;
+  border-radius: $radius-2xl;
+  border: 1px dashed $color-border;
+
+  p {
+    font-size: 0.90625rem;
+    color: $color-maroon-500;
+    line-height: 1.6;
+    font-style: italic;
+
+    em {
+      color: $color-maroon-700;
+      font-style: italic;
+      font-weight: $font-weight-semibold;
+    }
+  }
+}
+
+// ── Tablet ────────────────────────────────────────────────────
+@media (max-width: $bp-tablet) {
+  .dp-sponsor-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .dp-occ-amounts {
+    gap: $space-2;
+  }
+}

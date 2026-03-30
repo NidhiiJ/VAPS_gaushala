@@ -65,7 +65,7 @@ export default function Navbar() {
               {label}
             </a>
           ))}
-          <a href="#donate" className="btn-donate">
+          <a href="/donate" className="btn-donate">
             Donate Now
           </a>
         </div>
@@ -138,7 +138,7 @@ export default function Navbar() {
         </nav>
         <div className="mobile-menu-footer">
           <a
-            href="#donate"
+            href="/donate"
             className="btn-donate-mobile"
             onClick={() => setIsOpen(false)}
           >
