@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { Reveal } from '@/components/Reveal';
 import './Testimonials.scss';
 
 const testimonials = [
@@ -43,13 +44,16 @@ export default function Testimonials() {
 
   return (
     <section className="testimonials">
-      <div className="section-header">
-        <div className="section-overline">Testimonials</div>
-        <h2>What People Say About Us</h2>
-        <p>Hear from our donors, visitors, and supporters who have witnessed our mission firsthand.</p>
-        <div className="section-divider" />
-      </div>
+      <Reveal variant="fade-up">
+        <div className="section-header">
+          <div className="section-overline">Testimonials</div>
+          <h2>What People Say About Us</h2>
+          <p>Hear from our donors, visitors, and supporters who have witnessed our mission firsthand.</p>
+          <div className="section-divider" />
+        </div>
+      </Reveal>
 
+      <Reveal variant="fade-up" delay={0.2}>
       <div className="tst-slider">
         <div className="tst-track-wrapper">
           <div
@@ -78,6 +82,7 @@ export default function Testimonials() {
           <button className="tst-nav-btn" onClick={() => move(1)}  aria-label="Next">&#8594;</button>
         </div>
       </div>
+      </Reveal>
     </section>
   );
 }

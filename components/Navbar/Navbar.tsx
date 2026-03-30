@@ -96,7 +96,32 @@ export default function Navbar() {
       <div
         className={`mobile-menu${isOpen ? ' mobile-menu--open' : ''}`}
         aria-hidden={!isOpen}
+        role="dialog"
+        aria-modal={isOpen}
+        aria-label="Navigation menu"
       >
+        {/* Drawer header */}
+        <div className="mobile-menu-header">
+          <a href="#" className="mobile-menu-logo" onClick={() => setIsOpen(false)}>
+            <img
+              src="/logo/logo.png"
+              alt="Suri Prem Jiv Raksha Kendra Sansthan logo"
+              className="mobile-menu-logo-img"
+            />
+          </a>
+          <span className="mobile-menu-org-name">Suri Prem Jiv Raksha Kendra Sansthan</span>
+          <button
+            className="mobile-menu-close"
+            onClick={() => setIsOpen(false)}
+            aria-label="Close menu"
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+
         <nav className="mobile-nav">
           {navLinks.map(({ label, href }, i) => (
             <a

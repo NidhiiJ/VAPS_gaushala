@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { Reveal, StaggerContainer, StaggerItem } from '@/components/Reveal';
 import './Services.scss';
 
 const services = [
@@ -41,21 +42,23 @@ export default function Services() {
 
   return (
     <section className="services">
-      <div className="section-header">
-        <div className="section-overline">What We Do</div>
-        <h2>Comprehensive Care for Every Animal</h2>
-        <p>
-          From the moment an animal arrives, we commit to their complete wellbeing &mdash; body,
-          spirit, and soul.
-        </p>
-        <div className="section-divider" />
-      </div>
+      <Reveal variant="fade-up">
+        <div className="section-header">
+          <div className="section-overline">What We Do</div>
+          <h2>Comprehensive Care for Every Animal</h2>
+          <p>
+            From the moment an animal arrives, we commit to their complete wellbeing &mdash; body,
+            spirit, and soul.
+          </p>
+          <div className="section-divider" />
+        </div>
+      </Reveal>
 
       <div className="srv-rows">
         {rows.map((row, ri) => (
-          <div key={ri} className="srv-row">
+          <StaggerContainer key={ri} className="srv-row" staggerDelay={0.15} initialDelay={ri * 0.1}>
             {row.map((srv) => (
-              <div key={srv.title} className="srv-card">
+              <StaggerItem key={srv.title} className="srv-card">
                 <div className="srv-card-img">
                   <Image src={srv.imgSrc} alt={srv.imgAlt} width={240} height={180} unoptimized />
                 </div>
@@ -64,9 +67,9 @@ export default function Services() {
                   <h3>{srv.title}</h3>
                   <p>{srv.description}</p>
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         ))}
       </div>
     </section>

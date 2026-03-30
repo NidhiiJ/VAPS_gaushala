@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { Reveal, StaggerContainer, StaggerItem } from '@/components/Reveal';
 import './Impact.scss';
 
 const stats = [
@@ -17,32 +18,32 @@ export default function Impact() {
   return (
     <section className="impact-block">
       <div className="impact-top">
-        <div className="i-left">
+        <Reveal variant="slide-right" className="i-left">
           <div className="i-label">Our Impact</div>
           <h2>Thousands of Lives Saved,<br />One by One</h2>
-        </div>
-        <div className="i-right">
+        </Reveal>
+        <Reveal variant="slide-left" delay={0.15} className="i-right">
           <p>Every month, we rescue, treat, and rehabilitate scores of animals that have been hit by vehicles, abandoned, or left malnourished. Your donation directly funds the medicine, food, and staff that make this possible.</p>
-        </div>
+        </Reveal>
       </div>
 
-      <div className="impact-row">
+      <StaggerContainer className="impact-row" staggerDelay={0.1} initialDelay={0.1}>
         {stats.map((stat) => (
-          <div key={stat.label} className="impact-card">
+          <StaggerItem key={stat.label} className="impact-card">
             <div className="ic-num">{stat.num}</div>
             <div className="ic-label">{stat.label}</div>
-          </div>
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerContainer>
 
-      <div className="impact-img-row">
+      <StaggerContainer className="impact-img-row" staggerDelay={0.15} initialDelay={0.1}>
         {impactImages.map((img) => (
-          <div key={img.tag} className="impact-img-card">
+          <StaggerItem key={img.tag} className="impact-img-card">
             <Image src={img.src} alt={img.alt} fill style={{ objectFit: 'cover' }} unoptimized />
             <span className="imc-tag">{img.tag}</span>
-          </div>
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerContainer>
     </section>
   );
 }

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { Reveal } from '@/components/Reveal';
 import './VisitorsBook.scss';
 
 const TOTAL_PAGES = 15;
@@ -15,13 +16,16 @@ export default function VisitorsBook() {
 
   return (
     <section className="visitors-book">
-      <div className="section-header">
-        <div className="section-overline">Visitor&rsquo;s Book</div>
-        <h2>Words From Our Visitors</h2>
-        <p>Heartfelt testimonials handwritten by visitors who witnessed our seva firsthand.</p>
-        <div className="section-divider" />
-      </div>
+      <Reveal variant="fade-up">
+        <div className="section-header">
+          <div className="section-overline">Visitor&rsquo;s Book</div>
+          <h2>Words From Our Visitors</h2>
+          <p>Heartfelt testimonials handwritten by visitors who witnessed our seva firsthand.</p>
+          <div className="section-divider" />
+        </div>
+      </Reveal>
 
+      <Reveal variant="fade-up" delay={0.15}>
       <div className="pdf-viewer">
         <div className="pdf-viewer-wrap">
           <div className="pdf-display">
@@ -51,6 +55,7 @@ export default function VisitorsBook() {
           </div>
         </div>
       </div>
+      </Reveal>
     </section>
   );
 }

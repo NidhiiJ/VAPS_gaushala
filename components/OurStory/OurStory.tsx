@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { Reveal } from '@/components/Reveal';
 import './OurStory.scss';
 
 const tags = [
@@ -11,7 +12,7 @@ export default function OurStory() {
   return (
     <section className="story-block">
       <div className="story-inner">
-        <div className="story-visual">
+        <Reveal variant="slide-right" className="story-visual">
           <div className="story-img">
             <Image
               src="/images/nourishment.jpeg"
@@ -24,9 +25,9 @@ export default function OurStory() {
           <div className="story-year">
             1993<span>Established</span>
           </div>
-        </div>
+        </Reveal>
 
-        <div className="story-text">
+        <Reveal variant="slide-left" delay={0.15} className="story-text">
           <div className="s-label">Our Story</div>
           <h2>A Sanctuary Built on Faith &amp; Seva</h2>
           <p>
@@ -45,7 +46,7 @@ export default function OurStory() {
               </span>
             ))}
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

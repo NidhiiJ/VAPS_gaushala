@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { Reveal, StaggerContainer, StaggerItem } from '@/components/Reveal';
 import './EmergencyResponse.scss';
 
 const stats = [
@@ -11,7 +12,7 @@ export default function EmergencyResponse() {
   return (
     <section className="emr-section">
       <div className="emr-inner">
-        <div className="emr-content">
+        <Reveal variant="slide-right" className="emr-content">
           <div className="emr-badge">
             <div className="emr-pulse" />
             Emergency Response Active
@@ -36,17 +37,17 @@ export default function EmergencyResponse() {
             </p>
           </div>
 
-          <div className="emr-stats">
+          <StaggerContainer className="emr-stats" staggerDelay={0.1} initialDelay={0.2}>
             {stats.map((s) => (
-              <div className="emr-stat" key={s.label}>
+              <StaggerItem key={s.label} className="emr-stat">
                 <div className="emr-stat-value">{s.value}</div>
                 <div className="emr-stat-label">{s.label}</div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
-        </div>
+          </StaggerContainer>
+        </Reveal>
 
-        <div className="emr-image">
+        <Reveal variant="slide-left" delay={0.1} className="emr-image">
           <Image
             src="/images/ambulance.jpg"
             alt="Emergency medical care for animals"
@@ -55,7 +56,7 @@ export default function EmergencyResponse() {
             unoptimized
           />
           {/* <div className="emr-image-overlay" /> */}
-        </div>
+        </Reveal>
       </div>
     </section>
   );
