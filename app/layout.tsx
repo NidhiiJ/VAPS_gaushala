@@ -5,6 +5,17 @@ import "./globals.scss";
 export const metadata: Metadata = {
   title: "Suri Prem Jiv Raksha Kendra Sansthan",
   description: "Dedicated to the protection, care, and welfare of cows and all living beings.",
+  icons: {
+    icon: [
+      { url: "/logo/favicon/favicon.ico", sizes: "any" },
+      { url: "/logo/favicon/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/logo/favicon/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: { url: "/logo/favicon/apple-touch-icon.png", sizes: "180x180" },
+    other: [
+      { rel: "manifest", url: "/logo/favicon/site.webmanifest" },
+    ],
+  },
 };
 
 export default function RootLayout({

@@ -48,7 +48,7 @@ export default function Hero() {
         <div className="hero-l">
           <div className="hbadge">
             <span className="hbadge-dot" />
-            Serving since 1993 · Rajasthan, India
+            Rajasthan, India
           </div>
 
           <h1 className="hero-heading">
