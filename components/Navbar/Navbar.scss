@@ -656,4 +656,8 @@
       transition: opacity $transition-fast;
     }
   }
+
+  .topbar-left, .topbar-sanskrit{
+    display: none;
+  }
 }
