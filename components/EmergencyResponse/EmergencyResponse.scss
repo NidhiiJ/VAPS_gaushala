@@ -41,7 +41,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: $space-12;
-  align-items: center;
+  align-items: flex-end;
   position: relative;
   z-index: 1;
 }
