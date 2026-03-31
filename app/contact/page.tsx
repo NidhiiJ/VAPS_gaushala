@@ -2,7 +2,6 @@ import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
 import ContactHeader from '@/components/ContactHeader/ContactHeader';
 import ContactForm from '@/components/ContactForm/ContactForm';
-import ContactImage from '@/components/ContactImage/ContactImage';
 import ContactMap from '@/components/ContactMap/ContactMap';
 import FinalCTA from '@/components/FinalCTA/FinalCTA';
 
@@ -18,7 +17,6 @@ export default function ContactRoute() {
       <Navbar />
       <ContactHeader />
       <ContactForm />
-      <ContactImage />
       <ContactMap />
       <FinalCTA
       heading="Every Act of Compassion Counts"

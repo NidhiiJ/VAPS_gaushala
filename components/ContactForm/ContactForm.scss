@@ -2,11 +2,12 @@
 
 // ─────────────────────────────────────────────────────────────
 // ContactForm  |  BEM prefix: `cf-`
-// Two-column layout: info cards (left) + contact form (right)
+// Two-column layout: side image (left) + contact form (right)
+// Info cards render below in a 2×2 grid via InfoCards component
 // ─────────────────────────────────────────────────────────────
 
 .cf-section {
-  padding: $space-20 5%;
+  padding: $space-20 0;
   max-width: $bp-desktop;
   margin: 0 auto;
 }
@@ -17,94 +18,46 @@
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: $space-10;
-  align-items: start;
+  align-items: stretch;
 
   @media (max-width: $bp-tablet) {
     grid-template-columns: 1fr;
   }
 }
 
-// ── Info Cards (left column) ─────────────────────────────────
+// ── Side Image (left column) ──────────────────────────────────
 
-.cf-info {
-  display: flex;
-  flex-direction: column;
-  gap: $space-7;
+.cf-side-image {
+  position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  min-height: 400px;
+
+  @media (max-width: $bp-tablet) {
+    display: none;
+  }
+
+  &__img {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba($color-maroon-950, 0.15) 0%,
+      rgba($color-maroon-950, 0.45) 100%
+    );
+    pointer-events: none;
+  }
 }
 
-.cf-card {
-  background: $color-surface-white;
-  border: 1px solid $color-border;
-  border-radius: 1.25rem;
-  padding: $space-8;
-  transition: transform $transition-base, box-shadow $transition-base, border-color $transition-base;
+// ── Info Cards below the grid ─────────────────────────────────
 
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 1rem 3rem rgba($color-maroon-950, 0.08);
-    border-color: transparent;
-  }
-
-  &__icon {
-    width: 44px;
-    height: 44px;
-    border-radius: $radius-lg;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: $space-4;
-    font-size: 1.25rem;
-
-    &--location {
-      background: rgba($color-maroon-600, 0.07);
-      color: $color-maroon-600;
-    }
-
-    &--phone {
-      background: rgba(76, 175, 80, 0.08);
-      color: #388E3C;
-    }
-
-    &--email {
-      background: rgba(255, 152, 0, 0.08);
-      color: #E68A00;
-    }
-
-    &--clock {
-      background: rgba($color-gold, 0.1);
-      color: $color-gold-dark;
-    }
-  }
-
-  &__title {
-    font-family: $font-display;
-    font-size: 1.25rem;
-    font-weight: $font-weight-bold;
-    color: $color-maroon-900;
-    margin-bottom: $space-2;
-  }
-
-  &__body {
-    font-size: 0.875rem;
-    color: $color-maroon-500;
-    line-height: $line-height-body;
-
-    a {
-      color: $color-maroon-700;
-      font-weight: $font-weight-medium;
-      transition: color $transition-fast;
-
-      &:hover {
-        color: $color-maroon-900;
-      }
-    }
-  }
-
-  &__note {
-    color: $color-maroon-700;
-    font-size: 0.75rem;
-    font-style: italic;
-  }
+.cf-infocards {
+  margin-top: $space-10;
 }
 
 // ── Contact Form (right column) ───────────────────────────────
@@ -270,5 +223,11 @@
         box-shadow: none;
       }
     }
+  }
+
+  &__error {
+    margin-top: $space-3;
+    font-size: 0.875rem;
+    color: #C62828;
   }
 }

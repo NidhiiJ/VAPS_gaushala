@@ -1,0 +1,92 @@
+@import "../../styles/variables";
+
+// ─────────────────────────────────────────────────────────────
+// InfoCards  |  BEM prefix: `ic-`
+// 2×2 grid of contact info cards
+// ─────────────────────────────────────────────────────────────
+
+.ic-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-5;
+
+  @media (max-width: $bp-mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ic-card {
+  background: $color-surface-white;
+  border: 1px solid $color-border;
+  height: 100%;
+  border-radius: 1.25rem;
+  padding: $space-8;
+  transition: transform $transition-base, box-shadow $transition-base, border-color $transition-base;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 1rem 3rem rgba($color-maroon-950, 0.08);
+    border-color: transparent;
+  }
+
+  &__icon {
+    width: 44px;
+    height: 44px;
+    border-radius: $radius-lg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: $space-4;
+    font-size: 1.25rem;
+
+    &--location {
+      background: rgba($color-maroon-600, 0.07);
+      color: $color-maroon-600;
+    }
+
+    &--phone {
+      background: rgba(76, 175, 80, 0.08);
+      color: #388E3C;
+    }
+
+    &--email {
+      background: rgba(255, 152, 0, 0.08);
+      color: #E68A00;
+    }
+
+    &--clock {
+      background: rgba($color-gold, 0.1);
+      color: $color-gold-dark;
+    }
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: 1.1rem;
+    font-weight: $font-weight-bold;
+    color: $color-maroon-900;
+    margin-bottom: $space-2;
+  }
+
+  &__body {
+    font-size: 0.875rem;
+    color: $color-maroon-500;
+    line-height: $line-height-body;
+
+    a {
+      color: $color-maroon-700;
+      font-weight: $font-weight-medium;
+      transition: color $transition-fast;
+
+      &:hover {
+        color: $color-maroon-900;
+      }
+    }
+  }
+
+  &__note {
+    color: $color-maroon-700;
+    font-size: 0.75rem;
+    font-style: italic;
+  }
+}
