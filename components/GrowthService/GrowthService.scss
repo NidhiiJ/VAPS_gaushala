@@ -1,0 +1,169 @@
+@import "../../styles/variables";
+
+// ── GrowthService  |  prefix: `growth-`
+// Two-column: text + stats on left, image on right
+
+.growth-block {
+  background: $color-surface-base;
+  padding: $space-24 5% $space-24;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: 'SEVA';
+    position: absolute;
+    top: 50%;
+    right: -40px;
+    transform: translateY(-50%) rotate(90deg);
+    font-family: $font-display;
+    font-size: clamp(6rem, 14vw, 12rem);
+    font-weight: $font-weight-extrabold;
+    color: rgba($color-maroon-600, 0.03);
+    letter-spacing: 20px;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+}
+
+.growth-inner {
+  max-width: 75rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: $space-16;
+  align-items: center;
+}
+
+// ── Text column
+.growth-text {
+  background: linear-gradient(135deg, $color-surface-cream, $color-surface-warm);
+  border-radius: $radius-3xl;
+  padding: 3rem 2.75rem;
+  border: 1px solid rgba($color-border, 0.6);
+}
+
+.gt-label {
+  font-size: 0.6875rem;
+  font-weight: $font-weight-bold;
+  color: $color-maroon-700;
+  letter-spacing: $letter-spacing-widest;
+  text-transform: uppercase;
+  margin-bottom: $space-4;
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+
+  &::before {
+    content: '';
+    width: 1.25rem;
+    height: 2px;
+    background: $color-maroon-700;
+    flex-shrink: 0;
+  }
+}
+
+.growth-text h2 {
+  font-family: $font-display;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: $font-weight-bold;
+  color: $color-maroon-900;
+  line-height: $line-height-heading;
+  margin-bottom: $space-5;
+}
+
+.growth-text p {
+  font-size: 0.9375rem;
+  color: $color-maroon-500;
+  line-height: $line-height-body;
+  margin-bottom: $space-4;
+
+  strong {
+    color: $color-maroon-900;
+    font-weight: $font-weight-semibold;
+  }
+}
+
+// ── Stat cards
+.growth-stats {
+  display: flex;
+  gap: $space-4;
+  margin-top: $space-6;
+  flex-wrap: wrap;
+}
+
+.gs-card {
+  flex: 1;
+  min-width: 80px;
+  background: $color-surface-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  padding: 1rem 1.25rem;
+  text-align: center;
+  transition: box-shadow $transition-fast, border-color $transition-fast;
+
+  &:hover {
+    box-shadow: $shadow-sm;
+    border-color: rgba($color-maroon-600, 0.2);
+  }
+
+  &__num {
+    font-family: $font-display;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: $font-weight-extrabold;
+    color: $color-maroon-900;
+    line-height: 1;
+    margin-bottom: $space-1;
+  }
+
+  &__label {
+    font-size: 0.6875rem;
+    font-weight: $font-weight-semibold;
+    color: $color-maroon-500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+}
+
+// ── Image column
+.growth-visual {
+  position: relative;
+}
+
+.growth-img {
+  border-radius: $radius-3xl 0 $radius-3xl $radius-3xl;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  box-shadow: 0 1.5rem 4rem rgba(42, 10, 10, 0.1);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform $transition-image;
+  }
+
+  .growth-visual:hover & img {
+    transform: scale(1.03);
+  }
+}
+
+// ── Responsive
+@media (max-width: $bp-tablet) {
+  .growth-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .growth-text {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .growth-block {
+    padding: $space-16 5% $space-16;
+  }
+
+  .growth-stats {
+    gap: $space-3;
+  }
+}

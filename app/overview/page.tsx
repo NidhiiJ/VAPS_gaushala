@@ -1,0 +1,40 @@
+import Navbar           from '@/components/Navbar/Navbar';
+import Footer           from '@/components/Footer/Footer';
+import OverviewHero     from '@/components/OverviewHero/OverviewHero';
+import OurJourney       from '@/components/OurJourney/OurJourney';
+import OurPurpose       from '@/components/OurPurpose/OurPurpose';
+import GrowthService    from '@/components/GrowthService/GrowthService';
+import PanjrapolDream   from '@/components/PanjrapolDream/PanjrapolDream';
+import PresentDay       from '@/components/PresentDay/PresentDay';
+import FinalCTA         from '@/components/FinalCTA/FinalCTA';
+
+export const metadata = {
+  title: 'About Us — Suri Prem Jeevraksha Kendra Sansthan',
+  description:
+    'From seven visionary members in 1986 to a vibrant movement sheltering over 900 animals — discover our legacy of service, faith, and compassion.',
+};
+
+export default function OverviewPage() {
+  return (
+    <>
+      <Navbar />
+      <main>
+        <OverviewHero />
+        <OurJourney />
+        <OurPurpose />
+        <GrowthService />
+        <PanjrapolDream />
+        <PresentDay />
+        <FinalCTA
+          heading="Be Part of This Journey"
+          subtext="The mission continues — to protect lives, serve humanity, and uphold Ahimsa in action. Your support makes every rescue possible."
+          buttons={[
+            { label: 'Donate Now',          href: '/donate' },
+            { label: 'Visit the Panjrapole', href: '/contact', variant: 'secondary' },
+          ]}
+        />
+      </main>
+      <Footer />
+    </>
+  );
+}

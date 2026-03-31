@@ -1,0 +1,221 @@
+@import "../../styles/variables";
+
+// ── OurPurpose  |  prefix: `purpose-`
+// Section header + two-column vision/mission cards
+
+.purpose-block {
+  background: $color-surface-white;
+  padding: $space-24 5% $space-24;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, $color-maroon-600, transparent);
+    opacity: 0.15;
+  }
+}
+
+.purpose-inner {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+// ── Section header
+.purpose-header {
+  text-align: center;
+  max-width: 38rem;
+  margin: 0 auto $space-14;
+}
+
+.ph-overline {
+  font-size: 0.6875rem;
+  font-weight: $font-weight-bold;
+  color: $color-maroon-700;
+  letter-spacing: $letter-spacing-widest;
+  text-transform: uppercase;
+  margin-bottom: $space-4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-3;
+
+  &::before,
+  &::after {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: $color-maroon-700;
+    opacity: 0.5;
+  }
+}
+
+.purpose-header h2 {
+  font-family: $font-display;
+  font-size: clamp(1.875rem, 3.5vw, 2.75rem);
+  font-weight: $font-weight-bold;
+  color: $color-maroon-900;
+  line-height: $line-height-heading;
+  margin-bottom: $space-4;
+}
+
+.purpose-header p {
+  font-size: 0.9375rem;
+  color: $color-maroon-500;
+  line-height: $line-height-body;
+}
+
+// ── Two-column grid
+.purpose-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-6;
+}
+
+// ── Cards
+.purpose-card {
+  border-radius: $radius-3xl;
+  padding: 2.75rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+
+  .pc-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: $radius-lg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: $space-5;
+  }
+
+  .pc-label {
+    font-size: 0.6875rem;
+    font-weight: $font-weight-bold;
+    letter-spacing: $letter-spacing-widest;
+    text-transform: uppercase;
+    margin-bottom: $space-3;
+  }
+
+  h3 {
+    font-family: $font-display;
+    font-size: clamp(1.375rem, 2.2vw, 1.75rem);
+    font-weight: $font-weight-bold;
+    line-height: 1.25;
+    margin-bottom: $space-4;
+  }
+
+  p {
+    font-size: 0.9375rem;
+    line-height: $line-height-body;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $space-3;
+
+    li {
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      padding-left: 1.25rem;
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.5em;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+
+// Vision card — dark maroon
+.purpose-card--vision {
+  background: linear-gradient(145deg, $color-maroon-900, $color-maroon-950);
+
+  .pc-icon {
+    background: rgba($color-wheat, 0.1);
+  }
+
+  .pc-label {
+    color: rgba($color-wheat, 0.7);
+  }
+
+  h3 {
+    color: $color-surface-white;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  // Decorative radial in corner
+  &::after {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 200px;
+    height: 200px;
+    border-radius: $radius-full;
+    background: radial-gradient(circle, rgba($color-maroon-600, 0.3), transparent 70%);
+    pointer-events: none;
+  }
+}
+
+// Mission card — warm cream
+.purpose-card--mission {
+  background: linear-gradient(145deg, $color-surface-cream, $color-surface-warm);
+  border: 1px solid rgba($color-border, 0.7);
+
+  .pc-icon {
+    background: rgba($color-maroon-600, 0.08);
+  }
+
+  .pc-label {
+    color: $color-maroon-700;
+  }
+
+  h3 {
+    color: $color-maroon-900;
+  }
+
+  ul li {
+    color: $color-maroon-500;
+
+    &::before {
+      background: $color-maroon-600;
+    }
+  }
+}
+
+// ── Responsive
+@media (max-width: $bp-tablet) {
+  .purpose-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .purpose-block {
+    padding: $space-16 5% $space-16;
+  }
+
+  .purpose-card {
+    padding: 2rem 1.75rem;
+  }
+}

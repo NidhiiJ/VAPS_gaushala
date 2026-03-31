@@ -1,0 +1,182 @@
+@import "../../styles/variables";
+
+// ── OverviewHero  |  BEM prefix: `ov-hero`
+// Dark maroon page hero — mirrors page-hero in about-template.html
+
+.ov-hero {
+  background: linear-gradient(135deg, $color-maroon-950 0%, $color-maroon-900 50%, #4a1515 100%);
+  padding: $space-24 5% $space-20;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 52vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  // Decorative radial glow
+  &::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -150px;
+    width: 560px;
+    height: 560px;
+    border-radius: $radius-full;
+    background: radial-gradient(circle, rgba($color-maroon-700, 0.18), transparent 70%);
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -120px;
+    left: -120px;
+    width: 400px;
+    height: 400px;
+    border-radius: $radius-full;
+    background: radial-gradient(circle, rgba($color-gold, 0.06), transparent 70%);
+    pointer-events: none;
+  }
+}
+
+// Subtle geometric pattern overlay
+.ov-hero__pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      $color-wheat 0,
+      // $color-wheat 1px,
+      transparent 0,
+      transparent 50%
+    );
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+
+.ov-hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 52rem;
+}
+
+// Breadcrumb
+.ov-hero__breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  margin-bottom: $space-6;
+
+  a {
+    font-size: 0.8125rem;
+    font-weight: $font-weight-medium;
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: none;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $color-wheat;
+    }
+  }
+
+  svg {
+    width: 14px;
+    height: 14px;
+    color: rgba(255, 255, 255, 0.3);
+    flex-shrink: 0;
+  }
+
+  span {
+    font-size: 0.8125rem;
+    font-weight: $font-weight-medium;
+    color: $color-wheat;
+  }
+}
+
+// Pre-label / eyebrow
+.ov-hero__pre {
+  font-size: 0.6875rem;
+  font-weight: $font-weight-bold;
+  color: $color-wheat;
+  letter-spacing: $letter-spacing-widest;
+  text-transform: uppercase;
+  margin-bottom: $space-5;
+  opacity: 0.85;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-3;
+
+  &::before,
+  &::after {
+    content: '';
+    width: 20px;
+    height: 1px;
+    background: $color-wheat;
+    opacity: 0.5;
+  }
+}
+
+// Main heading
+.ov-hero h1 {
+  font-family: $font-display;
+  font-size: clamp(2.125rem, 5vw, 3.5rem);
+  font-weight: $font-weight-extrabold;
+  color: $color-surface-white;
+  line-height: $line-height-heading;
+  letter-spacing: $letter-spacing-tight;
+  margin-bottom: $space-6;
+}
+
+// Sub paragraph
+.ov-hero__sub {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 38rem;
+  margin: 0 auto;
+  line-height: $line-height-body;
+}
+
+// Scroll indicator
+.ov-hero__scroll {
+  position: absolute;
+  bottom: $space-8;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 40px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 6px;
+  z-index: 1;
+}
+
+.ov-hero__scroll-dot {
+  width: 4px;
+  height: 8px;
+  background: $color-wheat;
+  border-radius: 2px;
+  animation: scrollBounce 1.6s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.7; }
+  50%       { transform: translateY(10px); opacity: 0.2; }
+}
+
+// ── Responsive
+@media (max-width: $bp-mobile) {
+  .ov-hero {
+    padding: $space-20 5% $space-16;
+    min-height: 60vh;
+  }
+}
