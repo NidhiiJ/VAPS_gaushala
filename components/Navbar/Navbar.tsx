@@ -10,7 +10,7 @@ type NavLink = {
 };
 
 const navLinks: NavLink[] = [
-  { label: 'Home', href: '/' },
+  // { label: 'Home', href: '/' },
   {
     label: 'About Us',
     href: '#',
@@ -19,18 +19,26 @@ const navLinks: NavLink[] = [
       { label: 'Timeline', href: '/timeline' },
     ],
   },
-  // { label: 'Gallery', href: '#' },
+  {
+    label: 'What We Do',
+    href: '#',
+    submenu: [
+      { label: 'Facilities', href: '/facilities' },
+      { label: 'Our Activities', href: '/activities' },
+    ],
+  },
   // { label: 'Facilities', href: '#' },
-  // { label: 'Contributors', href: '#' },
-  // {
-  //   label: 'Media Room',
-  //   href: '#',
-  //   submenu: [
-  //     { label: 'Certifications', href: '#certifications' },
-  //     { label: 'Publications', href: '#publications' },
-  //   ],
-  // },
-  // { label: 'Testimonials', href: '#' },
+  { label: 'Contributors', href: '#' },
+  {
+    label: 'Media Room',
+    href: '#',
+    submenu: [
+      { label: 'Certifications', href: '#certifications' },
+      { label: 'Publications', href: '#publications' },
+    ],
+  },
+  { label: 'Gallery', href: '/gallery' },
+  { label: 'Testimonials', href: '#' },
   { label: 'Contact', href: '/contact' },
 ];
 
