@@ -29,7 +29,11 @@ export default function HomePage() {
         <Gallery />
         <Testimonials />
         <VisitorsBook />
-        <FinalCTA />
+        <FinalCTA
+          heading="Be the Reason an Animal Survives Today"
+          subtext="Your donation — however small — provides shelter, food, and medicine to animals who have no one else."
+          buttons={[{ label: 'Donate Now', href: '/donate' }]}
+        />
       </main>
       <Footer />
     </>

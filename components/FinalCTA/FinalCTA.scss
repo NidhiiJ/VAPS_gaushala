@@ -1,20 +1,11 @@
 @import "../../styles/variables";
 
 .final-cta {
-  background: url('/hero-placeholder.jpg') center center / cover no-repeat;
+  background: $color-maroon-950;
   padding: 6.25rem 5% 8rem 5%;
   text-align: center;
   position: relative;
   overflow: hidden;
-
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(80, 10, 20, 0.38) 0%, rgba(80, 10, 20, 0.10) 55%, transparent 100%);
-    pointer-events: none;
-    z-index: 0;
-  }
 
   > * {
     position: relative;

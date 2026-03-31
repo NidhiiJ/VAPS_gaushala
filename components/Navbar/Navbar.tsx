@@ -19,19 +19,19 @@ const navLinks: NavLink[] = [
       { label: 'Timeline', href: '/timeline' },
     ],
   },
-  { label: 'Gallery', href: '#' },
-  { label: 'Facilities', href: '#' },
-  { label: 'Contributors', href: '#' },
-  {
-    label: 'Media Room',
-    href: '#',
-    submenu: [
-      { label: 'Certifications', href: '#certifications' },
-      { label: 'Publications', href: '#publications' },
-    ],
-  },
-  { label: 'Testimonials', href: '#' },
-  { label: 'Contact', href: '#' },
+  // { label: 'Gallery', href: '#' },
+  // { label: 'Facilities', href: '#' },
+  // { label: 'Contributors', href: '#' },
+  // {
+  //   label: 'Media Room',
+  //   href: '#',
+  //   submenu: [
+  //     { label: 'Certifications', href: '#certifications' },
+  //     { label: 'Publications', href: '#publications' },
+  //   ],
+  // },
+  // { label: 'Testimonials', href: '#' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export default function Navbar() {

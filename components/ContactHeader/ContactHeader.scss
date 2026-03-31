@@ -1,0 +1,78 @@
+@import "../../styles/variables";
+
+// ─────────────────────────────────────────────────────────────
+// ContactHeader  |  BEM prefix: `ch-`
+// Dark maroon gradient hero matching the contact template header
+// ─────────────────────────────────────────────────────────────
+
+.ch-hero {
+  background: linear-gradient(
+    135deg,
+    $color-maroon-950 0%,
+    $color-maroon-900 50%,
+    #4A1515 100%
+  );
+  padding: $space-20 5% $space-16;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 500px;
+    height: 500px;
+    border-radius: $radius-full;
+    background: radial-gradient(
+      circle,
+      rgba($color-maroon-700, 0.15),
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+
+  &__pre {
+    font-size: 0.6875rem;
+    font-weight: $font-weight-bold;
+    color: $color-wheat;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: $space-4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-3;
+
+    &::before,
+    &::after {
+      content: '';
+      width: 20px;
+      height: 2px;
+      background: $color-wheat;
+      opacity: 0.5;
+    }
+  }
+
+  &__heading {
+    font-family: $font-display;
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: $font-weight-extrabold;
+    color: $color-surface-white;
+    line-height: $line-height-heading;
+    margin-bottom: 0.875rem;
+  }
+
+  &__desc {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.65);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: $line-height-body;
+  }
+
+  @media (max-width: $bp-mobile) {
+    padding: $space-16 5% $space-10;
+  }
+}

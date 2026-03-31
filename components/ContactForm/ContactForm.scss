@@ -1,0 +1,274 @@
+@import "../../styles/variables";
+
+// ─────────────────────────────────────────────────────────────
+// ContactForm  |  BEM prefix: `cf-`
+// Two-column layout: info cards (left) + contact form (right)
+// ─────────────────────────────────────────────────────────────
+
+.cf-section {
+  padding: $space-20 5%;
+  max-width: $bp-desktop;
+  margin: 0 auto;
+}
+
+// ── Grid layout ───────────────────────────────────────────────
+
+.cf-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: $space-10;
+  align-items: start;
+
+  @media (max-width: $bp-tablet) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ── Info Cards (left column) ─────────────────────────────────
+
+.cf-info {
+  display: flex;
+  flex-direction: column;
+  gap: $space-7;
+}
+
+.cf-card {
+  background: $color-surface-white;
+  border: 1px solid $color-border;
+  border-radius: 1.25rem;
+  padding: $space-8;
+  transition: transform $transition-base, box-shadow $transition-base, border-color $transition-base;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 1rem 3rem rgba($color-maroon-950, 0.08);
+    border-color: transparent;
+  }
+
+  &__icon {
+    width: 44px;
+    height: 44px;
+    border-radius: $radius-lg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: $space-4;
+    font-size: 1.25rem;
+
+    &--location {
+      background: rgba($color-maroon-600, 0.07);
+      color: $color-maroon-600;
+    }
+
+    &--phone {
+      background: rgba(76, 175, 80, 0.08);
+      color: #388E3C;
+    }
+
+    &--email {
+      background: rgba(255, 152, 0, 0.08);
+      color: #E68A00;
+    }
+
+    &--clock {
+      background: rgba($color-gold, 0.1);
+      color: $color-gold-dark;
+    }
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: 1.25rem;
+    font-weight: $font-weight-bold;
+    color: $color-maroon-900;
+    margin-bottom: $space-2;
+  }
+
+  &__body {
+    font-size: 0.875rem;
+    color: $color-maroon-500;
+    line-height: $line-height-body;
+
+    a {
+      color: $color-maroon-700;
+      font-weight: $font-weight-medium;
+      transition: color $transition-fast;
+
+      &:hover {
+        color: $color-maroon-900;
+      }
+    }
+  }
+
+  &__note {
+    color: $color-maroon-700;
+    font-size: 0.75rem;
+    font-style: italic;
+  }
+}
+
+// ── Contact Form (right column) ───────────────────────────────
+
+.cf-form-wrap {
+  background: $color-surface-white;
+  border: 1px solid $color-border;
+  border-radius: 1.5rem;
+  padding: 2.75rem;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 120px;
+    height: 120px;
+    border-radius: 0 1.5rem 0 120px;
+    background: rgba($color-maroon-600, 0.03);
+    pointer-events: none;
+  }
+
+  &__heading {
+    font-family: $font-display;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: $font-weight-bold;
+    color: $color-maroon-900;
+    margin-bottom: $space-2;
+  }
+
+  &__sub {
+    font-size: 0.875rem;
+    color: $color-maroon-500;
+    margin-bottom: $space-8;
+    line-height: $line-height-body;
+  }
+
+  @media (max-width: $bp-mobile) {
+    padding: $space-6;
+  }
+}
+
+// ── Form elements ─────────────────────────────────────────────
+
+.cf-form {
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $space-4;
+    margin-bottom: $space-4;
+
+    @media (max-width: $bp-mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $space-4;
+  }
+
+  &__label {
+    font-size: 0.75rem;
+    font-weight: $font-weight-semibold;
+    color: $color-maroon-900;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-wider;
+    margin-bottom: $space-2;
+  }
+
+  &__required {
+    color: $color-maroon-600;
+    margin-left: 2px;
+  }
+
+  &__input,
+  &__textarea,
+  &__select {
+    border: 1.5px solid $color-border;
+    border-radius: $radius-lg;
+    padding: 0.8125rem 1rem;
+    font-size: 0.875rem;
+    font-family: $font-body;
+    color: $color-maroon-400;
+    background: $color-surface-base;
+    transition: border-color $transition-base, background $transition-base, box-shadow $transition-base;
+    outline: none;
+
+    &::placeholder {
+      color: $color-muted;
+    }
+
+    &:focus {
+      border-color: $color-maroon-700;
+      background: $color-surface-white;
+      box-shadow: 0 0 0 3px rgba($color-maroon-600, 0.06);
+    }
+  }
+
+  &__textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  &__select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B4C4C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    cursor: pointer;
+  }
+
+  &__submit {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-3;
+    background: $color-brand-primary;
+    color: $color-surface-white;
+    border: none;
+    padding: 0.9375rem 2.25rem;
+    border-radius: $radius-lg;
+    font-size: 0.9375rem;
+    font-weight: $font-weight-semibold;
+    font-family: $font-body;
+    cursor: pointer;
+    margin-top: $space-2;
+    transition: background $transition-base, transform $transition-fast, box-shadow $transition-base;
+
+    svg {
+      transition: transform $transition-base;
+      flex-shrink: 0;
+    }
+
+    &:hover {
+      background: $color-brand-primary-dark;
+      transform: translateY(-2px);
+      box-shadow: 0 $space-2 $space-6 rgba($color-maroon-700, 0.25);
+
+      svg {
+        transform: translateX(4px);
+      }
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-maroon-600;
+      outline-offset: 3px;
+    }
+
+    &--sent {
+      background: #388E3C;
+      cursor: default;
+
+      &:hover {
+        background: #388E3C;
+        transform: none;
+        box-shadow: none;
+      }
+    }
+  }
+}
