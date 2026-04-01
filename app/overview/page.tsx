@@ -1,6 +1,6 @@
 import Navbar           from '@/components/Navbar/Navbar';
 import Footer           from '@/components/Footer/Footer';
-import OverviewHero     from '@/components/OverviewHero/OverviewHero';
+import PageHero         from '@/components/PageHero/PageHero';
 import OurJourney       from '@/components/OurJourney/OurJourney';
 import OurPurpose       from '@/components/OurPurpose/OurPurpose';
 import GrowthService    from '@/components/GrowthService/GrowthService';
@@ -19,7 +19,11 @@ export default function OverviewPage() {
     <>
       <Navbar />
       <main>
-        <OverviewHero />
+        <PageHero
+          eyebrow="Since 1986 — Four Decades of Seva"
+          heading="About Us"
+          subtext="From seven visionary members to a vibrant movement sheltering over 900 animals — guided by the timeless principle of Ahimsa."
+        />
         <OurJourney />
         <OurPurpose />
         <GrowthService />

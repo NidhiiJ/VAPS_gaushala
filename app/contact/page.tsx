@@ -1,6 +1,6 @@
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
-import ContactHeader from '@/components/ContactHeader/ContactHeader';
+import PageHero from '@/components/PageHero/PageHero';
 import ContactForm from '@/components/ContactForm/ContactForm';
 import ContactMap from '@/components/ContactMap/ContactMap';
 import FinalCTA from '@/components/FinalCTA/FinalCTA';
@@ -15,7 +15,11 @@ export default function ContactRoute() {
   return (
     <>
       <Navbar />
-      <ContactHeader />
+      <PageHero
+        eyebrow="Get In Touch"
+        heading="We'd Love to Hear From You"
+        subtext="Whether you want to volunteer, donate, or simply learn more about our mission — every connection brings us closer to a kinder world."
+      />
       <ContactForm />
       <ContactMap />
       <FinalCTA
