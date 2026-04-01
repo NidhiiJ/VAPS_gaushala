@@ -1,0 +1,178 @@
+@import "../../styles/variables";
+
+// ── SocialMedia — exact styles from gallery-template.html lines 124–139, 181
+// section: .sec .social-sec  |  header: .sh  |  grid: .social-grid  |  card: .social-card
+
+// ── Section ───────────────────────────────────────────────────
+.social-media {
+  padding: 80px 5%;
+  background: #FFF9F2;
+}
+
+// ── Section header (.sh) ──────────────────────────────────────
+.social-media__header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 48px;
+
+  .social-media__overline {
+    font-size: 11px;
+    font-weight: 700;
+    color: #6B1010;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 700;
+    color: #3D0C0C;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  p {
+    font-size: 14px;
+    color: #6B4C4C;
+    line-height: 1.7;
+  }
+
+  .social-media__divider {
+    width: 48px;
+    height: 3px;
+    background: #6B1010;
+    border-radius: 2px;
+    margin: 12px auto 0;
+  }
+}
+
+// ── Grid (.social-grid) ───────────────────────────────────────
+.social-media__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+// ── Card (.social-card) ───────────────────────────────────────
+.social-media__card {
+  border-radius: 18px;
+  padding: 40px 36px;
+  text-align: center;
+  transition: transform 0.4s, box-shadow 0.4s;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(42, 10, 10, 0.08);
+  }
+
+  // YouTube (.yt)
+  &--yt {
+    background: linear-gradient(135deg, #FFF5EC, #FFE8E8);
+    border: 1px solid #EDE0CC;
+
+    .social-media__icon {
+      background: rgba(255, 0, 0, 0.08);
+    }
+
+    .social-media__btn {
+      background: #FF0000;
+      color: #fff;
+
+      &:hover {
+        background: #CC0000;
+        transform: translateY(-1px);
+      }
+    }
+  }
+
+  // Instagram (.ig)
+  &--ig {
+    background: linear-gradient(135deg, #FFF5EC, #FDEBD0);
+    border: 1px solid #EDE0CC;
+
+    .social-media__icon {
+      background: linear-gradient(
+        135deg,
+        rgba(131, 58, 180, 0.08),
+        rgba(253, 29, 29, 0.08),
+        rgba(252, 176, 69, 0.08)
+      );
+    }
+
+    .social-media__btn {
+      background: linear-gradient(135deg, #833AB4, #FD1D1D, #FCB045);
+      color: #fff;
+
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(131, 58, 180, 0.3);
+      }
+    }
+  }
+}
+
+// ── Icon (.social-icon) ───────────────────────────────────────
+.social-media__icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  font-size: 28px;
+
+  svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+// ── Card text ─────────────────────────────────────────────────
+.social-media__name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #3D0C0C;
+  margin-bottom: 8px;
+}
+
+.social-media__desc {
+  font-size: 14px;
+  color: #6B4C4C;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+// ── Button (.social-btn) ──────────────────────────────────────
+.social-media__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+
+  &:focus-visible {
+    outline: 2px solid #6B1010;
+    outline-offset: 3px;
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+// ── Responsive ────────────────────────────────────────────────
+@media (max-width: 600px) {
+  .social-media__grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -3,6 +3,7 @@ import Footer from '@/components/Footer/Footer';
 import PageHero from '@/components/PageHero/PageHero';
 import ContactForm from '@/components/ContactForm/ContactForm';
 import ContactMap from '@/components/ContactMap/ContactMap';
+import SocialMedia from '@/components/SocialMedia/SocialMedia';
 import FinalCTA from '@/components/FinalCTA/FinalCTA';
 
 export const metadata = {
@@ -21,6 +22,7 @@ export default function ContactRoute() {
         subtext="Whether you want to volunteer, donate, or simply learn more about our mission — every connection brings us closer to a kinder world."
       />
       <ContactForm />
+      <SocialMedia />
       <ContactMap />
       <FinalCTA
       heading="Every Act of Compassion Counts"

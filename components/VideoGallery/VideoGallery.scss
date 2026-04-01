@@ -1,0 +1,167 @@
+@import "../../styles/variables";
+
+// ── VideoGallery  |  BEM prefix: `video-gallery`
+// 3-column video card grid — Gallery page, below PhotoGallery
+
+.video-gallery {
+  padding: $space-20 5%;
+  background: $color-surface-base;
+  border-top: 1px solid $color-border;
+}
+
+// ── Section divider override — wheat accent ───────────────────
+.video-gallery__divider {
+  background: $color-wheat !important;
+}
+
+// ── Grid ─────────────────────────────────────────────────────
+.video-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-6;
+}
+
+// ── Card ─────────────────────────────────────────────────────
+.video-gallery__card {
+  border-radius: $radius-2xl;
+  overflow: hidden;
+  background: $color-surface-white;
+  border: 1px solid $color-border;
+  box-shadow: $shadow-card;
+  transition: transform $transition-base, box-shadow $transition-base;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0.75rem 2rem rgba(42, 10, 10, 0.12);
+
+    .video-gallery__play {
+      transform: translate(-50%, -50%) scale(1.1);
+      background: rgba($color-maroon-600, 0.95);
+    }
+
+    .video-gallery__thumb img {
+      transform: scale(1.05);
+    }
+  }
+}
+
+// ── Thumbnail ─────────────────────────────────────────────────
+.video-gallery__thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform $transition-image;
+  }
+}
+
+// ── Dark gradient overlay ─────────────────────────────────────
+.video-gallery__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba($color-maroon-950, 0.55) 0%,
+    rgba($color-maroon-950, 0.15) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+// ── Play button ───────────────────────────────────────────────
+.video-gallery__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 3.25rem;
+  height: 3.25rem;
+  background: rgba($color-maroon-600, 0.82);
+  border: 2px solid rgba($color-wheat, 0.55);
+  border-radius: $radius-full;
+  color: $color-wheat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform $transition-base, background $transition-base,
+    border-color $transition-fast;
+  padding: 0;
+
+  svg {
+    width: 1.125rem;
+    height: 1.125rem;
+    margin-left: 0.125rem; // optical centering for play triangle
+  }
+
+  &:hover {
+    background: $color-maroon-600;
+    border-color: $color-wheat;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-wheat;
+    outline-offset: 3px;
+  }
+
+  &:active {
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+}
+
+// ── Body ─────────────────────────────────────────────────────
+.video-gallery__body {
+  padding: $space-5 $space-6;
+}
+
+.video-gallery__title {
+  font-family: $font-display;
+  font-size: 1.0625rem;
+  font-weight: $font-weight-semibold;
+  color: $color-maroon-900;
+  line-height: 1.35;
+  margin: 0 0 $space-2;
+}
+
+.video-gallery__meta {
+  font-family: $font-body;
+  font-size: 0.8rem;
+  color: $color-muted;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+}
+
+.video-gallery__tag {
+  font-weight: $font-weight-semibold;
+  color: $color-gold-dark;
+}
+
+.video-gallery__dot {
+  color: $color-border;
+}
+
+// ── Responsive ────────────────────────────────────────────────
+@media (max-width: $bp-tablet) {
+  .video-gallery__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-5;
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .video-gallery {
+    padding: $space-16 5%;
+  }
+
+  .video-gallery__grid {
+    grid-template-columns: 1fr;
+    gap: $space-5;
+  }
+}

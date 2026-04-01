@@ -1,0 +1,246 @@
+@import "../../styles/variables";
+
+// ── Section shell ──────────────────────────────────────────────
+.before-after {
+  background: $color-surface-base;
+  padding: $space-24 5% $space-20;
+
+  .section-header {
+    text-align: center;
+    max-width: 44rem;
+    margin: 0 auto $space-16;
+  }
+
+  .section-overline {
+    font-family: $font-body;
+    font-size: 0.6875rem;
+    font-weight: $font-weight-semibold;
+    letter-spacing: $letter-spacing-widest;
+    text-transform: uppercase;
+    color: $color-gold-dark;
+    margin-bottom: $space-3;
+  }
+
+  h2 {
+    font-family: $font-display;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: $font-weight-bold;
+    color: $color-maroon-900;
+    letter-spacing: $letter-spacing-tight;
+    line-height: $line-height-heading;
+    margin-bottom: $space-4;
+  }
+
+  p {
+    color: $color-maroon-500;
+    font-size: 0.9375rem;
+    line-height: $line-height-body;
+  }
+
+  .section-divider {
+    width: 3rem;
+    height: 2px;
+    background: $color-gold;
+    margin: $space-6 auto 0;
+  }
+}
+
+// ── Grid ───────────────────────────────────────────────────────
+.ba-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-8;
+  max-width: 75rem;
+  margin: 0 auto;
+  align-items: stretch;
+
+  // StaggerItem wrapper must also stretch
+  > * {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (max-width: $bp-tablet) {
+    grid-template-columns: 1fr;
+    max-width: 36rem;
+  }
+}
+
+// ── Card ───────────────────────────────────────────────────────
+.ba-card {
+  background: $color-surface-white;
+  border-radius: $radius-2xl;
+  overflow: hidden;
+  box-shadow: $shadow-card;
+  border: 1px solid $color-border;
+  transition: box-shadow $transition-base, transform $transition-base;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &:hover {
+    box-shadow: 0 0.5rem 2rem rgba(42, 10, 10, 0.1);
+    transform: translateY(-3px);
+  }
+}
+
+// ── Slider container ───────────────────────────────────────────
+.ba-slider {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  cursor: col-resize;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.ba-slider__before,
+.ba-slider__after {
+  position: absolute;
+  inset: 0;
+
+  img {
+    display: block;
+  }
+}
+
+.ba-slider__after {
+  // clip-path set inline via JS
+  will-change: clip-path;
+}
+
+// ── Labels ────────────────────────────────────────────────────
+.ba-slider__label {
+  position: absolute;
+  top: 0.75rem;
+  font-family: $font-body;
+  font-size: 0.625rem;
+  font-weight: $font-weight-bold;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  border-radius: $radius-rounded;
+  color: #fff;
+  pointer-events: none;
+  z-index: 2;
+
+  &--before {
+    left: 0.75rem;
+    background: rgba(139, 26, 26, 0.85);
+  }
+
+  &--after {
+    right: 0.75rem;
+    background: rgba(76, 175, 80, 0.85);
+  }
+}
+
+// ── Divider & handle ──────────────────────────────────────────
+.ba-slider__divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: $color-surface-white;
+  z-index: 10;
+  transform: translateX(-50%);
+  pointer-events: none;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    background: rgba(255, 255, 255, 0.4);
+  }
+
+  &::before {
+    top: 0;
+    height: calc(50% - 24px);
+  }
+
+  &::after {
+    bottom: 0;
+    height: calc(50% - 24px);
+  }
+}
+
+.ba-slider__handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: $radius-full;
+  background: $color-surface-white;
+  border: 2px solid $color-border;
+  box-shadow: 0 2px 12px rgba(42, 10, 10, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.125rem;
+  cursor: col-resize;
+  pointer-events: all;
+  transition: box-shadow $transition-fast, background $transition-fast;
+
+  &:hover,
+  &:active {
+    background: $color-maroon-600;
+    box-shadow: 0 2px 16px rgba(139, 26, 26, 0.45);
+
+    .ba-slider__arrow {
+      color: $color-surface-white;
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-gold;
+    outline-offset: 2px;
+  }
+}
+
+.ba-slider__arrow {
+  font-size: 1.125rem;
+  font-weight: $font-weight-bold;
+  color: $color-maroon-600;
+  line-height: 1;
+  transition: color $transition-fast;
+  pointer-events: none;
+}
+
+// ── Card body ─────────────────────────────────────────────────
+.ba-card__body {
+  padding: $space-6;
+
+  h3 {
+    font-family: $font-display;
+    font-size: 1.125rem;
+    font-weight: $font-weight-semibold;
+    color: $color-maroon-900;
+    margin-bottom: $space-2;
+    line-height: 1.3;
+  }
+
+  p {
+    font-size: 0.875rem;
+    color: $color-maroon-500;
+    line-height: $line-height-body;
+    margin-bottom: $space-4;
+  }
+}
+
+.ba-card__tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: $font-weight-semibold;
+  color: #4a6428;
+  background: #eef5e0;
+  border: 1px solid #c8dea0;
+  border-radius: $radius-rounded;
+  padding: 0.25rem 0.75rem;
+  letter-spacing: 0.25px;
+}
