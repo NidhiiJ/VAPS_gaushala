@@ -292,3 +292,13 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+@media (min-width: $bp-big-desktop) {
+  .hero-heading {
+    font-size: clamp(4rem, 8vw, 6rem);
+  }
+
+  .hero-desc {
+    font-size: 1.25rem;
+  }
+}
