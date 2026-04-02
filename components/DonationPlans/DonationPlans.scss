@@ -2,7 +2,7 @@
 
 // ── Section wrapper ───────────────────────────────────────────
 .donation-plans {
-  padding: $space-24 5%;
+  padding: $space-24 5% 0 5%;
   background: $color-surface-white;
   position: relative;
   overflow: hidden;
@@ -72,7 +72,7 @@
 
 // ── Sponsor a Cow ─────────────────────────────────────────────
 .dp-sponsor {
-  margin-bottom: $space-12;
+  margin-bottom: $space-5;
 }
 
 .dp-sponsor-cards {
@@ -137,9 +137,9 @@
 }
 
 .dp-sp-amount {
-  font-family: $font-display;
-  font-size: clamp(2rem, 4vw, 2.75rem);
-  font-weight: $font-weight-extrabold;
+  font-family: $font-body;
+  font-size: clamp(1.5rem, 3vw, 1.8rem);
+  font-weight: $font-weight-bold;
   color: $color-maroon-900;
   line-height: 1;
   margin-bottom: $space-2;

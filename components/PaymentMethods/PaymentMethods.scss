@@ -9,9 +9,17 @@
 
 .pm-section {
   background-color: #fff;
-  border-top: 1px solid $color-border;
+  // border-top: 1px solid $color-border;
   border-bottom: 1px solid $color-border;
-  padding: clamp(#{$space-16}, 8vw, #{$space-24}) clamp(#{$space-6}, 5vw, #{$space-12});
+  padding: $space-16 $space-6;
+
+  @media (min-width: 768px) {
+    padding: $space-20 $space-10;
+  }
+
+  @media (min-width: 1024px) {
+    padding: $space-24 $space-12;
+  }
   position: relative;
   overflow: hidden;
 }
@@ -95,7 +103,7 @@
   border-right: 1.5px solid $color-border;
   cursor: pointer;
   font-family: $font-body;
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: $font-weight-semibold;
   color: $color-muted;
   letter-spacing: 0.15px;
@@ -143,6 +151,11 @@
   color: inherit;
   opacity: 0.65;
 
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
   .pm-tab--active & {
     opacity: 1;
   }
@@ -155,7 +168,7 @@
 // ── Tab content area ──────────────────────────────────────────────────────────
 
 .pm-content {
-  padding: clamp(#{$space-7}, 5vw, #{$space-10}) clamp(#{$space-5}, 6vw, #{$space-10});
+  padding: $space-8 $space-7;
   animation: pm-reveal 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
@@ -351,7 +364,7 @@
   background: $color-surface-white;
   border: 1px solid $color-border;
   border-radius: $radius-xl;
-  padding: $space-5 clamp(#{$space-4}, 4vw, #{$space-6});
+  padding: $space-5 $space-5;
   text-align: center;
   transition:
     border-color $transition-fast,
@@ -407,7 +420,7 @@
 
 @media (max-width: $bp-tablet) {
   .pm-tab {
-    font-size: 0.6875rem;
+    font-size: 0.92rem;
     padding: $space-4 $space-2;
   }
 }

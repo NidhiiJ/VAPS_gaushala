@@ -80,13 +80,13 @@ export default function DonationPlans() {
     <section className="donation-plans" id="donate">
       <div className="dp-inner">
 
-        <div className="dp-header">
+        {/* <div className="dp-header">
           <h2>How You Can Save Lives</h2>
           <p>
             Your contribution is not just a donation — it is{' '}
             <strong>food for the hungry, medicine for the injured, and shelter for the helpless.</strong>
           </p>
-        </div>
+        </div> */}
 
         {/* Sponsor a Cow */}
         <div className="dp-sponsor">
@@ -102,7 +102,7 @@ export default function DonationPlans() {
                 nutrition, clean shelter, regular medical checkups, and round-the-clock attention
                 from our dedicated caretakers.
               </p>
-              <a href="#" className="dp-sp-btn">Donate ₹15,000 →</a>
+              <a href="/contact" className="dp-sp-btn">Contact Us</a>
             </div>
 
             <div className="dp-sp-card">
@@ -114,7 +114,7 @@ export default function DonationPlans() {
                 entire lifetime care of one cow including food, shelter, medical treatment, and
                 end-of-life care.
               </p>
-              <a href="#" className="dp-sp-btn">Donate ₹2,07,000 →</a>
+              <a href="/contact" className="dp-sp-btn">Contact Us</a>
             </div>
 
           </div>
@@ -135,8 +135,9 @@ export default function DonationPlans() {
               </span>
             ))}
           </div>
+          <a href="/contact" className="dp-sp-btn">Contact Us</a>
 
-          <div className="dp-occ-amounts">
+          {/* <div className="dp-occ-amounts">
             {occasionAmounts.map((amt) => (
               <div key={amt} className="dp-occ-amt">
                 <div className="dp-oa-val">{amt}</div>
@@ -146,10 +147,8 @@ export default function DonationPlans() {
               <div className="dp-oa-val">₹Any</div>
               <div className="dp-oa-sub">as per devotion</div>
             </div>
-            <div className="dp-occ-amt dp-occ-amt--cta">
-              <a href="#" className="dp-sp-btn">Donate Now →</a>
-            </div>
-          </div>
+            
+          </div> */}
         </div>
 
         <div className="dp-quote">

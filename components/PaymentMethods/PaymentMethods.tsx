@@ -24,7 +24,7 @@ const BANKS = [
 
 const TAB_ICONS: Record<Tab, React.ReactNode> = {
   'Scan & Pay': (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <rect x="3" y="3" width="7" height="7"/>
       <rect x="14" y="3" width="7" height="7"/>
       <rect x="14" y="14" width="7" height="7"/>
@@ -32,13 +32,13 @@ const TAB_ICONS: Record<Tab, React.ReactNode> = {
     </svg>
   ),
   'UPI Transfer': (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <rect x="2" y="5" width="20" height="14" rx="2"/>
       <line x1="2" y1="10" x2="22" y2="10"/>
     </svg>
   ),
   'Bank Transfer': (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <polyline points="3 6 12 3 21 6"/>
       <line x1="3" y1="6" x2="21" y2="6"/>
       <line x1="5" y1="10" x2="5" y2="18"/>
@@ -89,47 +89,7 @@ function QRPane() {
   return (
     <div className="pm-qr">
       <div className="pm-qr__frame">
-        <svg width="180" height="180" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="QR Code for donation" role="img">
-          <rect width="200" height="200" fill="white"/>
-          {/* Top-left finder */}
-          <rect x="12" y="12" width="54" height="54" rx="4" fill="#2A0A0A"/>
-          <rect x="18" y="18" width="42" height="42" rx="2" fill="white"/>
-          <rect x="26" y="26" width="26" height="26" rx="2" fill="#2A0A0A"/>
-          {/* Top-right finder */}
-          <rect x="134" y="12" width="54" height="54" rx="4" fill="#2A0A0A"/>
-          <rect x="140" y="18" width="42" height="42" rx="2" fill="white"/>
-          <rect x="148" y="26" width="26" height="26" rx="2" fill="#2A0A0A"/>
-          {/* Bottom-left finder */}
-          <rect x="12" y="134" width="54" height="54" rx="4" fill="#2A0A0A"/>
-          <rect x="18" y="140" width="42" height="42" rx="2" fill="white"/>
-          <rect x="26" y="148" width="26" height="26" rx="2" fill="#2A0A0A"/>
-          {/* Data modules */}
-          <rect x="78" y="12" width="8" height="8" fill="#2A0A0A"/><rect x="94" y="12" width="8" height="8" fill="#2A0A0A"/>
-          <rect x="110" y="12" width="8" height="8" fill="#2A0A0A"/><rect x="78" y="28" width="8" height="8" fill="#2A0A0A"/>
-          <rect x="94" y="28" width="8" height="8" fill="#2A0A0A"/><rect x="110" y="28" width="8" height="8" fill="#2A0A0A"/>
-          <rect x="78" y="44" width="8" height="8" fill="#2A0A0A"/><rect x="110" y="44" width="8" height="8" fill="#2A0A0A"/>
-          <rect x="12" y="78" width="8" height="8" fill="#2A0A0A"/><rect x="28" y="78" width="8" height="8" fill="#2A0A0A"/>
-          <rect x="44" y="78" width="8" height="8" fill="#2A0A0A"/><rect x="60" y="86" width="8" height="8" fill="#2A0A0A"/>
-          <rect x="78" y="78" width="8" height="8" fill="#2A0A0A"/><rect x="94" y="78" width="8" height="8" fill="#2A0A0A"/>
-          <rect x="110" y="78" width="8" height="8" fill="#2A0A0A"/><rect x="126" y="86" width="8" height="8" fill="#2A0A0A"/>
-          <rect x="142" y="78" width="8" height="8" fill="#2A0A0A"/><rect x="158" y="78" width="8" height="8" fill="#2A0A0A"/>
-          <rect x="174" y="86" width="8" height="8" fill="#2A0A0A"/><rect x="12" y="94" width="8" height="8" fill="#2A0A0A"/>
-          <rect x="36" y="94" width="8" height="8" fill="#2A0A0A"/><rect x="52" y="102" width="8" height="8" fill="#2A0A0A"/>
-          <rect x="78" y="94" width="8" height="8" fill="#2A0A0A"/><rect x="94" y="102" width="8" height="8" fill="#2A0A0A"/>
-          <rect x="110" y="94" width="8" height="8" fill="#2A0A0A"/><rect x="126" y="102" width="8" height="8" fill="#2A0A0A"/>
-          <rect x="142" y="94" width="8" height="8" fill="#2A0A0A"/><rect x="158" y="102" width="8" height="8" fill="#2A0A0A"/>
-          <rect x="174" y="94" width="8" height="8" fill="#2A0A0A"/><rect x="12" y="110" width="8" height="8" fill="#2A0A0A"/>
-          <rect x="28" y="110" width="8" height="8" fill="#2A0A0A"/><rect x="44" y="110" width="8" height="8" fill="#2A0A0A"/>
-          <rect x="60" y="110" width="8" height="8" fill="#2A0A0A"/><rect x="78" y="110" width="8" height="8" fill="#2A0A0A"/>
-          <rect x="78" y="134" width="8" height="8" fill="#2A0A0A"/><rect x="94" y="142" width="8" height="8" fill="#2A0A0A"/>
-          <rect x="110" y="134" width="8" height="8" fill="#2A0A0A"/><rect x="126" y="142" width="8" height="8" fill="#2A0A0A"/>
-          <rect x="134" y="134" width="8" height="8" fill="#2A0A0A"/><rect x="150" y="150" width="8" height="8" fill="#2A0A0A"/>
-          <rect x="166" y="134" width="8" height="8" fill="#2A0A0A"/><rect x="174" y="142" width="8" height="8" fill="#2A0A0A"/>
-          <rect x="78" y="158" width="8" height="8" fill="#2A0A0A"/><rect x="94" y="166" width="8" height="8" fill="#2A0A0A"/>
-          <rect x="110" y="158" width="8" height="8" fill="#2A0A0A"/><rect x="134" y="166" width="8" height="8" fill="#2A0A0A"/>
-          <rect x="150" y="174" width="8" height="8" fill="#2A0A0A"/><rect x="166" y="158" width="8" height="8" fill="#2A0A0A"/>
-          <rect x="174" y="174" width="8" height="8" fill="#2A0A0A"/>
-        </svg>
+        <img src="/QR_code.png" width="180" height="180" alt="QR Code for donation" />
       </div>
       <p className="pm-qr__caption">Scan with any UPI app to donate</p>
       <p className="pm-qr__apps">Google Pay · PhonePe · Paytm · BHIM</p>
