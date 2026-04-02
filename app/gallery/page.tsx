@@ -24,11 +24,11 @@ export default function GalleryRoute() {
       <PhotoGallery />
       <VideoGallery />
       <BeforeAfter />
-      <FinalCTA
+      {/* <FinalCTA
         heading="Your Photos Can Help Too"
         subtext="Visited our gaushala? Share your photos and experience with the world. Tag us on social media or send us your pictures."
         buttons={[{ label: 'Share Your Photos →', href: '/contact', variant: 'primary' }]}
-      />
+      /> */}
       <Footer />
     </>
   );

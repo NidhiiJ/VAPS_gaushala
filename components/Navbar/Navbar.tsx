@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import './Navbar.scss';
 
 type NavLink = {
@@ -45,6 +46,26 @@ const navLinks: NavLink[] = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [openMobileSubmenu, setOpenMobileSubmenu] = useState<string | null>(null);
+  const pathname = usePathname();
+
+  const normalizePath = (path: string) => {
+    const out = path.replace(/\/+$/, '');
+    return out === '' ? '/' : out;
+  };
+
+  const normalizedPathname = normalizePath(pathname ?? '/');
+
+  const isPathActive = (href: string) => {
+    if (!href?.startsWith('/')) return false;
+    const normalizedHref = normalizePath(href);
+    if (normalizedHref === '/') return normalizedPathname === '/';
+    return normalizedPathname === normalizedHref || normalizedPathname.startsWith(`${normalizedHref}/`);
+  };
+
+  const isNavItemActive = (href: string, submenu?: NavLink['submenu']) => {
+    if (submenu?.length) return submenu.some(sub => isPathActive(sub.href));
+    return isPathActive(href);
+  };
 
   // Close menu on resize to desktop
   useEffect(() => {
@@ -89,10 +110,16 @@ export default function Navbar() {
 
         {/* Desktop nav links */}
         <div className="nav-links">
-          {navLinks.map(({ label, href, submenu }) =>
-            submenu ? (
+          {navLinks.map(({ label, href, submenu }) => {
+            const isActive = isNavItemActive(href, submenu);
+
+            return submenu ? (
               <div key={label} className="nav-item nav-item--has-dropdown">
-                <a href={href} className="nav-item-trigger">
+                <a
+                  href={href}
+                  className={`nav-item-trigger${isActive ? ' nav-link--active' : ''}`}
+                  aria-current={isActive ? 'page' : undefined}
+                >
                   {label}
                   <svg className="nav-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                     <path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -109,11 +136,11 @@ export default function Navbar() {
                 </div>
               </div>
             ) : (
-              <a key={label} href={href}>
+              <a key={label} href={href} className={isActive ? 'nav-link--active' : undefined} aria-current={isActive ? 'page' : undefined}>
                 {label}
               </a>
-            )
-          )}
+            );
+          })}
           <a href="/donate" className="btn-donate">
             Donate Now
           </a>
@@ -172,17 +199,20 @@ export default function Navbar() {
         </div>
 
         <nav className="mobile-nav">
-          {navLinks.map(({ label, href, submenu }, i) =>
-            submenu ? (
+          {navLinks.map(({ label, href, submenu }, i) => {
+            const isActive = isNavItemActive(href, submenu);
+
+            return submenu ? (
               <div
                 key={label}
                 className={`mobile-nav-item mobile-nav-item--has-sub${openMobileSubmenu === label ? ' mobile-nav-item--open' : ''}`}
                 style={{ '--i': i } as React.CSSProperties}
               >
                 <button
-                  className="mobile-nav-link mobile-nav-link--trigger"
+                  className={`mobile-nav-link mobile-nav-link--trigger${isActive ? ' mobile-nav-link--trigger--active' : ''}`}
                   onClick={() => toggleMobileSubmenu(label)}
                   aria-expanded={openMobileSubmenu === label}
+                  aria-current={isActive ? 'page' : undefined}
                 >
                   <span className="mobile-nav-num">0{i + 1}</span>
                   <span className="mobile-nav-link-label">{label}</span>
@@ -209,15 +239,15 @@ export default function Navbar() {
               <a
                 key={label}
                 href={href}
-                className="mobile-nav-link"
+                className={`mobile-nav-link${isActive ? ' mobile-nav-link--active' : ''}`}
                 style={{ '--i': i } as React.CSSProperties}
                 onClick={() => setIsOpen(false)}
               >
                 <span className="mobile-nav-num">0{i + 1}</span>
                 {label}
               </a>
-            )
-          )}
+            );
+          })}
         </nav>
         <div className="mobile-menu-footer">
           <a

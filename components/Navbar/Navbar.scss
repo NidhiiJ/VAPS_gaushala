@@ -111,6 +111,10 @@
       color: $color-maroon-700;
     }
 
+    &.nav-link--active {
+      color: $color-maroon-700;
+    }
+
     // Animated underline
     &::after {
       content: '';
@@ -124,6 +128,10 @@
     }
 
     &:hover::after {
+      width: 100%;
+    }
+
+    &.nav-link--active::after {
       width: 100%;
     }
   }
@@ -448,6 +456,10 @@
     color: $color-surface-white;
   }
 
+  &--active {
+    color: $color-surface-white;
+  }
+
   &:active {
     color: $color-gold;
   }
@@ -550,6 +562,10 @@
   transition: color 0.2s ease;
 
   &:hover {
+    color: $color-surface-white;
+  }
+
+  &--active {
     color: $color-surface-white;
   }
 

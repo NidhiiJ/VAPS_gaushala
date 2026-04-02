@@ -3,12 +3,12 @@
 // ── Section shell ──────────────────────────────────────────────
 .before-after {
   background: $color-surface-base;
-  padding: $space-24 5% $space-20;
+  padding: $space-8 5% $space-20;
 
   .section-header {
     text-align: center;
     max-width: 44rem;
-    margin: 0 auto $space-16;
+    margin: 0 auto $space-8;
   }
 
   .section-overline {
