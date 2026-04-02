@@ -1,5 +1,10 @@
 @import "variables";
 
+// ── Global H2 Typography ─────────────────────────────────────
+h2 {
+  font-size: $h2-font-size;
+}
+
 // ── Shared Section Header ─────────────────────────────────────
 // Used by Services, Gallery, Testimonials, VisitorsBook, etc.
 .section-header {
@@ -18,7 +23,6 @@
 
   h2 {
     font-family: $font-display;
-    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
     font-weight: $font-weight-bold;
     color: $color-maroon-900;
     line-height: 1.2;
@@ -42,6 +46,10 @@
 
 // ── Responsive ───────────────────────────────────────────────
 @media (max-width: $bp-tablet) {
+  h2 {
+    font-size: $h2-font-size-responsive;
+  }
+
   .section-header {
     margin: 0 auto 2rem;
   }

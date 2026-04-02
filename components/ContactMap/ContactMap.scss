@@ -72,3 +72,10 @@
     }
   }
 }
+
+// ── Mobile ──────────────────────────────────────────────────
+@media (max-width: $bp-tablet) {
+  .cmap-section {
+    padding: 0 5% 3rem 5%;
+  }
+}

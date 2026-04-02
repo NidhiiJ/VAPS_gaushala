@@ -7,8 +7,8 @@
 // ─────────────────────────────────────────────────────────────
 
 .cf-section {
-  padding: $space-20 0;
-  max-width: $bp-desktop;
+  padding: $space-20 5%;
+  max-width: $bp-medium-desktop;
   margin: 0 auto;
 }
 
@@ -84,7 +84,6 @@
 
   &__heading {
     font-family: $font-display;
-    font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: $font-weight-bold;
     color: $color-maroon-900;
     margin-bottom: $space-2;

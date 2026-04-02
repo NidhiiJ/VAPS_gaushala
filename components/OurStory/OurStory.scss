@@ -119,7 +119,6 @@
 // Heading
 .story-text h2 {
   font-family: $font-display;
-  font-size: clamp(1.625rem, 3.2vw, 2.375rem);
   font-weight: $font-weight-bold;
   color: $color-maroon-900;
   line-height: 1.18;
@@ -202,7 +201,6 @@
 
   .story-text h2 {
     font-family: $font-display;
-    font-size: 2rem;
   }
 }
 
