@@ -206,4 +206,15 @@
   .emr-stats {
     flex-wrap: wrap;
   }
+  
+}
+
+@media (max-width: $bp-mobile) {
+  .emr-stats {
+    gap: $space-3;
+  }
+
+  .emr-stat-value {
+    font-size: 1.4rem;
+  }
 }

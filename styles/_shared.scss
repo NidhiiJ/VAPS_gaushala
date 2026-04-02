@@ -39,3 +39,10 @@
     margin: $space-3 auto 0;
   }
 }
+
+// ── Responsive ───────────────────────────────────────────────
+@media (max-width: $bp-tablet) {
+  .section-header {
+    margin: 0 auto 2rem;
+  }
+}

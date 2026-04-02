@@ -2,7 +2,7 @@
 
 .final-cta {
   background: $color-maroon-950;
-  padding: 6.25rem 5% 8rem 5%;
+  padding: 6.25rem 5% ;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -80,4 +80,11 @@
   font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.3);
   margin-top: $space-5;
+}
+
+// ── Responsive ────────────────────────────────────────────────
+@media (max-width: $bp-tablet) {
+  .final-cta {
+    padding: 5rem 5% 
+  };
 }

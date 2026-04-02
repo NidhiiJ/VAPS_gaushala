@@ -119,3 +119,15 @@
     border-color: $color-maroon-700;
   }
 }
+
+// ── Responsive ───────────────────────────────────────────────
+@media (max-width: $bp-tablet) {
+  .testimonials {
+    padding: 5rem 5%;
+  }
+}
+
+@media (max-width: $bp-mobile) {
+}
+
+

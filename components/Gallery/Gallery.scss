@@ -36,6 +36,10 @@
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .gallery {
+    padding: $space-20 5% $space-8 5%;
+  }
 }
 
 @media (max-width: $bp-mobile) {

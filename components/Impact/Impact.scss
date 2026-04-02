@@ -25,7 +25,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  gap: $space-10;
+  gap: $space-5;
 }
 
 .i-left {
@@ -196,5 +196,9 @@
 @media (max-width: $bp-mobile) {
   .impact-row {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .impact-block {
+    padding: 5rem 5%;
   }
 }

@@ -72,3 +72,11 @@
   color: $color-maroon-500;
   font-weight: $font-weight-medium;
 }
+
+// ── Responsive ────────────────────────────────────────────────
+@media (max-width: $bp-tablet) {
+  .visitors-book {
+    padding: 5rem 5%;
+  }
+}
+

@@ -195,4 +195,23 @@
     font-size: 2.25rem;
     padding: 0.625rem 1.25rem;
   }
+
+  .story-img {
+    border-radius: 1.5rem 1.5rem 0 0;
+  }
+
+  .story-text h2 {
+    font-family: $font-display;
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .story-text {
+    padding: 3rem 1.5rem 1.5rem 1.5rem;
+  }
+
+  .story-block {
+    padding: 5rem 5%;
+  }
 }
