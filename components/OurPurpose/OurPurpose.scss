@@ -4,20 +4,19 @@
 // Section header + two-column vision/mission cards
 
 .purpose-block {
-  background: $color-surface-white;
+  background: $color-surface-base;
   padding: $space-24 5% $space-24;
   position: relative;
   overflow: hidden;
 
-  &::after {
+  &::before {
     content: '';
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
     right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, transparent, $color-maroon-600, transparent);
-    opacity: 0.15;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $color-border 20%, $color-border 80%, transparent);
   }
 }
 
@@ -73,132 +72,122 @@
 .purpose-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: $space-6;
+  gap: 1.75rem;
 }
 
 // ── Cards
 .purpose-card {
+  background: $color-surface-white;
+  border: 1px solid $color-border;
   border-radius: $radius-3xl;
-  padding: 2.75rem 2.5rem;
+  padding: 3.25rem 2.75rem;
   position: relative;
   overflow: hidden;
+  transition: transform $transition-base, box-shadow $transition-base;
+
+  // 3px top accent bar
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    border-radius: $radius-3xl $radius-3xl 0 0;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(42, 10, 10, 0.08);
+  }
 
   .pc-icon {
     width: 52px;
     height: 52px;
-    border-radius: $radius-lg;
+    border-radius: $radius-xl;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: $space-5;
+    margin-bottom: 1.75rem;
   }
 
   .pc-label {
-    font-size: 0.6875rem;
+    font-size: 0.625rem;
     font-weight: $font-weight-bold;
-    letter-spacing: $letter-spacing-widest;
+    letter-spacing: 3.5px;
     text-transform: uppercase;
-    margin-bottom: $space-3;
+    margin-bottom: $space-4;
+    color: $color-maroon-700;
   }
 
   h3 {
     font-family: $font-display;
-    font-size: clamp(1.375rem, 2.2vw, 1.75rem);
+    font-size: clamp(1.375rem, 2.6vw, 1.875rem);
     font-weight: $font-weight-bold;
-    line-height: 1.25;
-    margin-bottom: $space-4;
+    color: $color-maroon-900;
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
   }
 
   p {
-    font-size: 0.9375rem;
-    line-height: $line-height-body;
+    font-size: 0.90625rem;
+    line-height: 1.9;
+    color: $color-maroon-500;
   }
 
   ul {
     list-style: none;
-    margin: 0;
+    margin: 0.25rem 0 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: $space-3;
 
     li {
-      font-size: 0.9375rem;
-      line-height: 1.6;
-      padding-left: 1.25rem;
-      position: relative;
+      font-size: 0.90625rem;
+      line-height: 1.75;
+      color: $color-maroon-500;
+      padding: 0.6875rem 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.875rem;
+      border-bottom: 1px solid rgba($color-border, 0.7);
+
+      &:last-child {
+        border-bottom: none;
+      }
 
       &::before {
         content: '';
-        position: absolute;
-        left: 0;
-        top: 0.5em;
         width: 6px;
         height: 6px;
-        border-radius: 50%;
+        border-radius: $radius-full;
+        background: $color-maroon-700;
         flex-shrink: 0;
+        margin-top: 0.5em;
       }
     }
   }
 }
 
-// Vision card — dark maroon
+// Vision card — gold accent
 .purpose-card--vision {
-  background: linear-gradient(145deg, $color-maroon-900, $color-maroon-950);
+  &::before {
+    background: linear-gradient(90deg, #C8951A, #E8B86D);
+  }
 
   .pc-icon {
-    background: rgba($color-wheat, 0.1);
-  }
-
-  .pc-label {
-    color: rgba($color-wheat, 0.7);
-  }
-
-  h3 {
-    color: $color-surface-white;
-  }
-
-  p {
-    color: rgba(255, 255, 255, 0.65);
-  }
-
-  // Decorative radial in corner
-  &::after {
-    content: '';
-    position: absolute;
-    top: -60px;
-    right: -60px;
-    width: 200px;
-    height: 200px;
-    border-radius: $radius-full;
-    background: radial-gradient(circle, rgba($color-maroon-600, 0.3), transparent 70%);
-    pointer-events: none;
+    background: rgba(212, 160, 85, 0.12);
+    border: 1px solid rgba(212, 160, 85, 0.25);
   }
 }
 
-// Mission card — warm cream
+// Mission card — maroon accent
 .purpose-card--mission {
-  background: linear-gradient(145deg, $color-surface-cream, $color-surface-warm);
-  border: 1px solid rgba($color-border, 0.7);
+  &::before {
+    background: linear-gradient(90deg, $color-maroon-700, #8B2A2A);
+  }
 
   .pc-icon {
-    background: rgba($color-maroon-600, 0.08);
-  }
-
-  .pc-label {
-    color: $color-maroon-700;
-  }
-
-  h3 {
-    color: $color-maroon-900;
-  }
-
-  ul li {
-    color: $color-maroon-500;
-
-    &::before {
-      background: $color-maroon-600;
-    }
+    background: rgba($color-maroon-700, 0.07);
+    border: 1px solid rgba($color-maroon-700, 0.13);
   }
 }
 
@@ -215,6 +204,6 @@
   }
 
   .purpose-card {
-    padding: 2rem 1.75rem;
+    padding: 2.5rem 1.75rem;
   }
 }

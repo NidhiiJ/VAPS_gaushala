@@ -63,7 +63,7 @@ export default function Footer() {
 
       <div className="footer-bottom">
         <span>&copy; 2026 Suri Prem Jiv Raksha Kendra Sansthan. All rights reserved.</span>
-        <span>Made with ❤ by <a href="https://www.flayk.in" className="flayk-link">Flayk</a></span>
+        <span>Made with ❤ by <a href="https://www.flayk.in" target='_blank' className="flayk-link">Flayk Solutions</a></span>
       </div>
     </footer>
   );

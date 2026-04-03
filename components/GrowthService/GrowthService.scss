@@ -5,50 +5,32 @@
 
 .growth-block {
   background: $color-surface-base;
-  padding: $space-24 5% $space-24;
+  padding: 6.25rem 5%;
   position: relative;
   overflow: hidden;
-
-  &::before {
-    content: 'SEVA';
-    position: absolute;
-    top: 50%;
-    right: -40px;
-    transform: translateY(-50%) rotate(90deg);
-    font-family: $font-display;
-    font-size: clamp(6rem, 14vw, 12rem);
-    font-weight: $font-weight-extrabold;
-    color: rgba($color-maroon-600, 0.03);
-    letter-spacing: 20px;
-    pointer-events: none;
-    white-space: nowrap;
-  }
 }
 
 .growth-inner {
-  max-width: 75rem;
+  max-width: 68.75rem;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1.2fr 1fr;
   gap: $space-16;
   align-items: center;
 }
 
 // ── Text column
 .growth-text {
-  background: linear-gradient(135deg, $color-surface-cream, $color-surface-warm);
-  border-radius: $radius-3xl;
-  padding: 3rem 2.75rem;
-  border: 1px solid rgba($color-border, 0.6);
+  // no card wrapper — text sits directly on page bg
 }
 
 .gt-label {
   font-size: 0.6875rem;
   font-weight: $font-weight-bold;
   color: $color-maroon-700;
-  letter-spacing: $letter-spacing-widest;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  margin-bottom: $space-4;
+  margin-bottom: $space-5;
   display: flex;
   align-items: center;
   gap: $space-3;
@@ -64,6 +46,7 @@
 
 .growth-text h2 {
   font-family: $font-display;
+  font-size: clamp(1.625rem, 3.2vw, 2.375rem);
   font-weight: $font-weight-bold;
   color: $color-maroon-900;
   line-height: $line-height-heading;
@@ -73,7 +56,7 @@
 .growth-text p {
   font-size: 0.9375rem;
   color: $color-maroon-500;
-  line-height: $line-height-body;
+  line-height: 1.85;
   margin-bottom: $space-4;
 
   strong {
@@ -86,7 +69,7 @@
 .growth-stats {
   display: flex;
   gap: $space-4;
-  margin-top: $space-6;
+  margin-top: $space-7;
   flex-wrap: wrap;
 }
 
@@ -95,30 +78,31 @@
   min-width: 80px;
   background: $color-surface-white;
   border: 1px solid $color-border;
-  border-radius: $radius-xl;
-  padding: 1rem 1.25rem;
+  border-radius: $radius-2xl;
+  padding: $space-6;
   text-align: center;
-  transition: box-shadow $transition-fast, border-color $transition-fast;
+  transition: transform $transition-base, box-shadow $transition-base, border-color $transition-base;
 
   &:hover {
-    box-shadow: $shadow-sm;
-    border-color: rgba($color-maroon-600, 0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px rgba(42, 10, 10, 0.06);
+    border-color: transparent;
   }
 
   &__num {
     font-family: $font-display;
-    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-size: 2.25rem;
     font-weight: $font-weight-extrabold;
     color: $color-maroon-900;
     line-height: 1;
-    margin-bottom: $space-1;
+    margin-bottom: $space-2;
   }
 
   &__label {
     font-size: 0.6875rem;
     font-weight: $font-weight-semibold;
-    color: $color-maroon-500;
-    letter-spacing: 0.5px;
+    color: $color-muted;
+    letter-spacing: 1.2px;
     text-transform: uppercase;
   }
 }
@@ -129,10 +113,10 @@
 }
 
 .growth-img {
-  border-radius: $radius-3xl 0 $radius-3xl $radius-3xl;
+  border-radius: 1.5rem;
   overflow: hidden;
-  aspect-ratio: 4 / 3;
-  box-shadow: 0 1.5rem 4rem rgba(42, 10, 10, 0.1);
+  background: #E8D5C0;
+  box-shadow: 0 20px 56px rgba(42, 10, 10, 0.08);
 
   img {
     width: 100%;
@@ -152,14 +136,14 @@
     grid-template-columns: 1fr;
   }
 
-  .growth-text {
-    padding: 2rem 1.5rem;
+  .growth-visual {
+    order: -1;
   }
 }
 
 @media (max-width: $bp-mobile) {
   .growth-block {
-    padding: $space-16 5% $space-16;
+    padding: $space-16 5%;
   }
 
   .growth-stats {

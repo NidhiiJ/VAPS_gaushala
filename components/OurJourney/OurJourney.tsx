@@ -2,23 +2,11 @@ import Image from 'next/image';
 import { Reveal } from '@/components/Reveal';
 import './OurJourney.scss';
 
-const highlights = [
-  {
-    title: 'Rooted in Ahimsa',
-    desc: 'Guided by the sacred Jain principle of non-violence toward all living beings.',
-  },
-  {
-    title: 'Community-Driven',
-    desc: 'Built through collective effort, sacrifice, and unwavering faith in seva.',
-  },
-  {
-    title: 'Social Responsibility',
-    desc: 'True religion expressed through active service to society and all creatures.',
-  },
-  {
-    title: 'Ever Growing',
-    desc: 'From 7 founders to 218 dedicated members across four cities in India.',
-  },
+const cities = [
+  { name: 'Mumbai', members: 72 },
+  { name: 'Bhilwara', members: 48 },
+  { name: 'Surat', members: 56 },
+  { name: 'Ahmedabad', members: 42 },
 ];
 
 export default function OurJourney() {
@@ -36,12 +24,12 @@ export default function OurJourney() {
             />
           </div>
           <div className="journey-badge">
-            <div className="journey-badge__year">1986</div>
-            <div className="journey-badge__label">Established</div>
+            <div className="jb-year">1986</div>
+            <div className="jb-label">Established</div>
           </div>
           <div className="journey-float">
-            <div className="journey-float__num">7</div>
-            <div className="journey-float__text">Founding<br />Members</div>
+            <div className="jf-num">7</div>
+            <div className="jf-text">Founding<br />Members</div>
           </div>
         </Reveal>
 
@@ -63,11 +51,19 @@ export default function OurJourney() {
             into active social responsibility.
           </p>
 
-          <div className="journey-highlights">
-            {highlights.map((h) => (
-              <div key={h.title} className="jh-card">
-                <h4>{h.title}</h4>
-                <p>{h.desc}</p>
+          <div className="journey-members">
+            {cities.map((city) => (
+              <div key={city.name} className="jm-card">
+                <div className="jm-pin">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="jm-city">{city.name}</div>
+                  <div className="jm-badge">{city.members} Active Members</div>
+                </div>
               </div>
             ))}
           </div>

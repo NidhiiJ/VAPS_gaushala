@@ -1,13 +1,23 @@
 @import "../../styles/variables";
 
 // ── PresentDay  |  prefix: `present-`
-// Text + image top, care grid, member cities row
+// Image left, text right, no care grid, no members row
 
 .present-block {
-  background: $color-surface-white;
-  padding: $space-24 5% $space-24;
+  background: $color-surface-base;
+  padding: 7.5rem 5%;
   position: relative;
   overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $color-border 20%, $color-border 80%, transparent);
+  }
 }
 
 .present-inner {
@@ -15,21 +25,41 @@
   margin: 0 auto;
 }
 
-// ── Top: text + image
+// ── Top: image + text
 .present-top {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: $space-14;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
   align-items: center;
-  margin-bottom: $space-16;
+}
+
+// Image
+.present-visual {
+  position: relative;
+}
+
+.present-img {
+  border-radius: 1.5rem;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: #E8D5C0;
+  box-shadow: 0 1.25rem 3.5rem rgba(42, 10, 10, 0.08);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform $transition-image;
+  }
+
+  .present-visual:hover & img {
+    transform: scale(1.03);
+  }
 }
 
 // Text panel
 .present-text {
-  background: linear-gradient(135deg, $color-surface-cream, $color-surface-warm);
-  border: 1px solid rgba($color-border, 0.6);
-  border-radius: $radius-3xl;
-  padding: 3rem 2.75rem;
+  // no card — plain text on section background
 }
 
 .pt-label {
@@ -76,168 +106,15 @@
   }
 }
 
-// Image
-.present-visual {
-  position: relative;
-}
-
-.present-img {
-  border-radius: 0 $radius-3xl $radius-3xl $radius-3xl;
-  overflow: hidden;
-  aspect-ratio: 4 / 3;
-  box-shadow: 0 1.5rem 4rem rgba(42, 10, 10, 0.1);
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform $transition-image;
-  }
-
-  .present-visual:hover & img {
-    transform: scale(1.03);
-  }
-}
-
-// ── Care grid
-.care-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: $space-4;
-  margin-bottom: $space-10;
-}
-
-.care-card {
-  background: $color-surface-base;
-  border: 1px solid $color-border;
-  border-radius: $radius-2xl;
-  padding: 1.75rem 1.5rem;
-  text-align: center;
-  transition: box-shadow $transition-fast, border-color $transition-fast, transform $transition-fast;
-
-  &:hover {
-    box-shadow: $shadow-card;
-    border-color: rgba($color-maroon-600, 0.2);
-    transform: translateY(-2px);
-  }
-
-  &__icon {
-    font-size: 1.75rem;
-    margin-bottom: $space-3;
-    line-height: 1;
-  }
-
-  h4 {
-    font-size: 0.9375rem;
-    font-weight: $font-weight-semibold;
-    color: $color-maroon-900;
-    margin-bottom: $space-2;
-  }
-
-  p {
-    font-size: 0.8125rem;
-    color: $color-maroon-500;
-    line-height: 1.6;
-    margin: 0;
-  }
-}
-
-// ── Member cities row
-.members-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: $space-4;
-  padding: $space-8 $space-8;
-  background: linear-gradient(135deg, $color-maroon-900, $color-maroon-950);
-  border-radius: $radius-2xl;
-}
-
-.member-city {
-  text-align: center;
-  padding: $space-4 $space-2;
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
-
-  &:last-child {
-    border-right: none;
-  }
-
-  &__name {
-    font-family: $font-display;
-    font-size: 1.375rem;
-    font-weight: $font-weight-bold;
-    color: $color-surface-white;
-    margin-bottom: $space-2;
-  }
-
-  &__status {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: $space-2;
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.45);
-    font-weight: $font-weight-medium;
-    letter-spacing: 0.5px;
-  }
-
-  &__dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: $color-green;
-    flex-shrink: 0;
-    animation: pulse 2s ease-in-out infinite;
-  }
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.4; }
-}
-
 // ── Responsive
 @media (max-width: $bp-tablet) {
   .present-top {
     grid-template-columns: 1fr;
   }
-
-  .care-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .members-row {
-    grid-template-columns: repeat(2, 1fr);
-
-    .member-city {
-      &:nth-child(2),
-      &:nth-child(4) {
-        border-right: none;
-      }
-
-      &:nth-child(1),
-      &:nth-child(2) {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        padding-bottom: $space-5;
-      }
-    }
-  }
 }
 
 @media (max-width: $bp-mobile) {
   .present-block {
-    padding: $space-16 5% $space-16;
-  }
-
-  .care-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .members-row {
-    grid-template-columns: 1fr 1fr;
-    padding: $space-6 $space-4;
-  }
-
-  .present-text {
-    padding: 2rem 1.5rem;
+    padding: $space-16 5%;
   }
 }

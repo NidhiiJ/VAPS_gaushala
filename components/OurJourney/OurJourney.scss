@@ -12,14 +12,16 @@
   &::before {
     content: '1986';
     position: absolute;
-    bottom: -20px;
-    left: -20px;
+    top: 50%;
+    right: -40px;
+    transform: translateY(-50%) rotate(90deg);
     font-family: $font-display;
-    font-size: clamp(8rem, 18vw, 16rem);
+    font-size: clamp(100px, 14vw, 200px);
     font-weight: $font-weight-extrabold;
-    color: rgba($color-maroon-600, 0.04);
+    color: rgba($color-maroon-700, 0.025);
+    letter-spacing: 20px;
     pointer-events: none;
-    line-height: 1;
+    white-space: nowrap;
   }
 }
 
@@ -39,7 +41,7 @@
 }
 
 .journey-img {
-  border-radius: $radius-3xl 0 $radius-3xl $radius-3xl;
+  border-radius: $radius-3xl ;
   overflow: hidden;
   aspect-ratio: 4 / 5;
   box-shadow: 0 1.5rem 4rem rgba(42, 10, 10, 0.12);
@@ -68,20 +70,20 @@
   box-shadow: 0 0.5rem 2rem rgba(42, 10, 10, 0.25);
   z-index: 3;
 
-  &__year {
+  .jb-year {
     font-family: $font-display;
-    font-size: 2.25rem;
+    font-size: 2.75rem;
     font-weight: $font-weight-extrabold;
     line-height: 1;
   }
 
-  &__label {
-    font-size: 0.6875rem;
-    font-weight: $font-weight-semibold;
-    letter-spacing: $letter-spacing-widest;
+  .jb-label {
+    font-size: 0.625rem;
+    letter-spacing: 2px;
     text-transform: uppercase;
     color: rgba($color-wheat, 0.6);
-    margin-top: 4px;
+    margin-top: 2px;
+    font-family: $font-body;
   }
 }
 
@@ -99,29 +101,26 @@
   box-shadow: $shadow-card;
   z-index: 3;
 
-  &__num {
+  .jf-num {
     font-family: $font-display;
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: $font-weight-extrabold;
-    color: $color-maroon-900;
+    color: $color-maroon-700;
     line-height: 1;
   }
 
-  &__text {
-    font-size: 0.75rem;
-    font-weight: $font-weight-medium;
-    color: $color-maroon-500;
-    line-height: 1.4;
+  .jf-text {
+    font-size: 0.6875rem;
+    font-weight: $font-weight-semibold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.3;
+    color: $color-maroon-900;
   }
 }
 
 // ── Text column
-.journey-text {
-  background: linear-gradient(135deg, $color-surface-cream, $color-surface-warm);
-  border-radius: $radius-3xl;
-  padding: 3rem 2.75rem;
-  border: 1px solid rgba($color-border, 0.6);
-}
+.journey-text {}
 
 .jt-label {
   font-size: 0.6875rem;
@@ -163,39 +162,75 @@
   }
 }
 
-// ── Highlights grid
-.journey-highlights {
+// ── Member city cards
+.journey-members {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: $space-3;
-  margin-top: $space-6;
+  margin-top: $space-7;
 }
 
-.jh-card {
-  background: $color-surface-white;
+.jm-card {
+  background: linear-gradient(135deg, $color-surface-cream, $color-surface-warm);
   border: 1px solid $color-border;
-  border-radius: $radius-lg;
-  padding: 1rem 1.125rem;
-  transition: box-shadow $transition-fast, border-color $transition-fast;
+  border-radius: $radius-xl;
+  padding: 1.25rem 1.375rem;
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  transition: transform $transition-base, box-shadow $transition-base, border-color $transition-base;
 
   &:hover {
-    box-shadow: $shadow-sm;
-    border-color: rgba($color-maroon-600, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(42, 10, 10, 0.08);
+    border-color: $color-gold;
   }
+}
 
-  h4 {
-    font-family: $font-body;
-    font-size: 0.8125rem;
-    font-weight: $font-weight-semibold;
-    color: $color-maroon-900;
-    margin-bottom: $space-1;
+.jm-pin {
+  width: 36px;
+  height: 36px;
+  border-radius: $radius-full;
+  background: rgba($color-maroon-700, 0.07);
+  border: 1px solid rgba($color-maroon-700, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: $color-maroon-700;
+
+  svg {
+    width: 16px;
+    height: 16px;
   }
+}
 
-  p {
-    font-size: 0.78125rem;
-    color: $color-maroon-500;
-    line-height: 1.6;
-    margin: 0;
+.jm-city {
+  font-family: $font-display;
+  font-size: 1.0625rem;
+  font-weight: $font-weight-bold;
+  color: $color-maroon-900;
+  line-height: 1.2;
+}
+
+.jm-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 3px;
+  font-size: 0.65625rem;
+  font-weight: $font-weight-semibold;
+  color: $color-green;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+
+  &::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: $radius-full;
+    background: $color-green;
+    flex-shrink: 0;
   }
 }
 
@@ -215,18 +250,13 @@
     bottom: -1.25rem;
   }
 
-  .journey-text {
-    border-radius: $radius-2xl;
-    padding: 2rem 1.5rem;
+  .journey-members {
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: $bp-mobile) {
   .journey-block {
     padding: $space-16 5% $space-16;
-  }
-
-  .journey-highlights {
-    grid-template-columns: 1fr;
   }
 }
