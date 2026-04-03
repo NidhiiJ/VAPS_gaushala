@@ -7,7 +7,11 @@ import './VisitorsBook.scss';
 
 const TOTAL_PAGES = 15;
 
-export default function VisitorsBook() {
+interface VisitorsBookProps {
+  showDownloadButton?: boolean;
+}
+
+export default function VisitorsBook({ showDownloadButton }: VisitorsBookProps) {
   const [current, setCurrent] = useState(0);
 
   const navigate = (dir: number) => {
@@ -24,6 +28,15 @@ export default function VisitorsBook() {
           <div className="section-divider" />
         </div>
       </Reveal>
+      {showDownloadButton && (
+        <Reveal variant="fade-up">
+          <div className="visitors-book-download">
+            <a href="/visitors-book.pdf" download className="btn-cta-primary">
+              Download Complete PDF
+            </a>
+          </div>
+        </Reveal>
+      )}
 
       <Reveal variant="fade-up" delay={0.15}>
       <div className="pdf-viewer">

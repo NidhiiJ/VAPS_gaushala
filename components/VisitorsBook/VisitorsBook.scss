@@ -3,12 +3,26 @@
 .visitors-book {
   padding: 6.25rem 5%;
   background: $color-surface-base;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-10;
+
+  .section-header {
+    width: 100%;
+    margin: 0 !important;
+  }
+}
+
+.visitors-book-download {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .pdf-viewer {
+  width: 100%;
   max-width: 60rem;
-  margin: 0 auto;
-  position: relative;
 }
 
 .pdf-viewer-wrap {
@@ -17,11 +31,14 @@
   overflow: hidden;
   box-shadow: $shadow-card;
   border: 1px solid $color-border;
+  display: flex;
+  flex-direction: column;
 }
 
 .pdf-display {
   position: relative;
   overflow: hidden;
+  flex: 1;
 }
 
 .pdf-page {
@@ -33,6 +50,7 @@
 
   img {
     width: 100%;
+    height: auto;
     display: block;
   }
 }
@@ -77,6 +95,22 @@
 @media (max-width: $bp-tablet) {
   .visitors-book {
     padding: 5rem 5%;
+    gap: $space-8;
   }
 }
 
+@media (max-width: $bp-mobile) {
+  .visitors-book {
+    padding: 4rem 4%;
+    gap: $space-6;
+  }
+
+  .pdf-controls {
+    padding: 0.75rem $space-4;
+  }
+
+  .pdf-btn {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+}

@@ -35,11 +35,11 @@ const navLinks: NavLink[] = [
     href: '#',
     submenu: [
       { label: 'Certifications', href: '#certifications' },
-      { label: 'Publications', href: '#publications' },
+      { label: 'Publications', href: '/publications' },
     ],
   },
   { label: 'Gallery', href: '/gallery' },
-  { label: 'Testimonials', href: '#' },
+  { label: 'Testimonials', href: '/testimonials' },
   { label: 'Contact', href: '/contact' },
 ];
 
