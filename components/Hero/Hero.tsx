@@ -24,10 +24,10 @@ const slides = [
 ];
 
 const stats = [
-  { icon: '🐄', number: '900+',    label: 'Cows Sheltered'   },
-  { icon: '📅', number: '39+',     label: 'Years of Service' },
-  { icon: '🏥', number: '10,000+', label: 'Animals Treated'  },
-  { icon: '🤝', number: '218+',    label: 'Active Members'   },
+  { icon: '/svg/stats-cow.svg',   number: '900+',    label: 'Cows Sheltered'   },
+  { icon: '/svg/years-of-service.svg', number: '39+',     label: 'Years of Service' },
+  { icon: '/svg/animals-treated.svg',  number: '10,000+', label: 'Animals Treated'  },
+  { icon: '/svg/active-members.svg',   number: '218+',    label: 'Active Members'   },
 ];
 
 export default function Hero() {
@@ -109,7 +109,7 @@ export default function Hero() {
       <div className="stats-bar">
         {stats.map((stat) => (
           <div key={stat.label} className="stat-item">
-            <div className="stat-icon">{stat.icon}</div>
+            <div className="stat-icon" aria-hidden="true"><img src={stat.icon} alt="" width={28} height={28} /></div>
             <div className="stat-number">{stat.number}</div>
             <div className="stat-label">{stat.label}</div>
           </div>
