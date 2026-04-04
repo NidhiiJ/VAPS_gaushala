@@ -65,13 +65,13 @@ export default function ContactForm() {
         {/* Side Image (hidden on mobile) */}
         <div className="cf-side-image">
           <Image
-            src="/images/gau-seva.jpg"
-            alt="Gau Seva at Suri Prem Jeevraksha Kendra"
+            src="/images/contact.jpg"
+            alt="Gaushala Gate"
             fill
             className="cf-side-image__img"
             sizes="(max-width: 900px) 0px, 40vw"
           />
-          <div className="cf-side-image__overlay" />
+          {/* <div className="cf-side-image__overlay" /> */}
         </div>
 
         {/* Contact Form */}
