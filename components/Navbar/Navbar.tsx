@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 import './Navbar.scss';
 
 type NavLink = {
@@ -101,10 +102,13 @@ export default function Navbar() {
       {/* Navbar */}
       <nav className={`navbar${isOpen ? ' navbar--menu-open' : ''}`}>
         <a href="/" className="nav-logo">
-          <img
+          <Image
             src="/logo/logo.png"
             alt="Suri Prem Jeevraksha Kendra Sansthan logo"
             className="nav-logo-img"
+            width={160}
+            height={60}
+            priority
           />
         </a>
 
@@ -148,10 +152,13 @@ export default function Navbar() {
 
         {/* Right decorative image — desktop only */}
         <div className="nav-right-img-wrap">
-          <img
+          <Image
             src="/logo/prem-suri-dada.jpg"
             alt="Gau seva"
             className="nav-right-img"
+            width={120}
+            height={160}
+            priority
           />
         </div>
 
@@ -179,10 +186,12 @@ export default function Navbar() {
         {/* Drawer header */}
         <div className="mobile-menu-header">
           <a href="#" className="mobile-menu-logo" onClick={() => setIsOpen(false)}>
-            <img
+            <Image
               src="/logo/logo.png"
               alt="Suri Prem Jiv Raksha Kendra Sansthan logo"
               className="mobile-menu-logo-img"
+              width={160}
+              height={60}
             />
           </a>
           <span className="mobile-menu-org-name">Suri Prem Jiv Raksha Kendra Sansthan</span>

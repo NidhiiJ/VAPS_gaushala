@@ -10,8 +10,8 @@ const stats = [
 ];
 
 const impactImages = [
-  { src: '/images/medical-care.jpeg', alt: 'Rescued Animals', tag: 'Rescue & Rehab' },
-  { src: '/images/medical-care2.jpeg', alt: 'Medical Care', tag: 'Medical Care' },
+  { src: '/images/our-impact/impact1.jpeg', alt: 'Rescued Animals', tag: 'Rescue & Rehab' },
+  { src: '/images/our-impact/impact2.jpg', alt: 'Medical Care', tag: 'Medical Care' },
 ];
 
 export default function Impact() {
@@ -39,8 +39,8 @@ export default function Impact() {
       <StaggerContainer className="impact-img-row" staggerDelay={0.15} initialDelay={0.1}>
         {impactImages.map((img) => (
           <StaggerItem key={img.tag} className="impact-img-card">
-            <Image src={img.src} alt={img.alt} fill style={{ objectFit: 'cover' }} unoptimized />
-            <span className="imc-tag">{img.tag}</span>
+            <Image src={img.src} alt={img.alt} fill style={{ objectFit: 'cover' }} />
+            {/* <span className="imc-tag">{img.tag}</span> */}
           </StaggerItem>
         ))}
       </StaggerContainer>

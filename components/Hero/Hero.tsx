@@ -6,17 +6,21 @@ import './Hero.scss';
 
 const slides = [
   {
-    src: '/images/nourishment.jpeg',
+    src: '/images/hero-images/hero1.jpg',
     alt: 'Nourishment at Suri Prem Jeevraksha Kendra',
   },
   {
-    src: '/images/animals-rescued.jpg',
+    src: '/images/hero-images/hero2.jpg',
     alt: 'Animals rescued at Suri Prem Jeevraksha Kendra',
   },
   {
-    src: '/images/gau-seva.jpg',
+    src: '/images/hero-images/hero3.jpg',
     alt: 'Gau Seva at Suri Prem Jeevraksha Kendra',
   },
+  {
+    src: '/images/hero-images/hero4.jpg',
+    alt: 'Gau Seva at Suri Prem Jeevraksha Kendra',
+  }
 ];
 
 const stats = [

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { Reveal, StaggerContainer, StaggerItem } from '@/components/Reveal';
 import './VideoGallery.scss';
 
@@ -54,8 +55,7 @@ export default function VideoGallery() {
         {videoItems.map((item) => (
           <StaggerItem key={item.title} variant="zoom-in" className="video-gallery__card">
             <div className="video-gallery__thumb">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={item.thumb} alt={item.title} />
+              <Image src={item.thumb} alt={item.title} width={500} height={280} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div className="video-gallery__overlay" />
               <button className="video-gallery__play" aria-label={`Play: ${item.title}`}>
                 <svg

@@ -15,7 +15,7 @@ export default function OurStory() {
         <Reveal variant="slide-right" className="story-visual">
           <div className="story-img">
             <Image
-              src="/images/nourishment.jpeg"
+              src="/images/3D.jpeg"
               alt="Mission"
               width={800}
               height={700}

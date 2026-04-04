@@ -27,7 +27,7 @@ export default function Gallery() {
       <StaggerContainer className="gallery-grid" staggerDelay={0.07} initialDelay={0.1}>
         {galleryImages.map((img) => (
           <StaggerItem key={img.alt} variant="zoom-in" className="gallery-item">
-            <Image src={img.src} alt={img.alt} fill style={{ objectFit: 'cover' }} unoptimized />
+            <Image src={img.src} alt={img.alt} fill style={{ objectFit: 'cover' }} />
           </StaggerItem>
         ))}
       </StaggerContainer>

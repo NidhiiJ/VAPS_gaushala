@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useCallback } from 'react';
+import Image from 'next/image';
 import { Reveal } from '@/components/Reveal';
 import './PaymentMethods.scss';
 
@@ -89,7 +90,7 @@ function QRPane() {
   return (
     <div className="pm-qr">
       <div className="pm-qr__frame">
-        <img src="/QR_code.png" width="180" height="180" alt="QR Code for donation" />
+        <Image src="/QR_code.png" width={180} height={180} alt="QR Code for donation" />
       </div>
       <p className="pm-qr__caption">Scan with any UPI app to donate</p>
       <p className="pm-qr__apps">Google Pay · PhonePe · Paytm · BHIM</p>

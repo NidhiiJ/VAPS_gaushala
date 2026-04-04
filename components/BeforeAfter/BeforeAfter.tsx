@@ -77,7 +77,7 @@ function SliderCard({ item }: { item: BeforeAfterItem }) {
       >
         {/* Before image — full width base */}
         <div className="ba-slider__before">
-          <Image src={item.beforeSrc} alt={`Before: ${item.heading}`} fill style={{ objectFit: 'cover' }} unoptimized />
+          <Image src={item.beforeSrc} alt={`Before: ${item.heading}`} fill style={{ objectFit: 'cover' }} />
         </div>
 
         {/* After image — clipped by slider position */}
@@ -85,7 +85,7 @@ function SliderCard({ item }: { item: BeforeAfterItem }) {
           className="ba-slider__after"
           style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
         >
-          <Image src={item.afterSrc} alt={`After: ${item.heading}`} fill style={{ objectFit: 'cover' }} unoptimized />
+          <Image src={item.afterSrc} alt={`After: ${item.heading}`} fill style={{ objectFit: 'cover' }} />
         </div>
 
         {/* Labels — outside clip context so they're always visible */}

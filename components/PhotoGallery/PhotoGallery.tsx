@@ -174,8 +174,7 @@ export default function PhotoGallery() {
                 alt={item.alt}
                 fill
                 style={{ objectFit: 'cover' }}
-                unoptimized
-              />
+                              />
               <div className="photo-gallery__overlay">
                 <span className="photo-gallery__caption">{item.caption}</span>
               </div>
@@ -229,8 +228,7 @@ export default function PhotoGallery() {
                 alt={lightboxItem.alt}
                 fill
                 style={{ objectFit: 'cover' }}
-                unoptimized
-              />
+                              />
             </div>
             <p className="photo-gallery__lightbox-caption">{lightboxItem.caption}</p>
           </div>
