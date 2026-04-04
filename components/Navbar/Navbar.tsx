@@ -30,12 +30,12 @@ const navLinks: NavLink[] = [
     ],
   },
   // { label: 'Facilities', href: '#' },
-  { label: 'Contributors', href: '#' },
+  { label: 'Volunteers', href: '/volunteers' },
   {
     label: 'Media Room',
     href: '#',
     submenu: [
-      { label: 'Volunteers', href: '/volunteers' },
+      { label: 'Certifications', href: '/certifications' },
       { label: 'Publications', href: '/publications' },
     ],
   },
