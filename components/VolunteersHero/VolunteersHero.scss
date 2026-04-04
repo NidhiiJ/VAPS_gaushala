@@ -1,0 +1,248 @@
+@import "../../styles/variables";
+
+// ── VolunteersHero  |  BEM prefix: `vol-hero`
+// Custom page hero for the Volunteers page — taller, with stat row + download CTA
+
+.vol-hero {
+  background: linear-gradient(135deg, $color-maroon-950 0%, $color-maroon-900 50%, #4a1515 100%);
+  padding: $space-28 5% $space-20;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__glow {
+    position: absolute;
+    border-radius: $radius-full;
+    pointer-events: none;
+
+    &--top {
+      top: -200px;
+      right: -200px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba($color-maroon-700, 0.18), transparent 70%);
+    }
+
+    &--bottom {
+      bottom: -200px;
+      left: -200px;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba($color-gold, 0.07), transparent 70%);
+    }
+  }
+
+  &__pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image:
+      repeating-linear-gradient(
+        45deg,
+        $color-wheat 0,
+        transparent 0,
+        transparent 50%
+      );
+    background-size: 20px 20px;
+    pointer-events: none;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    max-width: 52rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__eyebrow {
+    font-family: $font-display;
+    font-style: italic;
+    font-size: 1.0625rem;
+    color: $color-wheat;
+    letter-spacing: $letter-spacing-wider;
+    margin-bottom: $space-5;
+    opacity: 0.9;
+    display: flex;
+    align-items: center;
+    gap: $space-4;
+  }
+
+  &__eyebrow-line {
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: $color-wheat;
+    opacity: 0.45;
+  }
+
+  &__heading {
+    font-family: $font-display;
+    font-size: clamp(2.25rem, 5.5vw, 3.75rem);
+    font-weight: $font-weight-extrabold;
+    color: $color-surface-white;
+    line-height: $line-height-heading;
+    letter-spacing: $letter-spacing-tight;
+    margin-bottom: $space-6;
+    text-shadow: 0 2px 30px rgba(0, 0, 0, 0.25);
+  }
+
+  &__subtext {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.72);
+    max-width: 38rem;
+    margin: 0 auto $space-10;
+    line-height: $line-height-body;
+  }
+
+  // Stat row
+  &__stats {
+    display: flex;
+    gap: $space-10;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: $space-10;
+  }
+
+  &__stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-1;
+    position: relative;
+
+    &:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: -$space-5;
+      top: 20%;
+      height: 60%;
+      width: 1px;
+      background: rgba(255, 255, 255, 0.12);
+    }
+  }
+
+  &__stat-num {
+    font-family: $font-display;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: $font-weight-extrabold;
+    color: $color-wheat;
+    line-height: 1;
+    letter-spacing: $letter-spacing-tight;
+  }
+
+  &__stat-label {
+    font-size: 0.6875rem;
+    color: rgba(255, 255, 255, 0.45);
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-widest;
+    margin-top: $space-1;
+  }
+
+  // Download CTA
+  &__download {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-3;
+    background: $color-maroon-600;
+    color: $color-surface-white;
+    padding: $space-4 $space-8;
+    border-radius: $radius-md;
+    font-family: $font-body;
+    font-weight: $font-weight-semibold;
+    font-size: 0.9375rem;
+    letter-spacing: $letter-spacing-wide;
+    border: 2px solid $color-maroon-600;
+    cursor: pointer;
+    transition:
+      background $transition-base,
+      border-color $transition-base,
+      transform $transition-base,
+      box-shadow $transition-base;
+    position: relative;
+    z-index: 2;
+
+    svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    &:hover {
+      background: $color-maroon-700;
+      border-color: $color-maroon-700;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba($color-maroon-700, 0.35);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-wheat;
+      outline-offset: 3px;
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  // Scroll indicator
+  &__scroll {
+    position: absolute;
+    bottom: $space-8;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 6px;
+    z-index: 1;
+  }
+
+  &__scroll-dot {
+    width: 4px;
+    height: 8px;
+    background: $color-wheat;
+    border-radius: 2px;
+    animation: volScrollBounce 1.6s ease-in-out infinite;
+    opacity: 0.7;
+  }
+}
+
+@keyframes volScrollBounce {
+  0%, 100% { transform: translateY(0);    opacity: 0.7; }
+  50%       { transform: translateY(10px); opacity: 0.2; }
+}
+
+// ── Responsive
+@media (max-width: $bp-tablet) {
+  .vol-hero {
+    padding: $space-20 5% $space-16;
+
+    &__stats {
+      gap: $space-8;
+    }
+
+    &__stat:not(:last-child)::after {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .vol-hero {
+    padding: $space-20 5% $space-14;
+
+    &__stats {
+      gap: $space-6;
+    }
+  }
+}

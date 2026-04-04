@@ -1,0 +1,518 @@
+@import "../../styles/variables";
+
+// ── VolunteersTable  |  BEM prefix: `vol-table-section`, `vol-controls`, `vol-table`
+
+// ── Controls wrapper
+.vol-controls {
+  padding: $space-10 5% $space-4;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+// ── Top row: search + mobile filter trigger (always a flex row)
+.vol-controls__row {
+  display: flex;
+  gap: $space-3;
+  align-items: stretch;
+}
+
+// ── Search
+.vol-search {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+
+  &__icon {
+    position: absolute;
+    left: $space-4;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    color: $color-muted;
+    pointer-events: none;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 0.875rem $space-5 0.875rem 2.75rem;
+    border: 1.5px solid $color-border;
+    border-radius: $radius-lg;
+    background: $color-surface-white;
+    font-family: $font-body;
+    font-size: 0.875rem;
+    color: $color-maroon-900;
+    outline: none;
+    transition: border-color $transition-fast, box-shadow $transition-fast;
+
+    &::placeholder { color: $color-muted; }
+
+    &:focus {
+      border-color: $color-maroon-700;
+      box-shadow: 0 0 0 3px rgba($color-maroon-700, 0.08);
+    }
+  }
+
+  &__clear {
+    position: absolute;
+    right: $space-3;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: $color-border;
+    color: $color-maroon-500;
+    border-radius: $radius-full;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background $transition-fast;
+
+    &:hover {
+      background: $color-maroon-600;
+      color: #fff;
+    }
+  }
+}
+
+// ── Mobile filter trigger (hidden on desktop)
+.vol-mobile-filter {
+  display: none;           // hidden by default; shown via media query below
+  position: relative;
+  flex-shrink: 0;
+
+  &__btn {
+    height: 100%;
+    min-height: 48px;
+    padding: 0 $space-4;
+    border: 1.5px solid $color-border;
+    border-radius: $radius-lg;
+    background: $color-surface-white;
+    font-family: $font-body;
+    font-size: 0.8125rem;
+    font-weight: $font-weight-medium;
+    color: $color-maroon-500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    white-space: nowrap;
+    transition:
+      background $transition-fast,
+      border-color $transition-fast,
+      color $transition-fast;
+
+    &:focus-visible {
+      outline: 2px solid $color-maroon-700;
+      outline-offset: 2px;
+    }
+
+    &--active {
+      background: $color-maroon-900;
+      border-color: $color-maroon-900;
+      color: $color-wheat;
+
+      .vol-mobile-filter__icon,
+      .vol-mobile-filter__chevron {
+        color: $color-wheat;
+      }
+    }
+  }
+
+  &__icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  &__label {
+    max-width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  // Red dot indicating an active (non-ALL) filter
+  &__dot {
+    width: 7px;
+    height: 7px;
+    border-radius: $radius-full;
+    background: $color-gold;
+    flex-shrink: 0;
+    margin-left: -$space-1;
+  }
+
+  &__chevron {
+    width: 14px;
+    height: 14px;
+    color: $color-muted;
+    transition: transform $transition-fast;
+    flex-shrink: 0;
+
+    &--open {
+      transform: rotate(180deg);
+    }
+  }
+
+  // Dropdown panel
+  &__dropdown {
+    position: absolute;
+    top: calc(100% + $space-2);
+    right: 0;
+    min-width: 180px;
+    background: $color-surface-white;
+    border: 1.5px solid $color-border;
+    border-radius: $radius-xl;
+    box-shadow: 0 8px 28px rgba($color-maroon-950, 0.1);
+    z-index: 50;
+    overflow: hidden;
+    animation: dropdownReveal 0.18s ease forwards;
+  }
+
+  &__option {
+    width: 100%;
+    padding: 0.75rem $space-4;
+    background: none;
+    border: none;
+    font-family: $font-body;
+    font-size: 0.875rem;
+    font-weight: $font-weight-medium;
+    color: $color-maroon-500;
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+    transition: background $transition-fast, color $transition-fast;
+
+    &:hover {
+      background: $color-surface-base;
+      color: $color-maroon-900;
+    }
+
+    &--active {
+      color: $color-maroon-700;
+      font-weight: $font-weight-semibold;
+      background: rgba($color-maroon-600, 0.05);
+    }
+  }
+
+  &__check {
+    width: 14px;
+    height: 14px;
+    color: $color-maroon-700;
+    flex-shrink: 0;
+  }
+}
+
+@keyframes dropdownReveal {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+// ── Desktop pill filters (shown on tablet+, hidden on mobile)
+.vol-filters {
+  display: flex;
+  gap: $space-2;
+  flex-wrap: wrap;
+  margin-top: $space-4;
+}
+
+.vol-filter-btn {
+  padding: 0.625rem $space-4;
+  border: 1.5px solid $color-border;
+  border-radius: $radius-lg;
+  background: $color-surface-white;
+  font-family: $font-body;
+  font-size: 0.8125rem;
+  color: $color-maroon-500;
+  cursor: pointer;
+  font-weight: $font-weight-medium;
+  transition:
+    background $transition-fast,
+    color $transition-fast,
+    border-color $transition-fast,
+    transform $transition-fast;
+
+  &:hover {
+    background: $color-surface-base;
+    border-color: $color-gold;
+    color: $color-maroon-900;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-maroon-700;
+    outline-offset: 2px;
+  }
+
+  &:active { transform: scale(0.97); }
+
+  &--active {
+    background: $color-maroon-900;
+    color: $color-wheat;
+    border-color: $color-maroon-900;
+
+    &:hover {
+      background: $color-maroon-700;
+      border-color: $color-maroon-700;
+      color: $color-wheat;
+    }
+  }
+}
+
+// ── Result count + active filter badge
+.vol-result-count {
+  font-size: 0.8125rem;
+  color: $color-muted;
+  margin-top: $space-3;
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  flex-wrap: wrap;
+
+  strong {
+    color: $color-maroon-900;
+    font-weight: $font-weight-semibold;
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+    background: rgba($color-maroon-900, 0.07);
+    color: $color-maroon-900;
+    font-size: 0.75rem;
+    font-weight: $font-weight-semibold;
+    padding: 0.2rem $space-2 0.2rem $space-3;
+    border-radius: $radius-rounded;
+    border: 1px solid rgba($color-maroon-900, 0.12);
+  }
+
+  &__clear {
+    width: 16px;
+    height: 16px;
+    border: none;
+    background: rgba($color-maroon-900, 0.12);
+    color: $color-maroon-900;
+    border-radius: $radius-full;
+    cursor: pointer;
+    font-size: 0.75rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: background $transition-fast;
+    flex-shrink: 0;
+
+    &:hover {
+      background: $color-maroon-600;
+      color: #fff;
+    }
+  }
+}
+
+// ── Table section
+.vol-table-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5% $space-16;
+}
+
+.vol-table-wrap {
+  overflow-x: auto;
+  border-radius: $radius-2xl;
+  box-shadow: $shadow-xl;
+  border: 1px solid $color-border;
+}
+
+.vol-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: $color-surface-white;
+
+  thead {
+    background: linear-gradient(135deg, $color-maroon-900, #4a1515);
+
+    th {
+      padding: $space-4 $space-5;
+      font-family: $font-body;
+      font-size: 0.6875rem;
+      font-weight: $font-weight-bold;
+      color: $color-wheat;
+      text-transform: uppercase;
+      letter-spacing: $letter-spacing-widest;
+      text-align: left;
+      white-space: nowrap;
+
+      &:first-child { border-radius: $radius-2xl 0 0 0; }
+      &:last-child  { border-radius: 0 $radius-2xl 0 0; }
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid #f5efe6;
+      transition: background $transition-fast;
+
+      &:last-child { border-bottom: none; }
+      &:hover { background: #FFF3E6; }
+    }
+
+    td {
+      padding: 0.875rem $space-5;
+      font-size: 0.875rem;
+      color: $color-maroon-900;
+      vertical-align: middle;
+    }
+  }
+
+  &__sr {
+    font-weight: $font-weight-semibold;
+    color: $color-maroon-700 !important;
+    width: 64px;
+    font-size: 0.8125rem !important;
+  }
+
+  &__name { font-weight: $font-weight-medium; }
+
+  &__date {
+    color: $color-maroon-500 !important;
+    font-size: 0.8125rem !important;
+    white-space: nowrap;
+  }
+
+  &__empty {
+    text-align: center;
+    padding: $space-14 !important;
+    color: $color-muted !important;
+    font-size: 0.9375rem !important;
+    font-style: italic;
+  }
+}
+
+// ── Place tag
+.vol-place-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  font-size: 0.75rem;
+  font-weight: $font-weight-semibold;
+  color: $color-maroon-900;
+  background: $color-surface-base;
+  padding: $space-1 $space-3;
+  border-radius: $radius-rounded;
+  border: 1px solid $color-border;
+  white-space: nowrap;
+  letter-spacing: $letter-spacing-wide;
+
+  &::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: $radius-full;
+    background: $color-maroon-700;
+    flex-shrink: 0;
+  }
+}
+
+// ── Pagination
+.vol-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  margin-top: $space-8;
+  flex-wrap: wrap;
+}
+
+.vol-page-btn {
+  min-width: 36px;
+  height: 36px;
+  padding: 0 $space-2;
+  border: 1.5px solid $color-border;
+  border-radius: $radius-md;
+  background: $color-surface-white;
+  font-family: $font-body;
+  font-size: 0.875rem;
+  font-weight: $font-weight-medium;
+  color: $color-maroon-500;
+  cursor: pointer;
+  transition:
+    background $transition-fast,
+    border-color $transition-fast,
+    color $transition-fast,
+    transform $transition-fast;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg { width: 16px; height: 16px; }
+
+  &:hover:not(:disabled) {
+    background: $color-surface-base;
+    border-color: $color-gold;
+    color: $color-maroon-900;
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-maroon-700;
+    outline-offset: 2px;
+  }
+
+  &:active:not(:disabled) { transform: scale(0.96); }
+
+  &--active {
+    background: $color-maroon-900;
+    border-color: $color-maroon-900;
+    color: $color-wheat;
+    font-weight: $font-weight-semibold;
+
+    &:hover {
+      background: $color-maroon-700 !important;
+      border-color: $color-maroon-700 !important;
+    }
+  }
+
+  &--nav {
+    &:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.vol-page-ellipsis {
+  font-size: 0.875rem;
+  color: $color-muted;
+  padding: 0 $space-1;
+  user-select: none;
+}
+
+// ── Responsive ────────────────────────────────────────────────
+
+// On mobile: show dropdown trigger, hide pill filters
+@media (max-width: $bp-tablet) {
+  .vol-mobile-filter {
+    display: block;
+  }
+
+  .vol-filters {
+    display: none;
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .vol-table {
+    thead th,
+    tbody td {
+      padding: 0.625rem $space-3;
+      font-size: 0.75rem;
+    }
+  }
+}

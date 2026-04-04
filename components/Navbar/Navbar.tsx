@@ -35,7 +35,7 @@ const navLinks: NavLink[] = [
     label: 'Media Room',
     href: '#',
     submenu: [
-      { label: 'Certifications', href: '#certifications' },
+      { label: 'Volunteers', href: '/volunteers' },
       { label: 'Publications', href: '/publications' },
     ],
   },
