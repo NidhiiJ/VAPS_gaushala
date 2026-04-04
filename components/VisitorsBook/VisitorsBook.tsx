@@ -5,7 +5,25 @@ import Image from 'next/image';
 import { Reveal } from '@/components/Reveal';
 import './VisitorsBook.scss';
 
-const TOTAL_PAGES = 15;
+const PAGES: { src: string; width: number; height: number }[] = [
+  { src: '/images/visitors-book/page-01.jpg', width: 1200, height: 899 },
+  { src: '/images/visitors-book/page-02.jpg', width: 1200, height: 911 },
+  { src: '/images/visitors-book/page-03.jpg', width: 1200, height: 898 },
+  { src: '/images/visitors-book/page-04.jpg', width: 1200, height: 884 },
+  { src: '/images/visitors-book/page-05.jpg', width: 1200, height: 874 },
+  { src: '/images/visitors-book/page-06.jpg', width: 1200, height: 918 },
+  { src: '/images/visitors-book/page-07.jpg', width: 1200, height: 922 },
+  { src: '/images/visitors-book/page-08.jpg', width: 1200, height: 893 },
+  { src: '/images/visitors-book/page-09.jpg', width: 1200, height: 1004 },
+  { src: '/images/visitors-book/page-10.jpg', width: 1200, height: 992 },
+  { src: '/images/visitors-book/page-11.jpg', width: 1200, height: 982 },
+  { src: '/images/visitors-book/page-12.jpg', width: 1200, height: 973 },
+  { src: '/images/visitors-book/page-13.jpg', width: 1200, height: 1003 },
+  { src: '/images/visitors-book/page-14.jpg', width: 1200, height: 965 },
+  { src: '/images/visitors-book/page-15.jpg', width: 1200, height: 991 },
+];
+
+const TOTAL_PAGES = PAGES.length;
 
 interface VisitorsBookProps {
   showDownloadButton?: boolean;
@@ -31,7 +49,7 @@ export default function VisitorsBook({ showDownloadButton }: VisitorsBookProps) 
       {showDownloadButton && (
         <Reveal variant="fade-up">
           <div className="visitors-book-download">
-            <a href="/visitors-book.pdf" download className="btn-cta-primary">
+            <a href="/images/testimonials/visitors-book.pdf" download className="btn-cta-primary">
               Download Complete PDF
             </a>
           </div>
@@ -42,14 +60,13 @@ export default function VisitorsBook({ showDownloadButton }: VisitorsBookProps) 
       <div className="pdf-viewer">
         <div className="pdf-viewer-wrap">
           <div className="pdf-display">
-            {Array.from({ length: TOTAL_PAGES }, (_, i) => (
+            {PAGES.map((page, i) => (
               <div key={i} className={`pdf-page${i === current ? ' active' : ''}`}>
                 <Image
-                  src={`https://placehold.co/960x680/FFF9F2/999080?text=Page+${i + 1}`}
+                  src={page.src}
                   alt={`Visitor's book page ${i + 1}`}
-                  width={960}
-                  height={680}
-                  unoptimized
+                  width={page.width}
+                  height={page.height}
                 />
               </div>
             ))}
