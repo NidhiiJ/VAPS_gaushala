@@ -10,7 +10,7 @@ export default function PresentDay() {
           <Reveal variant="slide-right" className="present-visual">
             <div className="present-img">
               <Image
-                src="https://placehold.co/800x600/D4C0A8/7A5C40?text=Panjrapole+Today"
+                src="/images/about/about-present-day.jpg"
                 alt="Panjrapole Today"
                 width={800}
                 height={600}

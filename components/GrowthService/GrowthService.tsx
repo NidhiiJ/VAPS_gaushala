@@ -45,7 +45,7 @@ export default function GrowthService() {
         <Reveal variant="slide-left" delay={0.15} className="growth-visual">
           <div className="growth-img">
             <Image
-              src="https://placehold.co/800x600/DECCB5/7A5C40?text=Ambulance+Service"
+              src="/images/about/about-growth-service.jpeg"
               alt="Ambulance Service"
               width={800}
               height={600}

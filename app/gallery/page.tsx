@@ -23,7 +23,7 @@ export default function GalleryRoute() {
       />
       <PhotoGallery />
       <VideoGallery />
-      <BeforeAfter />
+      {/* <BeforeAfter /> */}
       {/* <FinalCTA
         heading="Your Photos Can Help Too"
         subtext="Visited our gaushala? Share your photos and experience with the world. Tag us on social media or send us your pictures."

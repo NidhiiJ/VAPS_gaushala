@@ -1,9 +1,30 @@
 import Image from 'next/image';
 import './Footer.scss';
 
-const orgLinks   = ['About Us', 'Our Mission', 'Our Team', 'Gallery'];
-const involveLinks = ['Donate', 'Volunteer', 'Gau Daan', 'Sponsor a Cow'];
-const contactLinks = ['Rajasthan, India', 'info@gaushala.org', '+91 98765 43210', 'Visit Us'];
+const orgLinks = [
+  { label: 'About Us', href: '/overview' },
+  { label: 'Timeline', href: '/timeline' },
+  { label: 'Gallery', href: '/gallery' },
+  { label: 'Testimonials', href: '/testimonials' },
+  { label: 'Certifications', href: '/certifications' },
+];
+
+const involveLinks = [
+  { label: 'Donate', href: '/donate' },
+  { label: 'Volunteers', href: '/volunteers' },
+  { label: 'Contact Us', href: '/contact' },
+];
+
+// const mediaLinks = [
+//   { label: 'Certifications', href: '/certifications' },
+//   { label: 'Publications', href: '/publications' },
+// ];
+
+const contactLinks: { label: string; href?: string }[] = [
+  { label: 'Rajasthan, India' },
+  { label: 'info@gaushala.org', href: 'mailto:info@gaushala.org' },
+  { label: '+91 98765 43210', href: 'tel:+919876543210' },
+];
 
 export default function Footer() {
   return (
@@ -34,28 +55,34 @@ export default function Footer() {
         <div className="footer-col">
           <h4>Organisation</h4>
           <ul>
-            {orgLinks.map((link) => (
-              <li key={link}><a href="#">{link}</a></li>
+            {orgLinks.map(({ label, href }) => (
+              <li key={label}><a href={href}>{label}</a></li>
             ))}
           </ul>
         </div>
 
-        {/* Get Involved */}
+        {/* Get Involved & Media */}
         <div className="footer-col">
           <h4>Get Involved</h4>
           <ul>
-            {involveLinks.map((link) => (
-              <li key={link}><a href="#">{link}</a></li>
+            {involveLinks.map(({ label, href }) => (
+              <li key={label}><a href={href}>{label}</a></li>
             ))}
           </ul>
+          {/* <h4 style={{ marginTop: '1.25rem' }}>Media Room</h4> */}
+          {/* <ul>
+            {mediaLinks.map(({ label, href }) => (
+              <li key={label}><a href={href}>{label}</a></li>
+            ))}
+          </ul> */}
         </div>
 
         {/* Contact */}
         <div className="footer-col">
           <h4>Contact</h4>
           <ul>
-            {contactLinks.map((link) => (
-              <li key={link}><a href="#">{link}</a></li>
+            {contactLinks.map(({ label, href }) => (
+              <li key={label}>{href ? <a href={href}>{label}</a> : <span>{label}</span>}</li>
             ))}
           </ul>
         </div>
