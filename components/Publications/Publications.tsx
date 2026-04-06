@@ -1,24 +1,25 @@
-import { Reveal, StaggerContainer, StaggerItem } from '@/components/Reveal';
+'use client';
+
+import { useCallback, useState } from 'react';
+import { StaggerContainer, StaggerItem } from '@/components/Reveal';
+import Lightbox from '@/components/Lightbox/Lightbox';
 import './Publications.scss';
 
 const PLACEHOLDER_CARDS = [
-  { source: 'Newspaper',     title: 'Add Publication Title Here', date: 'Date of Publication' },
-  { source: 'Magazine',      title: 'Add Publication Title Here', date: 'Date of Publication' },
-  { source: 'Online Feature',title: 'Add Publication Title Here', date: 'Date of Publication' },
-  { source: 'Regional Daily',title: 'Add Publication Title Here', date: 'Date of Publication' },
-  { source: 'TV Coverage',   title: 'Add Publication Title Here', date: 'Date of Publication' },
-  { source: 'National Press', title: 'Add Publication Title Here', date: 'Date of Publication' },
+  { source: 'Newspaper',      title: 'Add Publication Title Here', date: 'Date of Publication', image: '/images/publications/1.jpeg' },
+  { source: 'Magazine',       title: 'Add Publication Title Here', date: 'Date of Publication', image: '/images/publications/2.jpeg' },
+  { source: 'Online Feature', title: 'Add Publication Title Here', date: 'Date of Publication', image: '/images/publications/3.jpeg' },
+  { source: 'Regional Daily', title: 'Add Publication Title Here', date: 'Date of Publication', image: '/images/publications/4.jpeg' },
+  { source: 'TV Coverage',    title: 'Add Publication Title Here', date: 'Date of Publication', image: '/images/publications/5.jpeg' },
+  { source: 'National Press', title: 'Add Publication Title Here', date: 'Date of Publication', image: '/images/publications/6.jpeg' },
 ];
 
-function ImagePlaceholderIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="3" y="3" width="18" height="18" rx="2" />
-      <circle cx="8.5" cy="8.5" r="1.5" />
-      <path d="m21 15-5-5L5 21" />
-    </svg>
-  );
-}
+const lightboxItems = PLACEHOLDER_CARDS.map(c => ({
+  src: c.image,
+  alt: c.title,
+  caption: c.title,
+  meta: c.source,
+}));
 
 function ZoomIcon() {
   return (
@@ -32,21 +33,23 @@ function ZoomIcon() {
 }
 
 export default function Publications() {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  const handleClose = useCallback(() => setActiveIndex(null), []);
+  const handlePrev = useCallback(() =>
+    setActiveIndex(i => i !== null ? (i - 1 + PLACEHOLDER_CARDS.length) % PLACEHOLDER_CARDS.length : null), []);
+  const handleNext = useCallback(() =>
+    setActiveIndex(i => i !== null ? (i + 1) % PLACEHOLDER_CARDS.length : null), []);
+
   return (
     <section className="pub-section">
-      {/* <Reveal variant="fade-up" className="pub-section__header">
-        <div className="pub-section__overline">Press Coverage</div>
-        <h2>Featured In Leading Publications</h2>
-        <p>Snapshots from newspapers, magazines, and media features that have covered our mission and impact in the community.</p>
-        <div className="pub-section__divider" />
-      </Reveal> */}
-
       <StaggerContainer className="pub-grid">
         {PLACEHOLDER_CARDS.map((card, i) => (
           <StaggerItem key={i}>
-            <div className="pub-card pub-card--placeholder">
+            <div className="pub-card" onClick={() => setActiveIndex(i)} role="button" tabIndex={0}
+              onKeyDown={e => e.key === 'Enter' && setActiveIndex(i)}>
               <div className="pub-card__image">
-                <ImagePlaceholderIcon />
+                <img src={card.image} alt={card.title} />
                 <div className="pub-card__zoom" aria-hidden="true">
                   <ZoomIcon />
                 </div>
@@ -60,6 +63,16 @@ export default function Publications() {
           </StaggerItem>
         ))}
       </StaggerContainer>
+
+      {activeIndex !== null && (
+        <Lightbox
+          items={lightboxItems}
+          index={activeIndex}
+          onClose={handleClose}
+          onPrev={handlePrev}
+          onNext={handleNext}
+        />
+      )}
     </section>
   );
 }

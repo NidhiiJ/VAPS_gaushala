@@ -124,77 +124,6 @@
   line-height: 1.4;
 }
 
-// ── Lightbox ─────────────────────────────────────────────────
-.photo-gallery__lightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba($color-maroon-950, 0.88);
-  backdrop-filter: blur(6px);
-  z-index: $z-modal;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: $space-6;
-  animation: lb-in 0.2s ease;
-}
-
-@keyframes lb-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-.photo-gallery__lightbox-close {
-  position: absolute;
-  top: $space-6;
-  right: $space-6;
-  width: 2.5rem;
-  height: 2.5rem;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: $radius-full;
-  color: $color-surface-white;
-  font-size: 1rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background $transition-fast;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.22);
-  }
-
-  &:focus-visible {
-    outline: 2px solid $color-wheat;
-    outline-offset: 2px;
-  }
-}
-
-.photo-gallery__lightbox-inner {
-  max-width: 56rem;
-  width: 100%;
-  border-radius: $radius-2xl;
-  overflow: hidden;
-  box-shadow: $shadow-xl;
-  background: $color-maroon-950;
-}
-
-.photo-gallery__lightbox-img {
-  position: relative;
-  aspect-ratio: 4 / 3;
-  width: 100%;
-}
-
-.photo-gallery__lightbox-caption {
-  font-family: $font-body;
-  font-size: 0.875rem;
-  font-weight: $font-weight-medium;
-  color: rgba(255, 255, 255, 0.7);
-  padding: $space-4 $space-6;
-  margin: 0;
-  background: $color-maroon-950;
-}
-
 // ── Load More ────────────────────────────────────────────────
 .photo-gallery__load-more {
   display: flex;
@@ -228,48 +157,6 @@
 
   &:active {
     transform: scale(0.97);
-  }
-}
-
-// ── Lightbox Nav Arrows ───────────────────────────────────────
-.photo-gallery__lightbox-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 3rem;
-  height: 3rem;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: $radius-full;
-  color: $color-surface-white;
-  font-size: 2rem;
-  line-height: 1;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background $transition-fast, transform $transition-fast;
-  z-index: 1;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.25);
-  }
-
-  &:focus-visible {
-    outline: 2px solid $color-wheat;
-    outline-offset: 2px;
-  }
-
-  &:active {
-    transform: translateY(-50%) scale(0.93);
-  }
-
-  &--prev {
-    left: $space-6;
-  }
-
-  &--next {
-    right: $space-6;
   }
 }
 

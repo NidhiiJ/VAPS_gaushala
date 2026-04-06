@@ -1,0 +1,167 @@
+@import "../../styles/variables";
+
+// ── Lightbox  |  BEM prefix: `lb`
+// Shared lightbox overlay used across Gallery, PhotoGallery, Publications
+
+.lb {
+  position: fixed;
+  inset: 0;
+  z-index: $z-modal;
+  background: rgba(10, 4, 4, 0.86);
+  backdrop-filter: blur(12px) saturate(0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: lb-fade-in 0.22s ease;
+
+  @keyframes lb-fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+}
+
+// ── Inner panel ──────────────────────────────────────────────
+.lb__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(90vw, 900px);
+  animation: lb-scale-in 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  @keyframes lb-scale-in {
+    from { opacity: 0; transform: scale(0.92); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+}
+
+// ── Image ────────────────────────────────────────────────────
+.lb__image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: $radius-2xl;
+  overflow: hidden;
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.25),
+    0 32px 80px rgba(0, 0, 0, 0.5);
+  background: #0a0404;
+}
+
+// ── Caption bar ──────────────────────────────────────────────
+.lb__caption {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  margin-top: $space-4;
+  width: 100%;
+  padding: 0 $space-2;
+
+  &--counter-only {
+    justify-content: flex-end;
+  }
+}
+
+.lb__meta {
+  font-size: 0.6875rem;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: $color-wheat;
+  white-space: nowrap;
+}
+
+.lb__text {
+  font-family: $font-display;
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.7);
+  flex: 1;
+  line-height: 1.4;
+}
+
+.lb__counter {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+  white-space: nowrap;
+  margin-left: auto;
+}
+
+// ── Close button ─────────────────────────────────────────────
+.lb__close {
+  position: fixed;
+  top: $space-6;
+  right: $space-6;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: $radius-full;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background $transition-base, transform $transition-base;
+  z-index: 1;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.22);
+    transform: rotate(90deg);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-wheat;
+    outline-offset: 2px;
+  }
+}
+
+// ── Nav arrows ───────────────────────────────────────────────
+.lb__nav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3rem;
+  height: 3rem;
+  border-radius: $radius-full;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background $transition-base, transform $transition-base;
+  backdrop-filter: blur(6px);
+  z-index: 1;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.18);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-wheat;
+    outline-offset: 2px;
+  }
+
+  &:active {
+    transform: translateY(-50%) scale(0.93);
+  }
+
+  &--prev {
+    left: $space-6;
+    &:hover { transform: translateY(-50%) translateX(-2px); }
+  }
+
+  &--next {
+    right: $space-6;
+    &:hover { transform: translateY(-50%) translateX(2px); }
+  }
+
+  @media (max-width: $bp-mobile) {
+    width: 2.25rem;
+    height: 2.25rem;
+
+    &--prev { left: $space-3; }
+    &--next { right: $space-3; }
+  }
+}
