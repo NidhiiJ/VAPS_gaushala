@@ -48,5 +48,36 @@
   { "src": "/images/gallery/IMG_5781.jpg", "alt": "Cow shelter", "caption": "Expanded shelter accommodating 900+ cows", "category": "shelter" },
   { "src": "/images/gallery/IMG_5783.jpg", "alt": "Medical treatment", "caption": "Wound dressing and treatment", "category": "medical" },
   { "src": "/images/gallery/IMG_5806.jpg", "alt": "Community volunteers", "caption": "Dedicated volunteers at Gau Seva", "category": "community" },
-  { "src": "/images/gallery/wheelwalker.JPG", "alt": "Cow with wheel walker", "caption": "Innovative wheel walker helping an injured cow walk again", "category": "medical" }
+  { "src": "/images/gallery/wheelwalker.JPG", "alt": "Cow with wheel walker", "caption": "Innovative wheel walker helping an injured cow walk again", "category": "medical" },
+
+  { "src": "/images/3D.jpeg", "alt": "Gaushala 3D view", "caption": "3D view of the gaushala", "category": "shelter" },
+  { "src": "/images/ambulance.jpg", "alt": "Gaushala ambulance", "caption": "Ambulance for cow rescue operations", "category": "rescue" },
+
+  { "src": "/images/about/about-growth-service.jpeg", "alt": "Growth and service at gaushala", "caption": "Our journey of growth and service", "category": "community" },
+  { "src": "/images/about/about-journey.jpeg", "alt": "Gaushala journey", "caption": "The story of our gaushala", "category": "community" },
+  { "src": "/images/about/about-present-day.jpg", "alt": "Gaushala today", "caption": "The gaushala as it stands today", "category": "shelter" },
+
+  { "src": "/images/hero-images/hero1.jpg", "alt": "Gaushala cows", "caption": "Cows at the gaushala", "category": "daily" },
+  { "src": "/images/hero-images/hero2.jpg", "alt": "Gaushala cows", "caption": "Cows at the gaushala", "category": "daily" },
+  { "src": "/images/hero-images/hero3.jpg", "alt": "Gaushala cows", "caption": "Cows at the gaushala", "category": "daily" },
+  { "src": "/images/hero-images/hero4.jpg", "alt": "Gaushala cows", "caption": "Cows at the gaushala", "category": "daily" },
+
+  { "src": "/images/home-gallery/home-gallery-1.jpg", "alt": "Gaushala cows", "caption": "Cows at the gaushala", "category": "daily" },
+  { "src": "/images/home-gallery/home-gallery-2.jpg", "alt": "Gaushala cows", "caption": "Cows at the gaushala", "category": "daily" },
+  { "src": "/images/home-gallery/home-gallery-3.jpeg", "alt": "Gaushala cows", "caption": "Cows at the gaushala", "category": "daily" },
+  { "src": "/images/home-gallery/home-gallery-4.jpeg", "alt": "Gaushala cows", "caption": "Cows at the gaushala", "category": "daily" },
+  { "src": "/images/home-gallery/home-gallery-5.jpg", "alt": "Gaushala cows", "caption": "Cows at the gaushala", "category": "daily" },
+  { "src": "/images/home-gallery/home-gallery-6.jpg", "alt": "Gaushala cows", "caption": "Cows at the gaushala", "category": "daily" },
+  { "src": "/images/home-gallery/home-gallery-7.jpg", "alt": "Gaushala cows", "caption": "Cows at the gaushala", "category": "daily" },
+  { "src": "/images/home-gallery/home-gallery-8.jpg", "alt": "Gaushala cows", "caption": "Cows at the gaushala", "category": "daily" },
+
+  { "src": "/images/home-services/gau-seva.jpg", "alt": "Gau Seva", "caption": "Dedicated Gau Seva at the gaushala", "category": "community" },
+  { "src": "/images/home-services/green-energy.jpg", "alt": "Green energy", "caption": "Sustainable green energy initiatives", "category": "community" },
+  { "src": "/images/home-services/medical-care.jpeg", "alt": "Medical care for cows", "caption": "Comprehensive medical care for cows", "category": "medical" },
+  { "src": "/images/home-services/nourishment.jpeg", "alt": "Cow nourishment", "caption": "Nutritious food and nourishment for cows", "category": "daily" },
+  { "src": "/images/home-services/shelter.jpeg", "alt": "Cow shelter", "caption": "Safe and comfortable shelter", "category": "shelter" },
+  { "src": "/images/home-services/sustainability.jpeg", "alt": "Sustainability at gaushala", "caption": "Sustainable practices at the gaushala", "category": "community" },
+
+  { "src": "/images/our-impact/impact1.jpeg", "alt": "Our impact", "caption": "The impact of our work", "category": "community" },
+  { "src": "/images/our-impact/impact2.jpg", "alt": "Our impact", "caption": "Making a difference every day", "category": "community" }
 ]

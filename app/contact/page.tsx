@@ -22,7 +22,7 @@ export default function ContactRoute() {
         subtext="Whether you want to volunteer, donate, or simply learn more about our mission — every connection brings us closer to a kinder world."
       />
       <ContactForm />
-      <SocialMedia />
+      {/* <SocialMedia /> */}
       <ContactMap />
       <FinalCTA
       heading="Every Act of Compassion Counts"

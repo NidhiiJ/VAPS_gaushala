@@ -9,58 +9,60 @@
 }
 
 // ── Filter Bar ───────────────────────────────────────────────
-.photo-gallery__filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: $space-3;
-  justify-content: center;
-  margin-bottom: $space-12;
-}
+// .photo-gallery__filters {
+//   display: flex;
+//   flex-wrap: wrap;
+//   gap: $space-3;
+//   justify-content: center;
+//   margin-bottom: $space-12;
+// }
 
-.photo-gallery__filter-btn {
-  font-family: $font-body;
-  font-size: 0.8125rem;
-  font-weight: $font-weight-semibold;
-  color: $color-maroon-500;
-  background: $color-surface-white;
-  border: 1.5px solid $color-border;
-  border-radius: $radius-rounded;
-  padding: $space-2 $space-5;
-  cursor: pointer;
-  transition: color $transition-fast, background $transition-fast, border-color $transition-fast,
-    box-shadow $transition-fast;
+// .photo-gallery__filter-btn {
+//   font-family: $font-body;
+//   font-size: 0.8125rem;
+//   font-weight: $font-weight-semibold;
+//   color: $color-maroon-500;
+//   background: $color-surface-white;
+//   border: 1.5px solid $color-border;
+//   border-radius: $radius-rounded;
+//   padding: $space-2 $space-5;
+//   cursor: pointer;
+//   transition: color $transition-fast, background $transition-fast, border-color $transition-fast,
+//     box-shadow $transition-fast;
 
-  &:hover {
-    color: $color-maroon-700;
-    border-color: $color-maroon-700;
-    box-shadow: $shadow-sm;
-  }
+//   &:hover {
+//     color: $color-maroon-700;
+//     border-color: $color-maroon-700;
+//     box-shadow: $shadow-sm;
+//   }
 
-  &:focus-visible {
-    outline: 2px solid $color-maroon-600;
-    outline-offset: 2px;
-  }
+//   &:focus-visible {
+//     outline: 2px solid $color-maroon-600;
+//     outline-offset: 2px;
+//   }
 
-  &:active {
-    transform: scale(0.97);
-  }
+//   &:active {
+//     transform: scale(0.97);
+//   }
 
-  &--active {
-    color: $color-surface-white;
-    background: $color-maroon-600;
-    border-color: $color-maroon-600;
-    box-shadow: 0 0.25rem 1rem rgba(139, 26, 26, 0.28);
+//   &--active {
+//     color: $color-surface-white;
+//     background: $color-maroon-600;
+//     border-color: $color-maroon-600;
+//     box-shadow: 0 0.25rem 1rem rgba(139, 26, 26, 0.28);
 
-    &:hover {
-      background: $color-maroon-700;
-      border-color: $color-maroon-700;
-      color: $color-surface-white;
-    }
-  }
-}
+//     &:hover {
+//       background: $color-maroon-700;
+//       border-color: $color-maroon-700;
+//       color: $color-surface-white;
+//     }
+//   }
+// }
 
 // ── Grid ─────────────────────────────────────────────────────
 .photo-gallery__grid {
+  max-width: $bp-medium-desktop;
+  margin: auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: $space-3;

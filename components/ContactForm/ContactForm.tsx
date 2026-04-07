@@ -60,6 +60,7 @@ export default function ContactForm() {
 
   return (
     <section className="cf-section">
+      <Reveal variant="fade-up" delay={0.15}>
       <div className="cf-grid">
 
         {/* Side Image (hidden on mobile) */}
@@ -75,104 +76,104 @@ export default function ContactForm() {
         </div>
 
         {/* Contact Form */}
-        <Reveal variant="fade-up" delay={0.15}>
-          <div className="cf-form-wrap">
-            <h2 className="cf-form-wrap__heading">Send Us a Message</h2>
-            <p className="cf-form-wrap__sub">
-              Fill in the form below and our team will get back to you within 24 hours.
-            </p>
+        
+        <div className="cf-form-wrap">
+          <h2 className="cf-form-wrap__heading">Send Us a Message</h2>
+          <p className="cf-form-wrap__sub">
+            Fill in the form below and our team will get back to you within 24 hours.
+          </p>
 
-            <form className="cf-form" onSubmit={handleSubmit}>
-              <div className="cf-form__row">
-                <div className="cf-form__group">
-                  <label className="cf-form__label">Full Name <span className="cf-form__required">*</span></label>
-                  <input
-                    className="cf-form__input"
-                    type="text"
-                    name="name"
-                    value={values.name}
-                    onChange={handleChange}
-                    placeholder="Enter your name"
-                    required
-                  />
-                </div>
-                <div className="cf-form__group">
-                  <label className="cf-form__label">Phone Number <span className="cf-form__required">*</span></label>
-                  <input
-                    className="cf-form__input"
-                    type="tel"
-                    name="phone"
-                    value={values.phone}
-                    onChange={handleChange}
-                    placeholder="+91 00000 00000"
-                    required
-                  />
-                </div>
-              </div>
-
+          <form className="cf-form" onSubmit={handleSubmit}>
+            <div className="cf-form__row">
               <div className="cf-form__group">
-                <label className="cf-form__label">Email Address <span className="cf-form__required">*</span></label>
+                <label className="cf-form__label">Full Name <span className="cf-form__required">*</span></label>
                 <input
                   className="cf-form__input"
-                  type="email"
-                  name="email"
-                  value={values.email}
+                  type="text"
+                  name="name"
+                  value={values.name}
                   onChange={handleChange}
-                  placeholder="you@example.com"
+                  placeholder="Enter your name"
                   required
-                  onInvalid={e => (e.target as HTMLInputElement).setCustomValidity('Invalid Email')}
-                  onInput={e => (e.target as HTMLInputElement).setCustomValidity('')}
                 />
               </div>
-
               <div className="cf-form__group">
-                <label className="cf-form__label">Subject <span className="cf-form__required">*</span></label>
-                <select
-                  className="cf-form__select"
-                  name="subject"
-                  value={values.subject}
+                <label className="cf-form__label">Phone Number <span className="cf-form__required">*</span></label>
+                <input
+                  className="cf-form__input"
+                  type="tel"
+                  name="phone"
+                  value={values.phone}
                   onChange={handleChange}
+                  placeholder="+91 00000 00000"
                   required
-                >
-                  <option value="" disabled>Select a topic</option>
-                  <option>General Inquiry</option>
-                  <option>Donation / Sponsorship</option>
-                  <option>Volunteer Opportunities</option>
-                  <option>Gau Daan</option>
-                  <option>Visit Request</option>
-                  <option>Partnership / Collaboration</option>
-                  <option>Media / Press</option>
-                  <option>Other</option>
-                </select>
-              </div>
-
-              <div className="cf-form__group">
-                <label className="cf-form__label">Your Message</label>
-                <textarea
-                  className="cf-form__textarea"
-                  name="message"
-                  value={values.message}
-                  onChange={handleChange}
-                  placeholder="Tell us how we can help you..."
                 />
               </div>
+            </div>
 
-              <button
-                type="submit"
-                className={`cf-form__submit${submitted ? ' cf-form__submit--sent' : ''}`}
+            <div className="cf-form__group">
+              <label className="cf-form__label">Email Address <span className="cf-form__required">*</span></label>
+              <input
+                className="cf-form__input"
+                type="email"
+                name="email"
+                value={values.email}
+                onChange={handleChange}
+                placeholder="you@example.com"
+                required
+                onInvalid={e => (e.target as HTMLInputElement).setCustomValidity('Invalid Email')}
+                onInput={e => (e.target as HTMLInputElement).setCustomValidity('')}
+              />
+            </div>
+
+            <div className="cf-form__group">
+              <label className="cf-form__label">Subject <span className="cf-form__required">*</span></label>
+              <select
+                className="cf-form__select"
+                name="subject"
+                value={values.subject}
+                onChange={handleChange}
+                required
               >
-                {submitted ? 'Message Sent! ✓' : (
-                  <>Send Message <ArrowIcon /></>
-                )}
-              </button>
-              {error && (
-                <p className="cf-form__error">Something went wrong. Please try again.</p>
-              )}
-            </form>
-          </div>
-        </Reveal>
+                <option value="" disabled>Select a topic</option>
+                <option>General Inquiry</option>
+                <option>Donation / Sponsorship</option>
+                <option>Volunteer Opportunities</option>
+                <option>Gau Daan</option>
+                <option>Visit Request</option>
+                <option>Partnership / Collaboration</option>
+                <option>Media / Press</option>
+                <option>Other</option>
+              </select>
+            </div>
 
+            <div className="cf-form__group">
+              <label className="cf-form__label">Your Message</label>
+              <textarea
+                className="cf-form__textarea"
+                name="message"
+                value={values.message}
+                onChange={handleChange}
+                placeholder="Tell us how we can help you..."
+              />
+            </div>
+
+            <button
+              type="submit"
+              className={`cf-form__submit${submitted ? ' cf-form__submit--sent' : ''}`}
+            >
+              {submitted ? 'Message Sent! ✓' : (
+                <>Send Message <ArrowIcon /></>
+              )}
+            </button>
+            {error && (
+              <p className="cf-form__error">Something went wrong. Please try again.</p>
+            )}
+          </form>
+        </div>
+        
       </div>
+      </Reveal>
 
       {/* Info Cards — 2×2 grid below the form */}
       <div className="cf-infocards">

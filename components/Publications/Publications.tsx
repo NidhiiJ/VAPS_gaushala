@@ -6,19 +6,19 @@ import Lightbox from '@/components/Lightbox/Lightbox';
 import './Publications.scss';
 
 const PLACEHOLDER_CARDS = [
-  { source: 'Newspaper',      title: 'Add Publication Title Here', date: 'Date of Publication', image: '/images/publications/1.jpeg' },
-  { source: 'Magazine',       title: 'Add Publication Title Here', date: 'Date of Publication', image: '/images/publications/2.jpeg' },
-  { source: 'Online Feature', title: 'Add Publication Title Here', date: 'Date of Publication', image: '/images/publications/3.jpeg' },
-  { source: 'Regional Daily', title: 'Add Publication Title Here', date: 'Date of Publication', image: '/images/publications/4.jpeg' },
-  { source: 'TV Coverage',    title: 'Add Publication Title Here', date: 'Date of Publication', image: '/images/publications/5.jpeg' },
-  { source: 'National Press', title: 'Add Publication Title Here', date: 'Date of Publication', image: '/images/publications/6.jpeg' },
+  { source: 'Newspaper', title: 'Add Publication Title Here', date: 'Date of Publication', image: '/images/publications/1.jpeg' },
+  { source: 'Newspaper', title: 'Add Publication Title Here', date: 'Date of Publication', image: '/images/publications/2.jpeg' },
+  { source: 'Newspaper', title: 'Add Publication Title Here', date: 'Date of Publication', image: '/images/publications/3.jpeg' },
+  { source: 'Newspaper', title: 'Add Publication Title Here', date: 'Date of Publication', image: '/images/publications/4.jpeg' },
+  { source: 'Newspaper', title: 'Add Publication Title Here', date: 'Date of Publication', image: '/images/publications/5.jpeg' },
+  { source: 'Newspaper', title: 'Add Publication Title Here', date: 'Date of Publication', image: '/images/publications/6.jpeg' },
 ];
 
 const lightboxItems = PLACEHOLDER_CARDS.map(c => ({
   src: c.image,
   alt: c.title,
-  caption: c.title,
-  meta: c.source,
+  // caption: c.title,
+  // meta: c.source,
 }));
 
 function ZoomIcon() {
@@ -56,8 +56,8 @@ export default function Publications() {
               </div>
               <div className="pub-card__body">
                 <div className="pub-card__source">{card.source}</div>
-                <div className="pub-card__title">{card.title}</div>
-                <div className="pub-card__date">{card.date}</div>
+                {/* <div className="pub-card__title">{card.title}</div> */}
+                {/* <div className="pub-card__date">{card.date}</div> */}
               </div>
             </div>
           </StaggerItem>

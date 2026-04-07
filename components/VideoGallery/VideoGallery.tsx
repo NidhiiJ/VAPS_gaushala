@@ -1,38 +1,70 @@
 'use client';
 
 import Image from 'next/image';
+import { useState, useEffect, useCallback } from 'react';
 import { Reveal, StaggerContainer, StaggerItem } from '@/components/Reveal';
 import './VideoGallery.scss';
 
 interface VideoItem {
-  thumb: string;
+  youtubeId: string;
   title: string;
   type: string;
   duration: string;
+  /** Optional: override the auto-generated YouTube thumbnail */
+  customThumb?: string;
 }
 
 const videoItems: VideoItem[] = [
   {
-    thumb: 'https://placehold.co/500x280/3D1010/A08060?text=Rescue+Documentary',
-    title: 'The Midnight Rescue — Saving Lakshmi',
+    youtubeId: 'a4-8CYspAc0',
+    title: 'Documentary on Suri Prem Jeev Raksha Kendra, Pralai',
     type: 'Documentary',
-    duration: '12 min',
+    duration: '10 min',
   },
   {
-    thumb: 'https://placehold.co/500x280/301010/A08060?text=Day+in+the+Life',
-    title: 'A Day at Suri Prem Gaushala',
+    youtubeId: '0ploylea2zI',
+    title: 'देवनगरी के देवदर्शन पार्ट',
     type: 'Vlog',
-    duration: '8 min',
+    duration: '11 min',
   },
   {
-    thumb: 'https://placehold.co/500x280/280808/A08060?text=Community+Impact',
-    title: 'How Your Donations Change Lives',
-    type: 'Impact Story',
-    duration: '5 min',
+    youtubeId: '7_5fa4NhX4M',
+    title: 'सूरि प्रेम जीव रक्षा केंद्र, परलाई, पिंडवाड़ा, राजस्थान।',
+    type: 'Shorts',
+    duration: '< 1 min',
   },
 ];
 
+function getThumbUrl(item: VideoItem): string {
+  if (item.customThumb) return item.customThumb;
+  return `https://img.youtube.com/vi/${item.youtubeId}/hqdefault.jpg`;
+}
+
+function getEmbedUrl(youtubeId: string): string {
+  return `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`;
+}
+
 export default function VideoGallery() {
+  const [activeId, setActiveId] = useState<string | null>(null);
+
+  const close = useCallback(() => setActiveId(null), []);
+
+  // Close on Escape
+  useEffect(() => {
+    if (!activeId) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') close();
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [activeId, close]);
+
+  // Prevent body scroll while modal is open
+  useEffect(() => {
+    document.body.style.overflow = activeId ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [activeId]);
+
   return (
     <section className="video-gallery" id="videos">
       <Reveal variant="fade-up">
@@ -53,17 +85,23 @@ export default function VideoGallery() {
         initialDelay={0.05}
       >
         {videoItems.map((item) => (
-          <StaggerItem key={item.title} variant="zoom-in" className="video-gallery__card">
+          <StaggerItem key={item.youtubeId} variant="zoom-in" className="video-gallery__card">
             <div className="video-gallery__thumb">
-              <Image src={item.thumb} alt={item.title} width={500} height={280} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <Image
+                src={getThumbUrl(item)}
+                alt={item.title}
+                width={500}
+                height={280}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                unoptimized
+              />
               <div className="video-gallery__overlay" />
-              <button className="video-gallery__play" aria-label={`Play: ${item.title}`}>
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
-                >
+              <button
+                className="video-gallery__play"
+                aria-label={`Play: ${item.title}`}
+                onClick={() => setActiveId(item.youtubeId)}
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M8 5.14v14l11-7-11-7z" />
                 </svg>
               </button>
@@ -79,6 +117,41 @@ export default function VideoGallery() {
           </StaggerItem>
         ))}
       </StaggerContainer>
+
+      {/* ── Lightbox modal ───────────────────────────────────── */}
+      {activeId && (
+        <div
+          className="video-gallery__modal-backdrop"
+          onClick={close}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Video player"
+        >
+          <div
+            className="video-gallery__modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="video-gallery__modal-close"
+              onClick={close}
+              aria-label="Close video"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" />
+              </svg>
+            </button>
+            <div className="video-gallery__iframe-wrap">
+              <iframe
+                src={getEmbedUrl(activeId)}
+                title="YouTube video player"
+                style={{ border: 'none' }}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

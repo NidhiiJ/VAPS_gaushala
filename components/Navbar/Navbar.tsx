@@ -31,14 +31,15 @@ const navLinks: NavLink[] = [
   // },
   // { label: 'Facilities', href: '#' },
   { label: 'Volunteers', href: '/volunteers' },
-  {
-    label: 'Media Room',
-    href: '#',
-    submenu: [
-      { label: 'Certifications', href: '/certifications' },
-      { label: 'Publications', href: '/publications' },
-    ],
-  },
+  { label: 'Publications', href: '/publications' },
+  // {
+  //   label: 'Media Room',
+  //   href: '#',
+  //   submenu: [
+  //     { label: 'Certifications', href: '/certifications' },
+  //     { label: 'Publications', href: '/publications' },
+  //   ],
+  // },
   { label: 'Gallery', href: '/gallery' },
   { label: 'Testimonials', href: '/testimonials' },
   { label: 'Contact', href: '/contact' },

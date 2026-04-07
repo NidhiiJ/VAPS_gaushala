@@ -18,16 +18,16 @@ interface GalleryItem {
 
 const galleryItems: GalleryItem[] = galleryData as GalleryItem[];
 
-const PAGE_SIZE = 8;
+const PAGE_SIZE = 12;
 
-const filters: { label: string; value: Category }[] = [
-  { label: 'All Photos', value: 'all' },
-  { label: 'Rescues', value: 'rescue' },
-  { label: 'Medical Care', value: 'medical' },
-  { label: 'Daily Life', value: 'daily' },
-  { label: 'Shelter', value: 'shelter' },
-  { label: 'Community', value: 'community' },
-];
+// const filters: { label: string; value: Category }[] = [
+//   { label: 'All Photos', value: 'all' },
+//   { label: 'Rescues', value: 'rescue' },
+//   { label: 'Medical Care', value: 'medical' },
+//   { label: 'Daily Life', value: 'daily' },
+//   { label: 'Shelter', value: 'shelter' },
+//   { label: 'Community', value: 'community' },
+// ];
 
 export default function PhotoGallery() {
   const [activeFilter, setActiveFilter] = useState<Category>('all');
@@ -45,8 +45,8 @@ export default function PhotoGallery() {
   const lightboxItems: LightboxItem[] = filtered.map(item => ({
     src: item.src,
     alt: item.alt,
-    caption: item.caption,
-    meta: item.category,
+    // caption: item.caption,
+    // meta: item.category,
   }));
 
   const handleFilterChange = (value: Category) => {
@@ -79,14 +79,14 @@ export default function PhotoGallery() {
       </Reveal> */}
 
       <StaggerContainer
-        key={activeFilter}
+        // key={activeFilter}
         className="photo-gallery__grid"
         staggerDelay={0.06}
         initialDelay={0.05}
       >
         {visible.map((item, idx) => (
           <StaggerItem
-            key={item.alt + item.category}
+            key={item.alt + idx}
             variant="zoom-in"
             className="photo-gallery__item"
           >

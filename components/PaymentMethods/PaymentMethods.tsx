@@ -230,7 +230,7 @@ export default function PaymentMethods({ standalone = true }: PaymentMethodsProp
           <p className="pm-section__overline">Payment Methods</p>
           <h2 className="pm-section__heading" id="pm-heading">How to Donate</h2>
           <p className="pm-section__subtext">
-            Choose the most convenient method. All donations are eligible for 80G tax exemption.
+            Choose the most convenient method.
           </p>
           <div className="pm-section__rule" aria-hidden="true" />
         </Reveal>

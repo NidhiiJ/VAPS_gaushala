@@ -274,15 +274,15 @@
     transition: color $transition-fast;
   }
 
-  &:hover {
-    background: $color-maroon-900;
-    color: $color-wheat;
-    border-color: $color-maroon-900;
+  // &:hover {
+  //   background: $color-maroon-900;
+  //   color: $color-wheat;
+  //   border-color: $color-maroon-900;
 
-    svg {
-      color: $color-wheat;
-    }
-  }
+  //   svg {
+  //     color: $color-wheat;
+  //   }
+  // }
 }
 
 // ── Occasion amounts ──────────────────────────────────────────

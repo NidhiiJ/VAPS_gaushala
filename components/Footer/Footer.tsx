@@ -6,7 +6,7 @@ const orgLinks = [
   { label: 'Timeline', href: '/timeline' },
   { label: 'Gallery', href: '/gallery' },
   { label: 'Testimonials', href: '/testimonials' },
-  { label: 'Certifications', href: '/certifications' },
+  { label: 'Publications', href: '/publications' },
 ];
 
 const involveLinks = [
