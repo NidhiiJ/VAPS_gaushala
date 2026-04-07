@@ -450,7 +450,7 @@
   }
 
   &:hover {
-    color: $color-surface-white;
+    color: $color-gold;
   }
 
   &--active {
@@ -559,8 +559,10 @@
   text-align: left;
   transition: color 0.2s ease;
 
-  &:hover {
-    color: $color-surface-white;
+  @media (hover: hover) {
+    &:hover {
+      color: $color-gold;
+    }
   }
 
   &--active {
@@ -627,9 +629,11 @@
     padding-bottom: $space-3;
   }
 
-  &:hover {
-    color: $color-surface-white;
-    padding-left: calc(#{$space-4} + 2rem);
+  @media (hover: hover) {
+    &:hover {
+      // color: $color-surface-white;
+      padding-left: calc(#{$space-4} + 2rem);
+    }
   }
 
   &:active {
