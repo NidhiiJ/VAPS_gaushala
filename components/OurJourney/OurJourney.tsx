@@ -16,7 +16,7 @@ export default function OurJourney() {
         <Reveal variant="slide-right" className="journey-visual">
           <div className="journey-img">
             <Image
-              src="https://placehold.co/600x750/E8D5C0/7A5C40?text=Founders+Photo"
+              src="/images/about/about-journey.jpeg"
               alt="VAPS Mandal Founders"
               width={600}
               height={750}
@@ -27,10 +27,10 @@ export default function OurJourney() {
             <div className="jb-year">1986</div>
             <div className="jb-label">Established</div>
           </div>
-          <div className="journey-float">
+          {/* <div className="journey-float">
             <div className="jf-num">7</div>
             <div className="jf-text">Founding<br />Members</div>
-          </div>
+          </div> */}
         </Reveal>
 
         <Reveal variant="slide-left" delay={0.15} className="journey-text">

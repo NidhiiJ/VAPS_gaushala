@@ -5,19 +5,9 @@
 
 .purpose-block {
   background: $color-surface-base;
-  padding: $space-24 5% $space-24;
+  padding: $space-20 5% $space-8;
   position: relative;
   overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, $color-border 20%, $color-border 80%, transparent);
-  }
 }
 
 .purpose-inner {
@@ -199,8 +189,12 @@
 }
 
 @media (max-width: $bp-mobile) {
+  .purpose-header {
+    margin: 0 auto $space-8;
+  }
+
   .purpose-block {
-    padding: $space-16 5% $space-16;
+    padding: $space-8 5% $space-4;
   }
 
   .purpose-card {

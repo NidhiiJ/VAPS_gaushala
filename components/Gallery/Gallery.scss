@@ -6,6 +6,8 @@
 }
 
 .gallery-grid {
+  max-width: $bp-medium-desktop;
+  margin: auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0.625rem;

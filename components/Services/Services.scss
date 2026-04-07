@@ -10,12 +10,13 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: $space-5;
-  max-width: 71.25rem;
+  max-width: $bp-desktop;
   margin: 0 auto;
 }
 
 // ── Service Card ──────────────────────────────────────────────
 .srv-card {
+  height: 100%;
   background: $color-surface-white;
   border: 1px solid $color-border;
   border-radius: 1.25rem;
@@ -121,6 +122,10 @@
 
 // ── Responsive ────────────────────────────────────────────────
 @media (max-width: $bp-tablet) {
+  .services {
+    padding: 5rem 5% 0 5%;
+  }
+
   .srv-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: $space-4;
@@ -128,6 +133,7 @@
 }
 
 @media (max-width: $bp-mobile) {
+
   .srv-grid {
     grid-template-columns: 1fr;
   }

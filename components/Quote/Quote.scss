@@ -1,9 +1,40 @@
 @import "../../styles/variables";
 
 .quote {
-  background: $color-maroon-950;
+  background: linear-gradient(135deg, #2A0A0A 0%, #3D0C0C 40%, #4A1515 100%);
   padding: 3.75rem 5%;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -150px;
+    width: 560px;
+    height: 560px;
+    border-radius: $radius-full;
+    background: radial-gradient(circle, rgba($color-maroon-700, 0.18), transparent 70%);
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -120px;
+    left: -120px;
+    width: 400px;
+    height: 400px;
+    border-radius: $radius-full;
+    background: radial-gradient(circle, rgba($color-gold, 0.06), transparent 70%);
+    pointer-events: none;
+  }
+
+  blockquote, .quote-attr {
+    position: relative;
+    z-index: 1;
+  }
 
   blockquote {
     font-family: $font-display;

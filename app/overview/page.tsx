@@ -18,7 +18,6 @@ export default function OverviewPage() {
   return (
     <>
       <Navbar />
-      <main>
         <PageHero
           eyebrow="Since 1986 — Four Decades of Seva"
           heading="About Us"
@@ -37,7 +36,6 @@ export default function OverviewPage() {
             { label: 'Visit the Panjrapole', href: '/contact', variant: 'secondary' },
           ]}
         />
-      </main>
       <Footer />
     </>
   );

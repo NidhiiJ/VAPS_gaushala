@@ -3,14 +3,15 @@
 // ── Hero — split layout ───────────────────────────────────────
 .hero {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 88vh;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 5%;
+  padding: $space-14 5%;
+  min-height: 92vh;
   background: $color-surface-base;
 }
 
 // ── Left panel ───────────────────────────────────────────────
 .hero-l {
-  padding: $space-20 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -152,14 +153,13 @@
 // ── Right panel ──────────────────────────────────────────────
 .hero-r {
   position: relative;
-  padding: 2.5rem 2.5rem 2.5rem 0;
   display: flex;
   align-items: center;
 }
 
 .hero-img-wrap {
   width: 100%;
-  height: 85%;
+  height: 92%;
   border-radius: 1.25rem;
   overflow: hidden;
   position: relative;
@@ -207,11 +207,36 @@
 
 // ── Stats bar ─────────────────────────────────────────────────
 .stats-bar {
-  background: $color-maroon-950;
+  background: linear-gradient(135deg, #2A0A0A 0%, #3D0C0C 40%, #4A1515 100%);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   position: relative;
   z-index: 5;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -120px;
+    right: -100px;
+    width: 360px;
+    height: 360px;
+    border-radius: $radius-full;
+    background: radial-gradient(circle, rgba($color-maroon-700, 0.18), transparent 70%);
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    left: -80px;
+    width: 260px;
+    height: 260px;
+    border-radius: $radius-full;
+    background: radial-gradient(circle, rgba($color-gold, 0.06), transparent 70%);
+    pointer-events: none;
+  }
 }
 
 .stat-item {
@@ -254,16 +279,17 @@
 @media (max-width: $bp-tablet) {
   .hero {
     grid-template-columns: 1fr;
+    gap: 0;
+    padding: $space-12 5%;
     min-height: unset;
   }
 
   .hero-l {
-    padding: $space-12 5% $space-8;
+    padding-bottom: $space-8;
   }
 
   .hero-r {
-    padding: 0 5% $space-12;
-    min-height: 55vw;
+    min-height: 70vw;
   }
 
   .hero-img-wrap {
@@ -281,10 +307,12 @@
 
   .stat-item:nth-child(2) {
     border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08)
   }
 
   .stat-item:nth-child(3) {
     border-right: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.08)
   }
 }
 
