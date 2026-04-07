@@ -1,0 +1,153 @@
+@import "../../styles/variables";
+
+// ── Employment  |  prefix: `emp-`
+// Light cream section: header + 4-image horizontal grid (2×2 on mobile)
+
+.emp-block {
+  background: $color-surface-base;
+  padding: $space-24 5%;
+  position: relative;
+  overflow: hidden;
+
+  // Subtle warm radial blush
+  &::before {
+    content: '';
+    position: absolute;
+    top: -120px;
+    right: -80px;
+    width: 520px;
+    height: 520px;
+    border-radius: $radius-full;
+    background: radial-gradient(circle, rgba($color-gold, 0.07), transparent 70%);
+    pointer-events: none;
+  }
+}
+
+.emp-inner {
+  max-width: $bp-desktop;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+// ── Header
+.emp-header {
+  text-align: center;
+  max-width: 44rem;
+  margin: 0 auto $space-14;
+}
+
+.emp-label {
+  font-size: 0.6875rem;
+  font-weight: $font-weight-bold;
+  color: $color-maroon-700;
+  letter-spacing: $letter-spacing-widest;
+  text-transform: uppercase;
+  margin-bottom: $space-4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-3;
+
+  &::before,
+  &::after {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: $color-gold;
+    border-radius: 1px;
+    opacity: 0.7;
+  }
+}
+
+.emp-header h2 {
+  font-family: $font-display;
+  font-size: $h2-font-size;
+  font-weight: $font-weight-bold;
+  color: $color-maroon-900;
+  line-height: $line-height-heading;
+  letter-spacing: $letter-spacing-tight;
+  margin-bottom: $space-5;
+}
+
+.emp-header p {
+  font-size: 0.9375rem;
+  color: $color-maroon-500;
+  line-height: $line-height-body;
+}
+
+// ── Image grid  — 4 cols on desktop, 2×2 on mobile
+.emp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $space-5;
+}
+
+.emp-card {
+  border-radius: $radius-2xl;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  position: relative;
+  box-shadow: 0 8px 28px rgba(42, 10, 10, 0.08);
+  cursor: default;
+
+  &:hover .emp-card__img-wrap img {
+    transform: scale(1.06);
+  }
+
+  &:hover .emp-card__overlay {
+    opacity: 0.55;
+  }
+}
+
+.emp-card__img-wrap {
+  position: absolute;
+  inset: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform $transition-slow;
+    background: $color-peach;
+  }
+}
+
+.emp-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba($color-maroon-950, 0.55) 0%,
+    rgba($color-maroon-900, 0.15) 50%,
+    transparent 100%
+  );
+  opacity: 0.38;
+  transition: opacity $transition-base;
+}
+
+// ── Responsive
+@media (max-width: $bp-tablet) {
+  .emp-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-4;
+  }
+
+  .emp-card {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .emp-block {
+    padding: $space-16 5%;
+  }
+
+  .emp-header {
+    margin-bottom: $space-10;
+  }
+
+  .emp-grid {
+    gap: $space-3;
+  }
+}

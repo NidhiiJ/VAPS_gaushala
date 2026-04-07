@@ -5,23 +5,13 @@
 
 .present-block {
   background: $color-surface-base;
-  padding: 7.5rem 5%;
+  padding: 2rem 5% 5rem;
   position: relative;
   overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, $color-border 20%, $color-border 80%, transparent);
-  }
 }
 
 .present-inner {
-  max-width: 75rem;
+  max-width: $bp-desktop;
   margin: 0 auto;
 }
 

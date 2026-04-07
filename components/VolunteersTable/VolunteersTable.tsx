@@ -179,30 +179,31 @@ export default function VolunteersTable() {
           ))}
         </div>
 
-        {/* Result count with active filter badge */}
-        <p className="vol-result-count" aria-live="polite">
-          {filtered.length === 0 ? (
-            <>No volunteers found</>
-          ) : (
-            <>
-              Showing <strong>{showFrom}–{showTo}</strong> of{' '}
-              <strong>{filtered.length}</strong> volunteer{filtered.length !== 1 ? 's' : ''}
-            </>
-          )}
-          {filter !== 'ALL' && (
-            <span className="vol-result-count__badge">
-              {filterLabel(filter)}
-              <button
-                className="vol-result-count__clear"
-                onClick={() => handleFilter('ALL')}
-                aria-label="Clear city filter"
-              >
-                ×
-              </button>
-            </span>
-          )}
-        </p>
       </div>
+
+      {/* ── Status / result count ── */}
+      <p className="vol-result-count" aria-live="polite">
+        {filtered.length === 0 ? (
+          <>No volunteers found</>
+        ) : (
+          <>
+            Showing <strong>{showFrom}–{showTo}</strong> of{' '}
+            <strong>{filtered.length}</strong> volunteer{filtered.length !== 1 ? 's' : ''}
+          </>
+        )}
+        {filter !== 'ALL' && (
+          <span className="vol-result-count__badge">
+            {filterLabel(filter)}
+            <button
+              className="vol-result-count__clear"
+              onClick={() => handleFilter('ALL')}
+              aria-label="Clear city filter"
+            >
+              ×
+            </button>
+          </span>
+        )}
+      </p>
 
       {/* ── Table ── */}
       <div className="vol-table-wrap">
@@ -211,7 +212,7 @@ export default function VolunteersTable() {
             <tr>
               <th scope="col">Sr.</th>
               <th scope="col">Name</th>
-              <th scope="col">Membership Date</th>
+              <th scope="col">Duration</th>
               <th scope="col">Place</th>
             </tr>
           </thead>

@@ -4,7 +4,7 @@
 
 // ── Controls wrapper
 .vol-controls {
-  padding: 2.5rem 0 1rem;
+  padding: 2.5rem 0 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -218,7 +218,7 @@
   display: flex;
   gap: $space-2;
   flex-wrap: wrap;
-  margin-top: $space-4;
+  margin-top: $space-5;
 }
 
 .vol-filter-btn {
@@ -263,11 +263,13 @@
   }
 }
 
-// ── Result count + active filter badge
+// ── Result count + active filter badge (sits between controls and table)
 .vol-result-count {
   font-size: 0.8125rem;
   color: $color-muted;
-  margin-top: $space-3;
+  max-width: $bp-desktop;
+  padding-bottom: $space-2;
+  // margin: $space-6 auto $space-3;
   display: flex;
   align-items: center;
   gap: $space-3;
@@ -319,7 +321,7 @@
 .vol-table-section {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 0 $space-16;
+  padding: 0 $space-5 $space-16;
 }
 
 .vol-table-wrap {
@@ -426,7 +428,7 @@
   align-items: center;
   justify-content: center;
   gap: $space-2;
-  margin-top: $space-8;
+  margin-top: $space-10;
   flex-wrap: wrap;
 }
 

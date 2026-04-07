@@ -5,6 +5,7 @@ import OurJourney       from '@/components/OurJourney/OurJourney';
 import OurPurpose       from '@/components/OurPurpose/OurPurpose';
 import GrowthService    from '@/components/GrowthService/GrowthService';
 import PanjrapolDream   from '@/components/PanjrapolDream/PanjrapolDream';
+import Employment       from '@/components/Employment/Employment';
 import PresentDay       from '@/components/PresentDay/PresentDay';
 import FinalCTA         from '@/components/FinalCTA/FinalCTA';
 
@@ -27,6 +28,7 @@ export default function OverviewPage() {
         <OurPurpose />
         <GrowthService />
         <PanjrapolDream />
+        <Employment />
         <PresentDay />
         <FinalCTA
           heading="Be Part of This Journey"
