@@ -454,7 +454,8 @@
   }
 
   &--active {
-    color: $color-surface-white;
+    font-weight: 600;
+    color: $color-gold;
   }
 
   &:active {
