@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Image from 'next/image';
 import { Reveal } from '@/components/Reveal';
+import Lightbox, { LightboxItem } from '@/components/Lightbox/Lightbox';
 import './VisitorsBook.scss';
 
 const PAGES: { src: string; width: number; height: number }[] = [
@@ -29,11 +30,34 @@ interface VisitorsBookProps {
   showDownloadButton?: boolean;
 }
 
+const LIGHTBOX_ITEMS: LightboxItem[] = PAGES.map((page, i) => ({
+  src: page.src,
+  alt: `Visitor's book page ${i + 1}`,
+}));
+
 export default function VisitorsBook({ showDownloadButton }: VisitorsBookProps) {
   const [current, setCurrent] = useState(0);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const touchStartX = useRef<number | null>(null);
+  const didSwipe = useRef(false);
 
   const navigate = (dir: number) => {
     setCurrent((prev) => (prev + dir + TOTAL_PAGES) % TOTAL_PAGES);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    didSwipe.current = false;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const delta = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(delta) > 40) {
+      navigate(delta < 0 ? 1 : -1);
+      didSwipe.current = true;
+    }
+    touchStartX.current = null;
   };
 
   return (
@@ -59,9 +83,18 @@ export default function VisitorsBook({ showDownloadButton }: VisitorsBookProps) 
       <Reveal variant="fade-up" delay={0.15}>
       <div className="pdf-viewer">
         <div className="pdf-viewer-wrap">
-          <div className="pdf-display">
+          <div
+            className="pdf-display"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
             {PAGES.map((page, i) => (
-              <div key={i} className={`pdf-page${i === current ? ' active' : ''}`}>
+              <div
+                key={i}
+                className={`pdf-page${i === current ? ' active' : ''}`}
+                onClick={() => { if (!didSwipe.current) setLightboxIndex(i); }}
+                style={{ cursor: 'zoom-in' }}
+              >
                 <Image
                   src={page.src}
                   alt={`Visitor's book page ${i + 1}`}
@@ -86,6 +119,16 @@ export default function VisitorsBook({ showDownloadButton }: VisitorsBookProps) 
         </div>
       </div>
       </Reveal>
+
+      {lightboxIndex !== null && (
+        <Lightbox
+          items={LIGHTBOX_ITEMS}
+          index={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+          onPrev={() => setLightboxIndex((lightboxIndex - 1 + TOTAL_PAGES) % TOTAL_PAGES)}
+          onNext={() => setLightboxIndex((lightboxIndex + 1) % TOTAL_PAGES)}
+        />
+      )}
     </section>
   );
 }
