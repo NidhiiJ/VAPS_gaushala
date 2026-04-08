@@ -122,15 +122,15 @@ function UPIPane({ copied, onCopy }: { copied: string | null; onCopy: (v: string
         </div>
       </div>
 
-      <div className="pm-divider" role="separator" aria-hidden="true" />
+      {/* <div className="pm-divider" role="separator" aria-hidden="true" /> */}
 
-      <div className="pm-field">
+      {/* <div className="pm-field">
         <span className="pm-field__label">Mobile Number</span>
         <div className="pm-field__row pm-field__row--accent">
           <span className="pm-field__value">{UPI.mobile}</span>
           <CopyBtn value={UPI.mobile.replace(/\s/g, '')} id="upi-mobile" copied={copied} onCopy={onCopy} />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

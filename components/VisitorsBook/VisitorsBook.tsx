@@ -73,7 +73,7 @@ export default function VisitorsBook({ showDownloadButton }: VisitorsBookProps) 
       {showDownloadButton && (
         <Reveal variant="fade-up">
           <div className="visitors-book-download">
-            <a href="/images/testimonials/visitors-book.pdf" download className="btn-cta-primary">
+            <a href="https://6wclnzqougdo2kki.public.blob.vercel-storage.com/visitors-book.pdf" download className="btn-cta-primary">
               Download Complete PDF
             </a>
           </div>

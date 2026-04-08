@@ -22,7 +22,7 @@ export default function TestimonialsRoute() {
         subtext="From handwritten notes to heartfelt words — hear from those who have witnessed our mission of compassionate care firsthand."
       /> */}
       {/* <Testimonials /> */}
-      <VisitorsBook showDownloadButton />
+      <VisitorsBook />
       <FavouriteCompliments />
       <FinalCTA
         heading="Come Be a Part of Our Seva"
