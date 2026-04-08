@@ -16,10 +16,12 @@ const UPI = {
   mobile:   '12345 67890',
 };
 
-const BANKS = [
-  { bank: 'State Bank of India', type: 'Savings Account',  account: '55310200000233' },
-  { bank: 'Bank of Baroda',      type: 'Current Account',  account: '32051513222'     },
-];
+const BANK = {
+  holder:  'Suri Prem Jiv Raksha Kendra Sansthan',
+  bank:    'Bank of Baroda, Pindwara',
+  account: '55310200000233',
+  ifsc:    'BARB0PINSIR',
+};
 
 // ── Tab icons ─────────────────────────────────────────────────────────────────
 
@@ -139,20 +141,49 @@ function UPIPane({ copied, onCopy }: { copied: string | null; onCopy: (v: string
 
 function BankPane({ copied, onCopy }: { copied: string | null; onCopy: (v: string, k: string) => void }) {
   return (
-    <div className="pm-bank">
-      <p className="pm-bank__entity">Suri Prem Jiv Raksha Kendra Sansthan</p>
-      {BANKS.map((acc, i) => (
-        <div key={i} className="pm-bank__card">
-          <div className="pm-bank__card-header">
-            <span className="pm-bank__name">{acc.bank}</span>
-            <span className="pm-bank__type">{acc.type}</span>
-          </div>
-          <div className="pm-bank__account-row">
-            <span className="pm-bank__account">{acc.account}</span>
-            <CopyBtn value={acc.account} id={`bank-${i}`} copied={copied} onCopy={onCopy} />
-          </div>
+    <div className="pm-bank pm-upi">
+
+      <div className="pm-field">
+        <span className="pm-field__label">Account Holder Name</span>
+        <div className="pm-field__row">
+          <span className="pm-field__value pm-field__value--multiline">
+            {BANK.holder.split(' ').slice(0, 4).join(' ')}
+            <span>{BANK.holder.split(' ').slice(4).join(' ')}</span>
+          </span>
+          <CopyBtn value={BANK.holder} id="bank-holder" copied={copied} onCopy={onCopy} />
         </div>
-      ))}
+      </div>
+
+      {/* <div className="pm-divider" role="separator" aria-hidden="true" /> */}
+
+      <div className="pm-field">
+        <span className="pm-field__label">Bank &amp; Branch</span>
+        <div className="pm-field__row">
+          <span className="pm-field__value">{BANK.bank}</span>
+          <CopyBtn value={BANK.bank} id="bank-branch" copied={copied} onCopy={onCopy} />
+        </div>
+      </div>
+
+      {/* <div className="pm-divider" role="separator" aria-hidden="true" /> */}
+
+      <div className="pm-field">
+        <span className="pm-field__label">Account Number</span>
+        <div className="pm-field__row pm-field__row--accent">
+          <span className="pm-field__value">{BANK.account}</span>
+          <CopyBtn value={BANK.account} id="bank-account" copied={copied} onCopy={onCopy} />
+        </div>
+      </div>
+
+      {/* <div className="pm-divider" role="separator" aria-hidden="true" /> */}
+
+      <div className="pm-field">
+        <span className="pm-field__label">IFSC Code <span className="pm-field__note">(5th character is zero)</span></span>
+        <div className="pm-field__row pm-field__row--accent">
+          <span className="pm-field__value">{BANK.ifsc}</span>
+          <CopyBtn value={BANK.ifsc} id="bank-ifsc" copied={copied} onCopy={onCopy} />
+        </div>
+      </div>
+
     </div>
   );
 }

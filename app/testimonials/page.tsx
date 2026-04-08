@@ -23,7 +23,7 @@ export default function TestimonialsRoute() {
       /> */}
       {/* <Testimonials /> */}
       <VisitorsBook />
-      <FavouriteCompliments />
+      {/* <FavouriteCompliments /> */}
       <FinalCTA
         heading="Come Be a Part of Our Seva"
         subtext="Our doors are open to all who wish to witness the care and compassion we offer every day. "

@@ -259,7 +259,7 @@
 
 .pm-field__label {
   display: block;
-  font-size: 0.625rem;
+  font-size: 0.8rem;
   font-weight: $font-weight-semibold;
   letter-spacing: $letter-spacing-widest;
   text-transform: uppercase;
@@ -273,10 +273,6 @@
   justify-content: center;
   gap: $space-3;
   flex-wrap: wrap;
-
-  &--accent .pm-field__value {
-    color: $color-maroon-600;
-  }
 }
 
 .pm-field__value {
@@ -293,6 +289,15 @@
     line-height: 1.5;
     gap: 2px;
   }
+}
+
+.pm-field__note {
+  font-weight: $font-weight-medium;
+  font-size: 0.8rem;
+  text-transform: none;
+  letter-spacing: 0.1px;
+  color: $color-maroon-500;
+  opacity: 0.85;
 }
 
 .pm-divider {

@@ -115,7 +115,7 @@ export default function PhotoGallery() {
             className="photo-gallery__load-more-btn"
             onClick={() => setVisibleCount(c => c + PAGE_SIZE)}
           >
-            Load More
+            View More
           </button>
         </div>
       )}

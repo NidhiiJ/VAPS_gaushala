@@ -38,10 +38,11 @@ export default function VolunteersHero() {
         </div>
 
         <a
-          href="/volunteer_list.pdf"
+          href="https://6wclnzqougdo2kki.public.blob.vercel-storage.com/volunteer%20list.pdf"
           download
           className="vol-hero__download"
           aria-label="Download full volunteer list PDF"
+          target='_blank'
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

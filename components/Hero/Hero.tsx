@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
+import AnimatedNumber from '@/utils/AnimatedNumber';
 import './Hero.scss';
 
 const slides = [
@@ -115,7 +116,7 @@ export default function Hero() {
         {stats.map((stat) => (
           <div key={stat.label} className="stat-item">
             <div className="stat-icon" aria-hidden="true"><img src={stat.icon} alt="" width={28} height={28} /></div>
-            <div className="stat-number">{stat.number}</div>
+            <div className="stat-number"><AnimatedNumber raw={stat.number} /></div>
             <div className="stat-label">{stat.label}</div>
           </div>
         ))}
