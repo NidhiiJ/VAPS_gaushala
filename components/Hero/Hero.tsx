@@ -6,19 +6,23 @@ import './Hero.scss';
 
 const slides = [
   {
-    src: '/images/hero-images/hero1.jpg',
+    src: '/images/hero-images/hero-1-highres.jpg',
     alt: 'Nourishment at Suri Prem Jeevraksha Kendra',
   },
   {
-    src: '/images/hero-images/hero2.jpg',
+    src: '/images/hero-images/hero-2-highres.jpg',
     alt: 'Animals rescued at Suri Prem Jeevraksha Kendra',
   },
   {
-    src: '/images/hero-images/hero3.jpg',
+    src: '/images/hero-images/hero-3-highres.jpg',
     alt: 'Gau Seva at Suri Prem Jeevraksha Kendra',
   },
   {
-    src: '/images/hero-images/hero4.jpg',
+    src: '/images/hero-images/hero-4-highres.jpg',
+    alt: 'Gau Seva at Suri Prem Jeevraksha Kendra',
+  },
+  {
+    src: '/images/hero-images/hero-5-highres.jpg',
     alt: 'Gau Seva at Suri Prem Jeevraksha Kendra',
   }
 ];
@@ -91,6 +95,7 @@ export default function Hero() {
                   alt={slide.alt}
                   fill
                   style={{ objectFit: 'cover' }}
+                  sizes="(max-width: 768px) 100vw, 55vw"
                   priority={i === 0}
                 />
               </div>
