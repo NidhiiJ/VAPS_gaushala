@@ -52,10 +52,10 @@ const services = [
     accent: '#B06000',
     accentBg: 'rgba(176,96,0,.08)',
     label: 'Green Energy',
-    title: 'Electricity Generation',
-    description: 'Biogas produced from cow waste is harnessed to generate clean electricity, powering the gaushala and reducing dependency on fossil fuels.',
+    title: 'Solar Power Generation',
+    description: 'olar panels at the gaushala generate clean electricity to power daily operations, reducing costs and dependence on conventional energy.',
     imgSrc: '/images/home-services/green-energy.jpg',
-    imgAlt: 'Biogas Electricity Generation',
+    imgAlt: 'Solar Power Generation',
   },
 ];
 

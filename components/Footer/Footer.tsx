@@ -22,8 +22,9 @@ const involveLinks = [
 
 const contactLinks: { label: string; href?: string }[] = [
   { label: 'Rajasthan, India' },
-  { label: 'info@gaushala.org', href: 'mailto:info@gaushala.org' },
-  { label: '+91 98765 43210', href: 'tel:+919876543210' },
+  { label: 'panjrapoleparlai@gmail.com', href: 'mailto:panjrapoleparlai@gmail.com' },
+  { label: '+91 96361 04084', href: 'tel:+919636104084' },
+  { label: '+91 93770 31530', href: 'tel:+919377031530'}
 ];
 
 export default function Footer() {

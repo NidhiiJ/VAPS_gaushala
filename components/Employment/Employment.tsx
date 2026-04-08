@@ -2,10 +2,10 @@ import { Reveal, StaggerContainer, StaggerItem } from '@/components/Reveal';
 import './Employment.scss';
 
 const images = [
-  { src: '/images/employment/emp-1.jpg', alt: 'Local staff caring for cows' },
-  { src: '/images/employment/emp-2.jpg', alt: 'Community members at work' },
-  { src: '/images/employment/emp-3.jpg', alt: 'Volunteers in the Gaushala' },
-  { src: '/images/employment/emp-4.jpg', alt: 'Youth engaged in seva' },
+  { src: '/images/about/local-1.jpeg', alt: 'Local staff caring for cows' },
+  { src: '/images/about/local-2.jpg', alt: 'Community members at work' },
+  { src: '/images/about/local-3.jpeg', alt: 'Volunteers in the Gaushala' },
+  { src: '/images/about/local-4.jpeg', alt: 'Youth engaged in seva' },
 ];
 
 export default function Employment() {
@@ -16,8 +16,7 @@ export default function Employment() {
           <div className="emp-label">Community &amp; Livelihoods</div>
           <h2>Empowering Locals</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae
-            vestibulum hendrerit. Donec in efficitur leo, in commodo lorem.
+            We provide meaningful jobs that support the local economy, help communities grow, and create stable opportunities for the future.
           </p>
         </Reveal>
 

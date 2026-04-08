@@ -52,8 +52,9 @@ export default function InfoCards() {
           </div>
           <h3 className="ic-card__title">Visit Our Gaushala</h3>
           <p className="ic-card__body">
-            Suri Prem Jeevraksha Kendra Sansthan,<br />
-            Near Bus Stand, Sirohi,<br />
+            Suri Prem Jiv Raksha Kendra Sansthan,<br />
+            Near Bamanwadji Tirth<br />
+            Post Office - Parlai, Pindwada, Sirohi-307022 <br />
             Rajasthan 307001, India
           </p>
         </div>
@@ -66,8 +67,8 @@ export default function InfoCards() {
           </div>
           <h3 className="ic-card__title">Call Us</h3>
           <p className="ic-card__body">
-            Phone: <a href="tel:+919876543210">+91 98765 43210</a><br />
-            Alternate: <a href="tel:+919876543211">+91 98765 43211</a><br />
+            Phone: <a href="tel:+919636104084">+91 96361 04084</a><br />
+            Alternate: <a href="tel:+919377031530">+91 93770 31530</a><br />
             Available 8 AM – 8 PM IST
           </p>
         </div>
@@ -81,10 +82,10 @@ export default function InfoCards() {
           <h3 className="ic-card__title">Email Us</h3>
           <p className="ic-card__body">
             General Inquiries:<br />
-            <a href="mailto:info@suripremjrk.org">info@suripremjrk.org</a><br />
-            <br />
+            <a href="mailto:info@suripremjrk.org">panjrapoleparlai@gmail.com</a><br />
+            {/* <br />
             Donations:<br />
-            <a href="mailto:donate@suripremjrk.org">donate@suripremjrk.org</a>
+            <a href="mailto:donate@suripremjrk.org">donate@suripremjrk.org</a> */}
           </p>
         </div>
       </StaggerItem>
