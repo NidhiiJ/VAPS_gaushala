@@ -38,6 +38,7 @@ function ArrowIcon() {
 export default function ContactForm() {
   const [values, setValues] = useState<FormValues>(initialValues);
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
   const handleChange = useCallback((e: { target: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement }) => {
@@ -48,6 +49,7 @@ export default function ContactForm() {
   const handleSubmit = useCallback(async (e: { preventDefault(): void }) => {
     e.preventDefault();
     setError(false);
+    setLoading(true);
     try {
       await sendEmail(values);
       setSubmitted(true);
@@ -55,6 +57,8 @@ export default function ContactForm() {
       setTimeout(() => setSubmitted(false), 4000);
     } catch {
       setError(true);
+    } finally {
+      setLoading(false);
     }
   }, [values]);
 
@@ -160,9 +164,10 @@ export default function ContactForm() {
 
             <button
               type="submit"
-              className={`cf-form__submit${submitted ? ' cf-form__submit--sent' : ''}`}
+              disabled={loading || submitted}
+              className={`cf-form__submit${submitted ? ' cf-form__submit--sent' : ''}${loading ? ' cf-form__submit--loading' : ''}`}
             >
-              {submitted ? 'Message Sent! ✓' : (
+              {submitted ? 'Message Sent! ✓' : loading ? 'Sending…' : (
                 <>Send Message <ArrowIcon /></>
               )}
             </button>

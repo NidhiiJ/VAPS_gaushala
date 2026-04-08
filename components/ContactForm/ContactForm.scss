@@ -212,6 +212,17 @@
       outline-offset: 3px;
     }
 
+    &--loading {
+      opacity: 0.7;
+      cursor: not-allowed;
+      pointer-events: none;
+
+      &:hover {
+        transform: none;
+        box-shadow: none;
+      }
+    }
+
     &--sent {
       background: #388E3C;
       cursor: default;
