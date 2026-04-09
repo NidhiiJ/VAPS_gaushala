@@ -3,10 +3,10 @@ import { Reveal } from '@/components/Reveal';
 import './OurJourney.scss';
 
 const cities = [
-  { name: 'Mumbai', members: 72 },
-  { name: 'Bhilwara', members: 48 },
+  { name: 'Mumbai', members: 67 },
+  { name: 'Bhilwara', members: 9 },
   { name: 'Surat', members: 56 },
-  { name: 'Ahmedabad', members: 42 },
+  { name: 'Ahmedabad', members: 10 },
 ];
 
 export default function OurJourney() {
