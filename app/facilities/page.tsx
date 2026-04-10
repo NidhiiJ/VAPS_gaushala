@@ -32,7 +32,7 @@ export default function FacilitiesRoute() {
       <Facility4 />
       {/* <Facility5 /> */}
       <OperationsSupport />
-      {/* <Facility6 /> */}
+      <Facility6 />
       <Facility7 />
       {/* <FinalCTA
         heading="Help Us Maintain These Facilities"

@@ -24,14 +24,15 @@
   width: 100%;
   min-height: 70vh;
   overflow: hidden;
-  background: $color-border; // placeholder — replaced by real image
+  background-color: $color-maroon-950;
 
-  // Simulated image layer (remove when real image added)
   &::before {
     content: '';
     position: absolute;
     inset: 0;
-    opacity: 0.5;
+    background-image: url('/images/facilities/facility6.jpg');
+    background-size: cover;
+    background-position: center;
     transition: transform 8s ease;
   }
 
@@ -158,13 +159,8 @@
     min-height: auto;
   }
 
-  .facility6__overlay {
-    background: linear-gradient(
-      to bottom,
-      rgba(20, 5, 5, 0.85) 0%,
-      rgba(20, 5, 5, 0.7) 60%,
-      rgba(20, 5, 5, 0.4) 100%
-    );
+  .facility6__overlay{
+    display: none;
   }
 
   .facility6__content {
