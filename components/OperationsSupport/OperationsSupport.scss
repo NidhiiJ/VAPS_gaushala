@@ -84,11 +84,11 @@
   overflow: hidden;
   transition: transform $transition-slow, box-shadow $transition-slow, border-color $transition-slow;
 
-  &:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 48px rgba($color-maroon-950, 0.08);
-    border-color: transparent;
-  }
+  // &:hover {
+  //   transform: translateY(-6px);
+  //   box-shadow: 0 20px 48px rgba($color-maroon-950, 0.08);
+  //   border-color: transparent;
+  // }
 }
 
 .ops-support__card-img {
@@ -106,9 +106,9 @@
     transition: transform $transition-image;
   }
 
-  .ops-support__card:hover & {
-    transform: scale(1.04);
-  }
+  // .ops-support__card:hover & {
+  //   transform: scale(1.04);
+  // }
 }
 
 .ops-support__card-overlay {

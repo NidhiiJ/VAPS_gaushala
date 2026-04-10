@@ -51,7 +51,7 @@ export default function Facility4() {
                 style={{ objectFit: 'cover' }}
                 priority={i === 0}
               />
-              <div className="facility4__img-overlay" />
+              {/* <div className="facility4__img-overlay" /> */}
               <div className="facility4__img-tag">{img.tag}</div>
             </StaggerItem>
           ))}

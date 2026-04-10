@@ -102,7 +102,7 @@
   background: $color-border;
   border-radius: 4px;
   cursor: default;
-  transition: transform $transition-image;
+  transition: $transition-image;
 
   &:hover {
     transform: scale(1.03);

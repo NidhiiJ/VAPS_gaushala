@@ -29,10 +29,10 @@ export default function OperationsSupport() {
         <Reveal variant="fade-up" className="ops-support__header">
           <div className="ops-support__overline">Operations &amp; Support</div>
           <h2>The Backbone of Daily Care</h2>
-          <p>
+          {/* <p>
             Behind every healthy animal is an unseen web of infrastructure — housing for
             dedicated staff, coordinated administration, and fresh water flowing around the clock.
-          </p>
+          </p> */}
         </Reveal>
 
         <StaggerContainer className="ops-support__grid" staggerDelay={0.1}>
@@ -40,7 +40,7 @@ export default function OperationsSupport() {
             <StaggerItem key={i} className="ops-support__card">
               <div className="ops-support__card-img">
                 <img src={card.img} alt={card.heading} />
-                <div className="ops-support__card-overlay" />
+                {/* <div className="ops-support__card-overlay" /> */}
               </div>
               <div className="ops-support__card-body">
                 <div className="ops-support__card-icon">{card.icon}</div>

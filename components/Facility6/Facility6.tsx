@@ -14,7 +14,7 @@ export default function Facility6() {
       <div className="facility6__img-full">
         <div className="facility6__overlay" />
       </div>
-      <div className="facility6__watermark" aria-hidden>06</div>
+      {/* <div className="facility6__watermark" aria-hidden>06</div> */}
 
       <div className="facility6__content">
         <Reveal variant="fade-up" className="facility6__inner">

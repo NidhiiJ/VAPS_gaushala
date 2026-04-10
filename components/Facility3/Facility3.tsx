@@ -83,7 +83,7 @@ export default function Facility3() {
                   </div>
                   <div className="facility3__nav-info">
                     <div className="facility3__nav-title">{panel.heading}</div>
-                    <div className="facility3__nav-desc">{panel.desc}</div>
+                    {/* <div className="facility3__nav-desc">{panel.desc}</div> */}
                   </div>
                 </div>
               ))}
@@ -110,7 +110,7 @@ export default function Facility3() {
                     priority={i === 0}
                   />
                   <div className="f3-card__overlay" />
-                  <div className="f3-card__num">{panel.num}</div>
+                  {/* <div className="f3-card__num">{panel.num}</div> */}
                 </div>
                 <div className="f3-card__body">
                   <h3>{panel.heading}</h3>

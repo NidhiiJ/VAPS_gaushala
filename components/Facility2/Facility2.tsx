@@ -26,7 +26,7 @@ export default function Facility2() {
               className="facility2__img-photo"
               priority
             />
-            <div className="facility2__img-overlay" />
+            {/* <div className="facility2__img-overlay" /> */}
           </div>
           <div className="facility2__badge">
             <span className="facility2__badge-icon">🦚</span>
