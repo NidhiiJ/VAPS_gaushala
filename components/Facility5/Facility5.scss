@@ -1,0 +1,190 @@
+@import "../../styles/variables";
+
+// ── Facility5 | BEM prefix: `facility5`
+// Solar Energy System — cinematic dark panel
+
+.facility5 {
+  position: relative;
+  // min-height: 85vh;
+  padding: 14rem 5% 4rem;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: $color-maroon-950;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba($color-wheat, 0.08);
+  }
+}
+
+.facility5__panel-bg {
+  position: absolute;
+  inset: 0;
+  background: $color-border; // placeholder — replaced by real image
+  opacity: 0.55;
+  transition: transform 8s ease;
+
+  .facility5:hover & {
+    transform: scale(1.04);
+  }
+}
+
+.facility5__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(20, 5, 5, 0.92) 0%,
+    rgba(20, 5, 5, 0.55) 35%,
+    rgba(20, 5, 5, 0.15) 65%,
+    rgba(20, 5, 5, 0.3) 100%
+  );
+  pointer-events: none;
+}
+
+.facility5__num {
+  position: absolute;
+  top: 40px;
+  right: 5%;
+  font-family: $font-display;
+  font-size: clamp(140px, 20vw, 280px);
+  font-weight: $font-weight-extrabold;
+  color: rgba($color-wheat, 0.04);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.facility5__content {
+  position: relative;
+  z-index: 2;
+  padding: 0 5% ;
+  width: 100%;
+  max-width: $bp-desktop;
+  // margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-12;
+  align-items: end;
+}
+
+// ── Text ──────────────────────────────────────────────────────
+.facility5__label {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-3;
+  font-size: 0.6875rem;
+  font-weight: $font-weight-bold;
+  color: $color-wheat;
+  letter-spacing: $letter-spacing-widest;
+  text-transform: uppercase;
+  margin-bottom: $space-4;
+  background: rgba($color-maroon-700, 0.35);
+  backdrop-filter: blur(12px);
+  padding: $space-2 $space-5;
+  border-radius: $radius-md;
+  border: 1px solid rgba($color-wheat, 0.12);
+}
+
+.facility5__text h2 {
+  font-family: $font-display;
+  font-size: clamp(1.875rem, 4vw, 3rem);
+  font-weight: $font-weight-bold;
+  color: $color-surface-white;
+  line-height: $line-height-heading;
+  margin-bottom: $space-5;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.facility5__text p {
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: $line-height-body;
+  margin-bottom: $space-4;
+  max-width: 520px;
+
+  strong { color: $color-wheat; }
+}
+
+// ── Feature cards grid ────────────────────────────────────────
+.facility5__features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-3;
+  align-self: end;
+}
+
+.facility5__feature-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: $radius-2xl;
+  padding: $space-6 $space-5;
+  transition: background $transition-base, transform $transition-base, border-color $transition-base;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-3px);
+    border-color: rgba($color-wheat, 0.2);
+  }
+
+  h4 {
+    font-family: $font-display;
+    font-size: 1.0625rem;
+    font-weight: $font-weight-bold;
+    color: $color-surface-white;
+    margin-bottom: $space-1;
+    line-height: 1.25;
+  }
+
+  p {
+    font-size: 0.71875rem;
+    color: rgba(255, 255, 255, 0.45);
+    line-height: 1.6;
+  }
+}
+
+// ── Responsive ────────────────────────────────────────────────
+@media (max-width: $bp-tablet) {
+  .facility5 {
+    min-height: auto;
+    padding-top: 200px;
+  }
+
+  .facility5__content {
+    grid-template-columns: 1fr;
+    gap: $space-7;
+    padding-bottom: $space-12;
+  }
+
+  .facility5__num {
+    font-size: 120px;
+    top: 20px;
+    right: 20px;
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .facility5 {
+    padding-top: 160px;
+  }
+
+  .facility5__features {
+    grid-template-columns: 1fr;
+  }
+
+  .facility5__content {
+    padding-bottom: $space-10;
+  }
+
+  .facility5__num {
+    font-size: 80px;
+  }
+}

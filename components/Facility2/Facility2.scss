@@ -1,0 +1,203 @@
+@import "../../styles/variables";
+
+// ── Facility2 | BEM prefix: `facility2`
+// All Animals Building — alternating image/text layout
+
+.facility2 {
+  padding: $space-24 5%;
+  background: $color-surface-white;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $color-border 20%, $color-border 80%, transparent);
+  }
+}
+
+.facility2__inner {
+  max-width: $bp-desktop;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: $space-16;
+  align-items: center;
+  direction: rtl;
+
+  > * {
+    direction: ltr;
+  }
+}
+
+// ── Visual ─────────────────────────────────────────────────────
+.facility2__visual {
+  position: relative;
+  // min-height: 60vh;
+}
+
+.facility2__img {
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background: $color-border;
+  box-shadow: 0 20px 56px rgba($color-maroon-950, 0.1);
+  position: relative;
+  height: 100%;
+  min-height: 35rem;
+  // min-height: 60vh;
+}
+
+.facility2__img-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.facility2__img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba($color-maroon-950, 0.35) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.facility2__badge {
+  position: absolute;
+  bottom: -1.5rem;
+  left: 1.25rem;
+  background: $color-maroon-900;
+  color: $color-wheat;
+  padding: 0.875rem 1.375rem;
+  border-radius: 0.875rem;
+  box-shadow: 0 8px 28px rgba($color-maroon-950, 0.2);
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  z-index: 2;
+}
+
+.facility2__badge-icon {
+  font-size: 1.25rem;
+}
+
+.facility2__badge-text {
+  font-size: 0.625rem;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+// ── Text ───────────────────────────────────────────────────────
+.facility2__text {
+  padding-bottom: $space-6; // compensate for badge overflow
+}
+
+.facility2__label {
+  font-size: 0.6875rem;
+  font-weight: $font-weight-bold;
+  color: $color-maroon-700;
+  letter-spacing: $letter-spacing-widest;
+  text-transform: uppercase;
+  margin-bottom: $space-5;
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+
+  &::before {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: $color-maroon-700;
+    flex-shrink: 0;
+  }
+}
+
+.facility2__text h2 {
+  font-family: $font-display;
+  font-size: clamp(1.625rem, 3.2vw, 2.375rem);
+  font-weight: $font-weight-bold;
+  color: $color-maroon-900;
+  line-height: $line-height-heading;
+  margin-bottom: $space-5;
+}
+
+.facility2__text p {
+  font-size: 0.9375rem;
+  color: $color-maroon-500;
+  line-height: $line-height-body;
+  margin-bottom: $space-4;
+
+  strong {
+    color: $color-maroon-900;
+  }
+}
+
+// ── Pills ──────────────────────────────────────────────────────
+.facility2__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+  margin-top: $space-5;
+}
+
+.facility2__pill {
+  background: linear-gradient(135deg, $color-surface-base, $color-surface-warm);
+  border: 1px solid $color-border;
+  border-radius: $radius-rounded;
+  padding: $space-2 $space-5;
+  font-size: 0.75rem;
+  font-weight: $font-weight-medium;
+  color: $color-maroon-900;
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  transition: transform $transition-base, box-shadow $transition-base, border-color $transition-base;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba($color-maroon-950, 0.06);
+    border-color: $color-gold;
+  }
+}
+
+.facility2__pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: $radius-full;
+  background: $color-maroon-700;
+  flex-shrink: 0;
+}
+
+// ── Responsive ────────────────────────────────────────────────
+@media (max-width: $bp-tablet) {
+  .facility2__inner {
+    grid-template-columns: 1fr;
+    direction: ltr;
+    gap: $space-12;
+  }
+
+  .facility2__visual {
+    min-height: auto;
+  }
+
+  .facility2__img {
+    min-height: 320px;
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .facility2 {
+    padding: $space-20 5%;
+  }
+
+  .facility2__img {
+    min-height: 260px;
+  }
+}

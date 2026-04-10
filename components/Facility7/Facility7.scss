@@ -1,0 +1,202 @@
+@import "../../styles/variables";
+
+// ── Facility7 | BEM prefix: `facility7`
+// Organic Farm — text + 3-photo gallery layout
+
+.facility7 {
+  padding: $space-24 5%;
+  background: $color-surface-base;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $color-border 20%, $color-border 80%, transparent);
+  }
+}
+
+.facility7__inner {
+  max-width: $bp-desktop;
+  margin: 0 auto;
+  display: grid;
+  min-height: 35rem;
+  grid-template-columns: 1fr 1.4fr;
+  gap: $space-10;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+// ── Text ──────────────────────────────────────────────────────
+.facility7__label {
+  font-size: 0.6875rem;
+  font-weight: $font-weight-bold;
+  color: $color-maroon-700;
+  letter-spacing: $letter-spacing-widest;
+  text-transform: uppercase;
+  margin-bottom: $space-5;
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+
+  &::before {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: $color-maroon-700;
+    flex-shrink: 0;
+  }
+}
+
+.facility7__text h2 {
+  font-family: $font-display;
+  font-size: clamp(1.625rem, 3.2vw, 2.375rem);
+  font-weight: $font-weight-bold;
+  color: $color-maroon-900;
+  line-height: $line-height-heading;
+  margin-bottom: $space-5;
+}
+
+.facility7__text p {
+  font-size: 0.9375rem;
+  color: $color-maroon-500;
+  line-height: $line-height-body;
+  margin-bottom: $space-4;
+
+  strong { color: $color-maroon-900; }
+}
+
+// ── Visual / gallery ──────────────────────────────────────────
+.facility7__visual {
+  height: 100%;
+  position: relative;
+}
+
+.facility7__gallery {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 0.75rem;
+  border-radius: $radius-2xl;
+  overflow: hidden;
+  height: 100%;
+}
+
+.facility7__gallery-main {
+  grid-row: 1 / 2;
+}
+
+.facility7__gallery-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.facility7__photo {
+  position: relative;
+  overflow: hidden;
+  background: $color-border;
+  border-radius: 4px;
+  cursor: default;
+  transition: transform $transition-image;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+}
+
+.facility7__photo--hero {
+  height: 100%;
+  min-height: 320px;
+  background-image: url('/images/facilities/farm-1.jpeg');
+  background-size: cover;
+  background-position: center;
+}
+
+.facility7__photo--sm:nth-child(1) {
+  flex: 1;
+  min-height: 150px;
+  background-image: url('/images/facilities/farm-2.jpeg');
+  background-size: cover;
+  background-position: center;
+}
+
+.facility7__photo--sm:nth-child(2) {
+  flex: 1;
+  min-height: 150px;
+  background-image: url('/images/facilities/farm-3.jpeg');
+  background-size: cover;
+  background-position: center;
+}
+
+.facility7__photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba($color-maroon-950, 0.2) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.facility7__badge {
+  position: absolute;
+  bottom: -1.5rem;
+  right: 1.25rem;
+  background: $color-maroon-900;
+  color: $color-wheat;
+  padding: 0.875rem 1.375rem;
+  border-radius: 0.875rem;
+  box-shadow: 0 8px 28px rgba($color-maroon-950, 0.2);
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  z-index: 2;
+}
+
+.facility7__badge-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.facility7__badge-text {
+  font-size: 0.625rem;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+// ── Responsive ────────────────────────────────────────────────
+@media (max-width: $bp-tablet) {
+  .facility7__inner {
+    grid-template-columns: 1fr;
+    gap: $space-12;
+  }
+
+  .facility7__photo--hero {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .facility7 {
+    padding: $space-20 5%;
+  }
+
+  .facility7__gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .facility7__gallery-stack {
+    flex-direction: row;
+  }
+
+  .facility7__photo--sm {
+    min-height: 120px;
+  }
+
+  .facility7__photo--hero {
+    min-height: 220px;
+  }
+}

@@ -1,0 +1,157 @@
+@import "../../styles/variables";
+
+// ── OperationsSupport | BEM prefix: `ops-support`
+// 3-card grid for staff housing, office, and water area
+
+.ops-support {
+  padding: $space-24 5%;
+  background: $color-surface-white;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $color-border 20%, $color-border 80%, transparent);
+  }
+}
+
+.ops-support__inner {
+  max-width: $bp-desktop;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+// ── Header ────────────────────────────────────────────────────
+.ops-support__header {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto $space-10;
+}
+
+.ops-support__overline {
+  font-size: 0.6875rem;
+  font-weight: $font-weight-bold;
+  color: $color-maroon-700;
+  letter-spacing: $letter-spacing-widest;
+  text-transform: uppercase;
+  margin-bottom: $space-3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-3;
+
+  &::before,
+  &::after {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: $color-maroon-700;
+  }
+}
+
+.ops-support__header h2 {
+  font-family: $font-display;
+  font-size: clamp(1.75rem, 3.5vw, 2.625rem);
+  font-weight: $font-weight-bold;
+  color: $color-maroon-900;
+  line-height: $line-height-heading;
+  margin-bottom: $space-4;
+}
+
+.ops-support__header p {
+  font-size: 0.9375rem;
+  color: $color-maroon-500;
+  line-height: $line-height-body;
+}
+
+// ── Cards grid ────────────────────────────────────────────────
+.ops-support__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-6;
+}
+
+.ops-support__card {
+  background: linear-gradient(135deg, $color-surface-base, $color-surface-warm);
+  border: 1px solid $color-border;
+  border-radius: $radius-2xl;
+  overflow: hidden;
+  transition: transform $transition-slow, box-shadow $transition-slow, border-color $transition-slow;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba($color-maroon-950, 0.08);
+    border-color: transparent;
+  }
+}
+
+.ops-support__card-img {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: $color-border;
+  position: relative;
+  transition: transform $transition-image;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform $transition-image;
+  }
+
+  .ops-support__card:hover & {
+    transform: scale(1.04);
+  }
+}
+
+.ops-support__card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba($color-maroon-950, 0.25) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.ops-support__card-body {
+  padding: $space-7 $space-6;
+}
+
+.ops-support__card-icon {
+  font-size: 1.375rem;
+  margin-bottom: $space-3;
+  line-height: 1;
+}
+
+.ops-support__card-body h3 {
+  font-family: $font-display;
+  font-size: 1.375rem;
+  font-weight: $font-weight-bold;
+  color: $color-maroon-900;
+  margin-bottom: $space-2;
+  line-height: 1.2;
+}
+
+.ops-support__card-body p {
+  font-size: 0.84375rem;
+  color: $color-maroon-500;
+  line-height: 1.75;
+}
+
+// ── Responsive ────────────────────────────────────────────────
+@media (max-width: $bp-tablet) {
+  .ops-support__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .ops-support {
+    padding: $space-20 5%;
+  }
+}

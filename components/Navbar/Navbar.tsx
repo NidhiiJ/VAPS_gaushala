@@ -21,14 +21,14 @@ const navLinks: NavLink[] = [
       { label: 'Timeline', href: '/timeline' },
     ],
   },
-  // {
-  //   label: 'What We Do',
-  //   href: '#',
-  //   submenu: [
-  //     { label: 'Facilities', href: '/facilities' },
-  //     { label: 'Our Activities', href: '/activities' },
-  //   ],
-  // },
+  {
+    label: 'What We Do',
+    href: '#',
+    submenu: [
+      { label: 'Facilities', href: '/facilities' },
+      { label: 'Our Activities', href: '/activities' },
+    ],
+  },
   // { label: 'Facilities', href: '#' },
   { label: 'Volunteers', href: '/volunteers' },
   { label: 'Publications', href: '/publications' },

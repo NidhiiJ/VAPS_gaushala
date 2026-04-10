@@ -1,0 +1,207 @@
+@import "../../styles/variables";
+
+// ── Facility4 | BEM prefix: `facility4`
+// Food Storage Godowns — stats + dual image gallery
+
+.facility4 {
+  padding: $space-24 5%;
+  background: $color-surface-white;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $color-border 20%, $color-border 80%, transparent);
+  }
+}
+
+.facility4__inner {
+  max-width: $bp-desktop;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: $space-10;
+  position: relative;
+  z-index: 1;
+}
+
+// ── Top Row ───────────────────────────────────────────────────
+.facility4__top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: $space-10;
+}
+
+.facility4__text {
+  flex: 0 0 auto;
+  max-width: 48%;
+}
+
+.facility4__label {
+  font-size: 0.6875rem;
+  font-weight: $font-weight-bold;
+  color: $color-maroon-700;
+  letter-spacing: $letter-spacing-widest;
+  text-transform: uppercase;
+  margin-bottom: $space-5;
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+
+  &::before {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: $color-maroon-700;
+    flex-shrink: 0;
+  }
+}
+
+.facility4__text h2 {
+  font-family: $font-display;
+  font-size: clamp(1.625rem, 3.2vw, 2.375rem);
+  font-weight: $font-weight-bold;
+  color: $color-maroon-900;
+  line-height: $line-height-heading;
+  margin-bottom: $space-5;
+}
+
+.facility4__text p {
+  font-size: 0.9375rem;
+  color: $color-maroon-500;
+  line-height: $line-height-body;
+
+  strong { color: $color-maroon-900; }
+}
+
+// ── Stats ─────────────────────────────────────────────────────
+.facility4__stats {
+  display: flex;
+  gap: $space-4;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.facility4__stat {
+  background: linear-gradient(135deg, $color-surface-base, $color-surface-warm);
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  padding: $space-5 $space-6;
+  text-align: center;
+  flex: 0 1 180px;
+  transition: transform $transition-base, box-shadow $transition-base, border-color $transition-base;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba($color-maroon-950, 0.06);
+    border-color: $color-gold;
+  }
+}
+
+.facility4__stat-num {
+  font-family: $font-display;
+  font-size: 2rem;
+  font-weight: $font-weight-extrabold;
+  color: $color-maroon-900;
+  line-height: 1;
+}
+
+.facility4__stat-label {
+  font-size: 0.625rem;
+  color: $color-muted;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-top: $space-3;
+}
+
+// ── Gallery ───────────────────────────────────────────────────
+.facility4__gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.875rem;
+  height: 420px;
+}
+
+.facility4__img {
+  position: relative;
+  border-radius: $radius-3xl;
+  overflow: hidden;
+  background: $color-border;
+  box-shadow: 0 12px 36px rgba($color-maroon-950, 0.08);
+  cursor: default;
+  transition: transform $transition-slow;
+
+  &:hover {
+    transform: scale(1.01);
+  }
+}
+
+.facility4__img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba($color-maroon-950, 0.3) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.facility4__img-tag {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  background: rgba($color-maroon-900, 0.75);
+  backdrop-filter: blur(8px);
+  color: $color-wheat;
+  font-size: 0.65625rem;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: $space-2 $space-4;
+  border-radius: $radius-md;
+  border: 1px solid rgba($color-wheat, 0.15);
+}
+
+// ── Responsive ────────────────────────────────────────────────
+@media (max-width: $bp-tablet) {
+  .facility4__top {
+    flex-direction: column;
+    align-items: center;
+    gap: $space-6;
+  }
+
+  .facility4__text {
+    max-width: 100%;
+  }
+
+  .facility4__stats {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .facility4__stat {
+    flex: 1 1 120px;
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .facility4 {
+    padding: $space-20 5%;
+  }
+
+  .facility4__gallery {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .facility4__img {
+    height: 280px;
+  }
+
+  // .facility4__stats {
+  //   flex-direction: column;
+  // }
+}
