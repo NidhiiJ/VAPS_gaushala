@@ -6,13 +6,13 @@ const cards = [
     icon: '🏠',
     heading: 'Staff & Doctor Housing',
     desc: 'Multiple on-site residences for caretakers, veterinary staff, and doctors ensure round-the-clock availability.',
-    img: '/images/facilities/operations-1.jpg',
+    img: '/images/facilities/operations-2.jpg',
   },
   {
     icon: '🏢',
     heading: 'Gaushala Office',
     desc: 'Handles donor coordination, volunteer management, visitor reception, and all organisational activities that keep the mission on track.',
-    img: '/images/facilities/operations-2.jpg',
+    img: '/images/facilities/operations-1.jpg',
   },
   {
     icon: '💧',
