@@ -30,7 +30,7 @@ export default function FacilitiesRoute() {
       <Facility2 />
       <Facility3 />
       <Facility4 />
-      {/* <Facility5 /> */}
+      <Facility5 />
       <OperationsSupport />
       <Facility6 />
       <Facility7 />

@@ -23,9 +23,14 @@ const features = [
 export default function Facility5() {
   return (
     <section className="facility5">
-      {/* <div className="facility5__panel-bg" /> */}
+      <div className="facility5__panel-bg">
+        <picture>
+          <source media="(max-width: 768px)" srcSet="/images/facilities/solar-mobile.jpg" />
+          <img src="/images/facilities/solar-desktop.jpg" alt="Solar panels at the sanctuary" />
+        </picture>
+      </div>
       <div className="facility5__overlay" />
-      <div className="facility5__num" aria-hidden>05</div>
+      {/* <div className="facility5__num" aria-hidden>05</div> */}
 
       <div className="facility5__content">
         <Reveal variant="slide-right" className="facility5__text">
