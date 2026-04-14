@@ -1,0 +1,86 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff9f2;
+  opacity: 1;
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: all;
+}
+
+.overlay.fadeOut {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.glow {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(245, 222, 179, 0.18) 0%,
+    rgba(245, 222, 179, 0.04) 60%,
+    transparent 100%
+  );
+  animation: loaderPulse 2.4s ease-in-out infinite;
+}
+
+.spinnerWrapper {
+  position: relative;
+  width: 136px;
+  height: 136px;
+}
+
+.svg {
+  position: absolute;
+  inset: 0;
+  animation: loaderRotate 2s linear infinite;
+}
+
+.track {
+  stroke: rgba(245, 222, 179, 0.15);
+  stroke-width: 1.5;
+  fill: none;
+}
+
+.arc {
+  stroke: #f5deb3;
+  stroke-width: 1.5;
+  fill: none;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 4px rgba(245, 222, 179, 0.5));
+}
+
+.logoWrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: loaderBreath 2.4s ease-in-out infinite;
+}
+
+.logo {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+@keyframes loaderRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes loaderBreath {
+  0%, 100% { opacity: 1;    transform: scale(1); }
+  50%       { opacity: 0.82; transform: scale(0.97); }
+}
+
+@keyframes loaderPulse {
+  0%, 100% { transform: scale(1);    opacity: 1; }
+  50%       { transform: scale(1.12); opacity: 0.6; }
+}

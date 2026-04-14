@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.scss";
+import PageLoader from "@/components/PageLoader/PageLoader";
 
 
 export const metadata: Metadata = {
@@ -31,6 +32,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet"/>
       </head>
       <body className={`antialiased`}>
+        <PageLoader />
         {children}
       </body>
     </html>
