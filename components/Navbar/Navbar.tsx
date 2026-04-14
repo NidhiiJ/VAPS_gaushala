@@ -26,7 +26,7 @@ const navLinks: NavLink[] = [
     href: '#',
     submenu: [
       { label: 'Facilities', href: '/facilities' },
-      // { label: 'Our Activities', href: '/activities' },
+      { label: 'Our Activities', href: '/activities' },
     ],
   },
   // { label: 'Facilities', href: '#' },

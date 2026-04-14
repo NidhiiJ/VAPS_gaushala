@@ -1,0 +1,123 @@
+@import "../../styles/variables";
+
+// ── AnimalCountBoard  |  BEM prefix: `acb`
+// Two-column section: context text + real image (left) / widget (right, sticky).
+
+.acb {
+  padding: $space-28 5% $space-24;
+  background: $color-surface-white;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      $color-border 20%,
+      $color-border 80%,
+      transparent
+    );
+  }
+}
+
+.acb__inner {
+  max-width: 68.75rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-14;
+  align-items: start;
+
+  @media (max-width: $bp-tablet) {
+    grid-template-columns: 1fr;
+    gap: $space-10;
+  }
+}
+
+// ── Left column
+.acb__left {
+  display: flex;
+  flex-direction: column;
+  gap: $space-7;
+}
+
+.acb__overline {
+  font-size: 0.6875rem;
+  font-weight: $font-weight-bold;
+  color: $color-maroon-700;
+  letter-spacing: $letter-spacing-widest;
+  text-transform: uppercase;
+  margin-bottom: $space-5;
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+
+  &::before {
+    content: '';
+    width: 1.25rem;
+    height: 2px;
+    background: $color-maroon-700;
+  }
+}
+
+.acb__heading {
+  font-family: $font-display;
+  font-size: clamp(1.625rem, 3.2vw, 2.375rem);
+  font-weight: $font-weight-bold;
+  color: $color-maroon-900;
+  line-height: $line-height-heading;
+  letter-spacing: $letter-spacing-tight;
+  margin-bottom: $space-5;
+}
+
+.acb__body {
+  font-size: 0.9375rem;
+  color: $color-maroon-500;
+  line-height: $line-height-body;
+
+  & + & {
+    margin-top: $space-4;
+  }
+
+  &--desktop-only {
+    @media (max-width: $bp-tablet) {
+      display: none;
+    }
+  }
+}
+
+.acb__text {
+  // stacks overline, heading, body text
+}
+
+// Image
+.acb__img-wrap {
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 1.25rem 3.5rem rgba(42, 10, 10, 0.08);
+  background: #E8D5C0;
+  aspect-ratio: 4 / 3;
+}
+
+.acb__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+// ── Right column — sticky widget
+.acb__right {
+  position: sticky;
+  top: 6.25rem;
+
+  @media (max-width: $bp-tablet) {
+    position: static;
+  }
+}

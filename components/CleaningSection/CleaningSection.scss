@@ -1,0 +1,224 @@
+@import "../../styles/variables";
+
+// ── CleaningSection  |  BEM prefix: `cleaning`
+// Light base-bg section — split header + staggered 4-col gallery.
+
+.cleaning {
+  padding: $space-28 5% $space-24;
+  background: $color-surface-base;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      $color-border 20%,
+      $color-border 80%,
+      transparent
+    );
+  }
+}
+
+.cleaning__inner {
+  max-width: 68.75rem;
+  margin: 0 auto;
+}
+
+// ── Header: two-col text + pills
+.cleaning__header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-10;
+  align-items: end;
+  margin-bottom: $space-14;
+
+  @media (max-width: $bp-tablet) {
+    grid-template-columns: 1fr;
+    gap: $space-6;
+  }
+}
+
+.cleaning__overline {
+  font-size: 0.6875rem;
+  font-weight: $font-weight-bold;
+  color: $color-maroon-700;
+  letter-spacing: $letter-spacing-widest;
+  text-transform: uppercase;
+  margin-bottom: $space-5;
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+
+  &::before {
+    content: '';
+    width: 1.25rem;
+    height: 2px;
+    background: $color-maroon-700;
+  }
+}
+
+.cleaning__heading {
+  font-family: $font-display;
+  font-size: clamp(1.625rem, 3.2vw, 2.375rem);
+  font-weight: $font-weight-bold;
+  color: $color-maroon-900;
+  line-height: $line-height-heading;
+  letter-spacing: $letter-spacing-tight;
+  margin-bottom: $space-5;
+}
+
+.cleaning__body {
+  font-size: 0.9375rem;
+  color: $color-maroon-500;
+  line-height: $line-height-body;
+}
+
+// Pills column
+.cleaning__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-3;
+  align-content: center;
+}
+
+.cleaning__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: $color-surface-white;
+  border: 1px solid $color-border;
+  border-radius: 2.5rem;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.78125rem;
+  font-weight: $font-weight-semibold;
+  color: $color-maroon-900;
+  transition:
+    border-color $transition-base,
+    transform $transition-base,
+    box-shadow $transition-base;
+
+  &:hover {
+    border-color: $color-maroon-700;
+    transform: translateY(-0.125rem);
+    box-shadow: 0 0.375rem 1.25rem rgba(42, 10, 10, 0.06);
+  }
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+    stroke: $color-green;
+    flex-shrink: 0;
+  }
+}
+
+// ── Staggered gallery
+.cleaning__gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $space-5;
+  align-items: start;
+
+  @media (max-width: $bp-tablet) {
+    grid-template-columns: repeat(2, 1fr);
+
+    // reset offset on tablet (no room for stagger)
+    .cleaning__card--offset {
+      margin-top: 0;
+    }
+  }
+
+  @media (max-width: $bp-mobile) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.875rem;
+  }
+}
+
+// ── Gallery card
+.cleaning__card {
+  border-radius: 1.375rem;
+  overflow: hidden;
+  position: relative;
+  background: #E8D5C0;
+  transition:
+    transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  &:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 1.5rem 3.5rem rgba(42, 10, 10, 0.12);
+  }
+
+  // Odd columns shifted down for stagger effect
+  &--offset {
+    margin-top: 3rem;
+
+    @media (max-width: $bp-tablet) {
+      margin-top: 0;
+    }
+  }
+
+  img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+}
+
+// Card overlay
+.cleaning__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 3rem 1.25rem 1.25rem;
+  background: linear-gradient(
+    to top,
+    rgba(42, 10, 10, 0.8) 0%,
+    rgba(42, 10, 10, 0.35) 50%,
+    transparent 100%
+  );
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  h4 {
+    font-family: $font-display;
+    font-size: 1.0625rem;
+    font-weight: $font-weight-bold;
+    color: #fff;
+    line-height: 1.25;
+  }
+}
+
+.cleaning__step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: $radius-full;
+  background: rgba($color-wheat, 0.2);
+  border: 1.5px solid rgba($color-wheat, 0.5);
+  font-family: $font-display;
+  font-size: 0.875rem;
+  font-weight: $font-weight-extrabold;
+  color: $color-wheat;
+  margin-bottom: $space-2;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+.cleaning__overlay-sub {
+  font-size: 0.6875rem;
+  color: rgba($color-wheat, 0.65);
+  letter-spacing: $letter-spacing-wide;
+  line-height: 1.4;
+}
