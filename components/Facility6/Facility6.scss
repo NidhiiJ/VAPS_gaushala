@@ -176,6 +176,10 @@
   .facility6__watermark {
     display: none;
   }
+
+  .facility6__inner{
+    max-width: none;
+  }
 }
 
 @media (max-width: $bp-mobile) {

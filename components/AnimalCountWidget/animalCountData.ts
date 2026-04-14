@@ -9,7 +9,7 @@ export interface AnimalRow {
   count: number;
 }
 
-export const ANIMAL_COUNT_DATE = '05 March 2026';
+export const ANIMAL_COUNT_DATE = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' });
 
 export const animalRows: AnimalRow[] = [
   { labelEn: 'Cows',            labelHi: 'गाय',            count: 331 },
