@@ -144,6 +144,7 @@ export default function ContactForm() {
                 <option>Donation / Sponsorship</option>
                 <option>Volunteer Opportunities</option>
                 <option>Gau Daan</option>
+                <option>CSR</option>
                 <option>Visit Request</option>
                 <option>Partnership / Collaboration</option>
                 <option>Media / Press</option>
