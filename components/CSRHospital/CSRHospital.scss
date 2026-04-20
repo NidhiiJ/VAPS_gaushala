@@ -1,0 +1,237 @@
+@import "../../styles/variables";
+
+// ── CSRHospital  |  prefix: `csr-hosp-`
+// Section header + dark callout card + 3-col feature grid
+
+.csr-hosp {
+  background: $color-surface-base;
+  padding: $space-24 5%;
+  position: relative;
+  overflow: hidden;
+}
+
+.csr-hosp__inner {
+  max-width: 73.75rem;
+  margin: 0 auto;
+}
+
+// ── Callout banner
+.csr-hosp__callout {
+  background: linear-gradient(135deg, $color-maroon-900 0%, $color-maroon-700 100%);
+  border-radius: 1.5rem;
+  padding: 2.75rem 2.5rem;
+  margin-bottom: $space-10;
+  position: relative;
+  overflow: hidden;
+  color: $color-surface-white;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -5rem;
+    right: -3.75rem;
+    width: 16.25rem;
+    height: 16.25rem;
+    border-radius: $radius-full;
+    background: radial-gradient(circle, rgba($color-wheat, 0.1), transparent 70%);
+    pointer-events: none;
+  }
+}
+
+.csr-hosp__callout-grid {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1.75rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.csr-hosp__symbol {
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 1.375rem;
+  background: rgba($color-wheat, 0.12);
+  border: 1px solid rgba($color-wheat, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  svg {
+    width: 2.625rem;
+    height: 2.625rem;
+    color: $color-wheat;
+  }
+}
+
+.csr-hosp__callout-label {
+  font-size: 0.6875rem;
+  font-weight: $font-weight-bold;
+  color: $color-wheat;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: $space-2;
+}
+
+.csr-hosp__callout-text h2 {
+  font-family: $font-display;
+  font-weight: $font-weight-bold;
+  color: $color-surface-white;
+  line-height: 1.2;
+  margin-bottom: $space-2;
+}
+
+.csr-hosp__callout-text p {
+  font-size: 0.90625rem;
+  color: rgba($color-surface-white, 0.7);
+  line-height: $line-height-body;
+  max-width: 33.75rem;
+}
+
+.csr-hosp__status {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  background: rgba($color-wheat, 0.1);
+  border: 1px solid rgba($color-wheat, 0.25);
+  padding: $space-4 $space-6;
+  border-radius: $radius-xl;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.csr-hosp__status-pulse {
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: $radius-full;
+  background: $color-wheat;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 0 rgba($color-wheat, 0.6);
+  animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+  0%   { box-shadow: 0 0 0 0 rgba($color-wheat, 0.6); }
+  70%  { box-shadow: 0 0 0 0.625rem rgba($color-wheat, 0); }
+  100% { box-shadow: 0 0 0 0 rgba($color-wheat, 0); }
+}
+
+.csr-hosp__status-txt {
+  font-size: 0.75rem;
+  font-weight: $font-weight-bold;
+  color: $color-wheat;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+// ── Feature grid
+.csr-hosp__features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.125rem;
+}
+
+.csr-hf-card {
+  background: $color-surface-white;
+  border: 1px solid $color-border;
+  border-radius: 1.25rem;
+  padding: 1.875rem 1.625rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform $transition-base, box-shadow $transition-base, border-color $transition-base;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, $color-maroon-700, $color-gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform $transition-slow;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 44px rgba($color-maroon-950, 0.08);
+    border-color: transparent;
+
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.csr-hf-card__icon {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: $radius-xl;
+  background: rgba($color-maroon-700, 0.07);
+  border: 1px solid rgba($color-maroon-700, 0.13);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: $space-5;
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: $color-maroon-700;
+  }
+}
+
+.csr-hf-card h3 {
+  font-family: $font-display;
+  font-size: 1.1875rem;
+  font-weight: $font-weight-bold;
+  color: $color-maroon-900;
+  line-height: 1.25;
+  margin-bottom: $space-2;
+}
+
+.csr-hf-card p {
+  font-size: 0.84375rem;
+  color: $color-maroon-500;
+  line-height: $line-height-body;
+}
+
+// ── Responsive
+@media (max-width: $bp-tablet) {
+  .csr-hosp__callout-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .csr-hosp__symbol {
+    margin: 0 auto;
+  }
+
+  .csr-hosp__callout-text p {
+    margin: 0 auto;
+  }
+
+  .csr-hosp__status {
+    justify-content: center;
+  }
+
+  .csr-hosp__features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .csr-hosp {
+    padding: $space-16 5%;
+  }
+
+  .csr-hosp__callout {
+    padding: 2rem 1.625rem;
+  }
+
+  .csr-hosp__features {
+    grid-template-columns: 1fr;
+  }
+}

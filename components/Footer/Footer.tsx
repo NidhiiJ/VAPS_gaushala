@@ -11,6 +11,7 @@ const orgLinks = [
 
 const involveLinks = [
   { label: 'Donate', href: '/donate' },
+  { label: 'CSR Initiative', href: '/csr' },
   { label: 'Volunteers', href: '/volunteers' },
   { label: 'Contact Us', href: '/contact' },
 ];

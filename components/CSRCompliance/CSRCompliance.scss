@@ -1,0 +1,90 @@
+@import "../../styles/variables";
+
+// ── CSRCompliance  |  prefix: `csr-comp-`
+// 4-column compliance & trust cards with green check icons
+
+.csr-comp {
+  background: $color-surface-white;
+  padding: $space-24 5%;
+  position: relative;
+}
+
+.csr-comp__inner {
+  max-width: $bp-desktop;
+  margin: 0 auto;
+}
+
+.csr-comp__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.125rem;
+  margin-top: $space-2;
+}
+
+// ── Compliance card
+.csr-comp-card {
+  background: linear-gradient(135deg, $color-surface-cream, $color-surface-warm);
+  border: 1px solid $color-border;
+  border-radius: $radius-2xl;
+  padding: 1.75rem 1.375rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform $transition-base, box-shadow $transition-base, border-color $transition-base;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 36px rgba($color-maroon-950, 0.06);
+    border-color: $color-gold;
+  }
+}
+
+.csr-comp-card__check {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: $radius-full;
+  background: $color-surface-white;
+  border: 1px solid rgba($color-green, 0.25);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: $space-4;
+
+  svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: $color-green;
+  }
+}
+
+.csr-comp-card__title {
+  font-family: $font-display;
+  font-size: 1.125rem;
+  font-weight: $font-weight-bold;
+  color: $color-maroon-900;
+  line-height: 1.25;
+  margin-bottom: $space-2;
+}
+
+.csr-comp-card__sub {
+  font-size: 0.71875rem;
+  color: $color-maroon-500;
+  line-height: 1.5;
+}
+
+// ── Responsive
+@media (max-width: $bp-tablet) {
+  .csr-comp__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .csr-comp {
+    padding: $space-16 5%;
+  }
+
+  .csr-comp__grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,100 @@
+@import "../../styles/variables";
+
+// ── CSRVision  |  prefix: `csr-vision-`
+// Full-width centered vision quote card
+
+.csr-vision {
+  background: $color-surface-white;
+  padding: $space-24 5%;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $color-border 20%, $color-border 80%, transparent);
+  }
+}
+
+.csr-vision__inner {
+  max-width: 56.25rem;
+  margin: 0 auto;
+  text-align: center;
+  padding: 3.75rem 2.5rem;
+  background: linear-gradient(135deg, $color-surface-cream, $color-surface-warm);
+  border: 1px solid $color-border;
+  border-radius: 1.75rem;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5rem;
+    height: 3px;
+    background: linear-gradient(90deg, $color-gold, $color-maroon-700);
+    border-radius: 0 0 4px 4px;
+  }
+}
+
+.csr-vision__icon {
+  width: 4rem;
+  height: 4rem;
+  border-radius: $radius-full;
+  background: $color-surface-white;
+  border: 1px solid $color-border;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: $space-5;
+
+  svg {
+    width: 1.75rem;
+    height: 1.75rem;
+    color: $color-maroon-700;
+  }
+}
+
+.csr-vision__label {
+  font-size: 0.6875rem;
+  font-weight: $font-weight-bold;
+  color: $color-maroon-700;
+  letter-spacing: $letter-spacing-widest;
+  text-transform: uppercase;
+  margin-bottom: $space-4;
+}
+
+.csr-vision__inner h2 {
+  font-family: $font-display;
+  font-weight: $font-weight-bold;
+  color: $color-maroon-900;
+  line-height: 1.2;
+  margin-bottom: $space-5;
+}
+
+.csr-vision__inner p {
+  font-family: $font-display;
+  font-style: italic;
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  color: $color-maroon-500;
+  line-height: $line-height-body;
+  max-width: 43.75rem;
+  margin: 0 auto;
+}
+
+// ── Responsive
+@media (max-width: $bp-mobile) {
+  .csr-vision {
+    padding: $space-16 5%;
+  }
+
+  .csr-vision__inner {
+    padding: 2.75rem 1.625rem;
+  }
+}

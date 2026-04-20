@@ -1,0 +1,174 @@
+@import "../../styles/variables";
+
+// ── CSRAbout  |  prefix: `csr-about-`
+// About lead text + 4-column trust band
+
+.csr-about {
+  background: $color-surface-white;
+  padding: $space-24 5%;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: 'CSR';
+    position: absolute;
+    top: 50%;
+    right: -1.875rem;
+    transform: translateY(-50%) rotate(90deg);
+    font-family: $font-display;
+    font-size: clamp(6.25rem, 14vw, 12.5rem);
+    font-weight: $font-weight-extrabold;
+    color: rgba($color-maroon-700, 0.025);
+    letter-spacing: 1.25rem;
+    pointer-events: none;
+    white-space: nowrap;
+    line-height: 1;
+  }
+}
+
+.csr-about__inner {
+  max-width: $bp-desktop;
+  margin: 0 auto;
+}
+
+// ── Lead text
+.csr-about__lead {
+  max-width: 48.75rem;
+  margin: 0 auto $space-10;
+  text-align: center;
+}
+
+.csr-about__label {
+  font-size: 0.6875rem;
+  font-weight: $font-weight-bold;
+  color: $color-maroon-700;
+  letter-spacing: $letter-spacing-widest;
+  text-transform: uppercase;
+  margin-bottom: $space-4;
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  justify-content: center;
+
+  &::before,
+  &::after {
+    content: '';
+    width: 1.25rem;
+    height: 2px;
+    background: $color-maroon-700;
+    flex-shrink: 0;
+  }
+}
+
+.csr-about__lead h2 {
+  font-family: $font-display;
+  font-weight: $font-weight-bold;
+  color: $color-maroon-900;
+  line-height: $line-height-heading;
+  margin-bottom: $space-5;
+}
+
+.csr-about__lead p {
+  font-size: 0.96875rem;
+  color: $color-maroon-500;
+  line-height: $line-height-body;
+  margin-bottom: $space-4;
+
+  strong {
+    color: $color-maroon-900;
+    font-weight: $font-weight-semibold;
+  }
+}
+
+// ── Trust band grid
+.csr-about__trust-band {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $space-4;
+  margin-top: $space-12;
+}
+
+// ── Trust card
+.csr-trust-card {
+  background: linear-gradient(135deg, $color-surface-cream, $color-surface-warm);
+  border: 1px solid $color-border;
+  border-radius: $radius-2xl;
+  padding: 1.625rem 1.375rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform $transition-base, box-shadow $transition-base, border-color $transition-base;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2.25rem;
+    height: 3px;
+    background: $color-maroon-700;
+    border-radius: 0 0 4px 4px;
+    transition: width $transition-base;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 36px rgba($color-maroon-950, 0.07);
+    border-color: transparent;
+
+    &::before {
+      width: 100%;
+    }
+  }
+}
+
+.csr-trust-card__icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: $radius-full;
+  background: $color-surface-white;
+  border: 1px solid rgba($color-maroon-700, 0.12);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: $space-3;
+
+  svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: $color-maroon-700;
+  }
+}
+
+.csr-trust-card__title {
+  font-family: $font-display;
+  font-size: 1.125rem;
+  font-weight: $font-weight-bold;
+  color: $color-maroon-900;
+  line-height: 1.25;
+  margin-bottom: 0.25rem;
+}
+
+.csr-trust-card__sub {
+  font-size: 0.71875rem;
+  color: $color-maroon-500;
+  line-height: 1.5;
+}
+
+// ── Responsive
+@media (max-width: $bp-tablet) {
+  .csr-about__trust-band {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .csr-about {
+    padding: $space-16 5%;
+  }
+
+  .csr-about__trust-band {
+    grid-template-columns: 1fr;
+  }
+}

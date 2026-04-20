@@ -30,6 +30,7 @@ const navLinks: NavLink[] = [
     ],
   },
   // { label: 'Facilities', href: '#' },
+  { label: 'CSR Initiative', href: '/csr' },
   { label: 'Volunteers', href: '/volunteers' },
   { label: 'Publications', href: '/publications' },
   // {
