@@ -3,12 +3,12 @@ import './GudBucketDonation.scss';
 
 const highlights = [
   {
-    icon: '🪣',
+    // icon: '🪣',
     heading: 'Ready to Donate',
     body: 'Pre-prepared 10 kg buckets available for easy donation during visits',
   },
   {
-    icon: '🐄',
+    // icon: '🐄',
     heading: 'Direct Impact',
     body: 'Each bucket feeds multiple animals and supports their daily nutritional needs',
   },
@@ -53,7 +53,7 @@ export default function GudBucketDonation() {
           <div className="gud__highlights">
             {highlights.map((h) => (
               <div key={h.heading} className="gud__hl">
-                <span className="gud__hl-icon" aria-hidden="true">{h.icon}</span>
+                {/* <span className="gud__hl-icon" aria-hidden="true">{h.icon}</span> */}
                 <h4 className="gud__hl-heading">{h.heading}</h4>
                 <p className="gud__hl-body">{h.body}</p>
               </div>

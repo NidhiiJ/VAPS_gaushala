@@ -55,17 +55,17 @@ export default function OccasionFood() {
                 alt="Special food being prepared for cows on a festive occasion"
                 loading="lazy"
               />
-              <div className="occ-food__hero-caption">
+              {/* <div className="occ-food__hero-caption">
                 <h4>Festive Feast Preparation</h4>
-                {/* <span>Specially prepared nutritious meals with gud, chana, and seasonal treats</span> */}
-              </div>
+                <span>Specially prepared nutritious meals with gud, chana, and seasonal treats</span>
+              </div> */}
             </div>
           </Reveal>
 
           {/* Side images */}
           <div className="occ-food__sides">
             <Reveal variant="fade-up" delay={0.1} className="occ-food__side-wrap">
-              <div className="occ-food__side-img">
+              <div className="occ-food__hero-img">
                 <img
                   src="/images/activity/special-event-2.jpg"
                   alt="Cows enjoying special meal on donation day"

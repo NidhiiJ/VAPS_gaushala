@@ -14,8 +14,12 @@ const slides = [
     src: '/images/hero-images/hero-2-highres.jpg',
     alt: 'Animals rescued at Suri Prem Jeevraksha Kendra',
   },
+  // {
+  //   src: '/images/hero-images/hero-3-highres.jpg',
+  //   alt: 'Gau Seva at Suri Prem Jeevraksha Kendra',
+  // },
   {
-    src: '/images/hero-images/hero-3-highres.jpg',
+    src: '/images/3D.jpeg',
     alt: 'Gau Seva at Suri Prem Jeevraksha Kendra',
   },
   {
