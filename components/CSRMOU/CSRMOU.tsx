@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Reveal } from '@/components/Reveal';
 import './CSRMOU.scss';
 
@@ -29,7 +30,9 @@ export default function CSRMOU() {
             {/* Right: partner panel */}
             <div className="csr-mou__partners">
               <div className="csr-mou__partner-row">
-                <div className="csr-mou__logo csr-mou__logo--a">SP</div>
+                <div className="csr-mou__logo csr-mou__logo--a">
+                  <Image src="/logo/logo.png" alt="Suri Prem Jeev Raksha Kendra" width={60} height={60} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
+                </div>
                 <div className="csr-mou__partner-info">
                   <div className="csr-mou__partner-name">Suri Prem Jeev Raksha Kendra</div>
                   <div className="csr-mou__partner-role">Implementing Partner</div>
