@@ -297,6 +297,7 @@
   .facility1 {
     padding: $space-20 5%;
   }
+  
 
   // Bento: 2 images row 1, 1 image (2col span) row 2
   .facility1__bento {
@@ -324,28 +325,13 @@
 
   // Strip: 2x2 grid
   .facility1__strip {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    padding: $space-4;
+    display: none;
   }
 
-  .facility1__strip-item {
-    padding: $space-3 $space-4;
-    justify-content: center;
-
-    &:not(:last-child)::after {
-      display: none;
-    }
-
-    &:nth-child(1),
-    &:nth-child(2) {
-      border-bottom: 1px solid $color-border;
-    }
-
-    &:nth-child(1),
-    &:nth-child(3) {
-      border-right: 1px solid $color-border;
-    }
+  .facility1__bento-overlay{
+    display: none
+  }
+  .facility1__bento-content{
+    display: none;
   }
 }
